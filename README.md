@@ -35,14 +35,16 @@ phi φ is calculated with the following formula, where n refers to the values �
 ![alt text](https://github.com/dfleta/pulpo-raza-loba/blob/master/phi.png)
 
 ```
-Thus, the notation ~n01~ indicates the number of measures where the first measured variable - has become octopus or not - is false (0) and the second measure - has eaten pizza - is true (1). In this example, n01 is 9. Similarly, n10 is 4, n00 is 76 and n11 is 1.
+Thus, the notation ```n01``` indicates the number of measures where the first measured variable - has become octopus or not - is false (0) and the second measure - has eaten pizza - is true (1). In this example, ```n01``` is 9. Similarly, ```n10``` is 4, ```n00``` is 76 and ```n11``` is 1.
 
-The value n1 • refers to the sum of all the measures where the first variable (pizza) is true, which corresponds to 5 in the example table. n • 0 refers to the sum of the measures where the octopus variable is false, 85.
+The value ```n1 •``` refers to the sum of all the measures where the first variable (pizza) is true, which corresponds to 5 in the example table. ```n • 0``` refers to the sum of the measures where the octopus variable is false, 85.
 
 Therefore, for the pizza table, the top of the division (the dividend) would be:
-
+```
 1 × 76 - 4x9 = 40
+```
 and the bottom of the division (the divisor) would be the square root of
-
+```
 5 × 85 × 10 × 80 = 340000
-This means that phi is worth φ ≈ 0.069, a very small value compared to 1, which means that eating pizza does not seem to have much influence on the octopus transformation.
+```
+This means that ```phi``` is worth ```φ ≈ 0.069```, a very small value compared to 1, which means that eating pizza does not seem to have much influence on the octopus transformation.
