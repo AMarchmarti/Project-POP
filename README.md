@@ -24,16 +24,18 @@ For binary variables such as ours (octopus is true or false, "resting" is true o
 ``` 
 If you represent this table in a matrix, you get the following indexes (positions in the matrix):
 ```
-     Pizza
-     False true
+            Pizza
+            False true
 Octopus False 00 01
-        True 10 11
+        True  10 11
 ```
 phi φ is calculated with the following formula, where n refers to the values ​​found in each position of the matrix (76, 9, 4, 1) and the subscripts are the positions of the matrix:
 
+``` 
 ![alt text](https://github.com/dfleta/pulpo-raza-loba/blob/master/phi.png)
 
-Thus, the notation n01 indicates the number of measures where the first measured variable - has become octopus or not - is false (0) and the second measure - has eaten pizza - is true (1). In this example, n01 is 9. Similarly, n10 is 4, n00 is 76 and n11 is 1.
+```
+Thus, the notation ~n01~ indicates the number of measures where the first measured variable - has become octopus or not - is false (0) and the second measure - has eaten pizza - is true (1). In this example, n01 is 9. Similarly, n10 is 4, n00 is 76 and n11 is 1.
 
 The value n1 • refers to the sum of all the measures where the first variable (pizza) is true, which corresponds to 5 in the example table. n • 0 refers to the sum of the measures where the octopus variable is false, 85.
 
