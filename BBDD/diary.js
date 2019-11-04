@@ -91,4 +91,4 @@ var DIARIO = [
     {"eventos":["empanada de bacalao","percebes","me lave los dientes","siesta con La Vuelta"],"pulpo":false}
   ];
 
-  export { DIARIO } ;
+  module.exports = DIARIO ;

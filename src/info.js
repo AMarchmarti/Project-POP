@@ -1,6 +1,4 @@
 
-"use strict"
-
 import {DIARY} from '../BBDD/diary.js'
 
 console.log('DIARIO', DIARY)
