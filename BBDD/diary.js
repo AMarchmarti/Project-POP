@@ -90,3 +90,5 @@ var DIARIO = [
     {"eventos":["pan de millo","me lave los dientes","ver el fúbol","siesta con La Vuelta"],"pulpo":false},
     {"eventos":["empanada de bacalao","percebes","me lave los dientes","siesta con La Vuelta"],"pulpo":false}
   ];
+
+  export { DIARIO } ;
