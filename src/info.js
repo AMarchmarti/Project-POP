@@ -92,41 +92,79 @@ const DIARY = [
     {"eventos":["empanada de bacalao","percebes","me lave los dientes","siesta con La Vuelta"],"pulpo":false}
   ];
 
-  let arrayTempFalse = []
-  let arrayTempTrue = []
-  let countFalse = 0
-  let countTrue = 0
-console.log('DIARIO', DIARY)
-DIARY.forEach(items => {
-    console.log('event', items)
 
-    
-    items.eventos.forEach(event =>{
-        if (!items.pulpo){
-            arrayTempFalse.push(event)
-        }else{
-            arrayTempTrue.push(event)
-        }
-    })
-});
+function getItems(){
+  let arrayTemp = []
 
-let map = new Object()
+    DIARY.forEach(items => {
+        items.eventos.forEach(event =>{
+            if (!arrayTemp.includes(event)){
+                arrayTemp.push(event)
+            } 
+        })
+    });
 
-arrayTempTrue.forEach(item =>{
-    console.log('item', item)
-    if (!map.hasOwnProperty(item)){
-        
-    }
+    return arrayTemp
+}
+
+function getItemsTrue() {
+    let arrayTempTrue = []
     let count = 0
-    for (let i = 0; i < arrayTempTrue.length - 1; i++){
-    console.log(arrayTempTrue[i])
-        if (arrayTempTrue[i] === item){
+    DIARY.forEach(items => {
+        if (items.pulpo){
             count ++
-            map.item = item
-            map.countTrue = count 
-            console.log('map', map)
         }
-    }})
+        items.eventos.forEach(event =>{
+            if (items.pulpo){
+                arrayTempTrue.push(event)
+            } 
+        })
+    });
 
-    console.log('map', map)
+    arrayTempTrue.push(count)
+    return arrayTempTrue
+}
 
+function matrix(array){
+    console.log('array :', array);
+    array.sort();
+    let matrix =[]
+    let numbers = []
+    let current = null;
+    let cnt = 0;
+    for (let i = 0; i < array.length -1; i++) {
+        console.log('array[i] :', array[i]);
+        if (array[i] !== current) {
+            current = array[i];
+            cnt = 1;
+            matrix.push(current)
+            numbers.push(array[0] - cnt, cnt)
+            console.log('numbers :', numbers);
+            matrix.push(numbers)
+            console.log('matrix :', matrix);
+        } else {
+            cnt++;
+        }
+    
+    }
+
+}
+
+matrix(getItemsTrue())
+
+// function getMatrixTrue(){
+//     let arrayItems = getItems()
+//     let arrayTrue = getItemsTrue() 
+//     let duplicates = findDuplicates(arrayTrue)
+//     let numberTrue = getItemsTrue()[getItemsTrue().length - 1]
+//     let matrixTrue = []
+//     let arrayNumber = []
+    
+    
+    
+    
+
+//     console.log('matrixTrue :', matrixTrue);
+// }
+
+// getMatrixTrue()
