@@ -1,6 +1,6 @@
-class Phi {
 
-phi (matrix) {
+
+function phi (matrix) {
     /**
      * matrix[1][1] YES octopus, YES X.
      * matrix[0][0] NOT octopus, NOT X.
@@ -26,6 +26,7 @@ phi (matrix) {
     const RESULT = DIVIDE / DIVISOR;
     return RESULT;
 }
-}
+
+module.exports = phi;
 
 
