@@ -1,97 +1,5 @@
 
-const DIARY = [
-    {"eventos":["mejillones","caminar","siesta con La Vuelta"],"pulpo":false},
-    {"eventos":["pan de millo","filloas","me lave los dientes","siesta con La Vuelta","baño en a Lanzada"],"pulpo":false},
-    {"eventos":["mejillones","chinchos","me lave los dientes","Panorama","siesta con La Vuelta"],"pulpo":false},
-    {"eventos":["caldo gallego","licor cafe","me lave los dientes","mencia","siesta con La Vuelta"],"pulpo":false},
-    {"eventos":["feria del pulpo","pementos de padron","me lave los dientes","caminar","siesta con La Vuelta","Paris de Noia"],"pulpo":false},
-    {"eventos":["caldo gallego","filloas","me lave los dientes","caña de 1906","siesta con La Vuelta"],"pulpo":false},
-    {"eventos":["pizza","me lave los dientes","mencia","leer el Marca","baño en a Lanzada"],"pulpo":false},
-    {"eventos":["pan de millo","recortarme la barba","me lave los dientes","Panorama","leer el Marca"],"pulpo":false},
-    {"eventos":["empanada de bacalao","me lave los dientes","leer el Marca"],"pulpo":false},
-    {"eventos":["pizza","me lave los dientes","Panorama","leer el Marca"],"pulpo":false},
-    {"eventos":["carne o caldeiro","chinchos","me lave los dientes","leer el Marca"],"pulpo":false},
-    {"eventos":["me lave los dientes","siesta con La Vuelta","baño en a Lanzada"],"pulpo":false},
-    {"eventos":["navajas","me lave los dientes","ver el fúbol","siesta con La Vuelta"],"pulpo":false},
-    {"eventos":["vieiras","me lave los dientes","leer el Marca"],"pulpo":false},
-    {"eventos":["me lave los dientes","mencia","leer el Marca"],"pulpo":false},
-    {"eventos":["navajas","chinchos","me lave los dientes","leer el Marca"],"pulpo":false},
-    {"eventos":["mejillones","me lave los dientes","caña de 1906","leer el Marca"],"pulpo":false},
-    {"eventos":["me lave los dientes","leer el Marca"],"pulpo":false},
-    {"eventos":["empanada de bacalao","choveu","siesta con La Vuelta"],"pulpo":false},
-    {"eventos":["pan de millo","me lave los dientes","siesta con La Vuelta"],"pulpo":false},
-    {"eventos":["carne o caldeiro","me lave los dientes","caminar","leer el Marca"],"pulpo":false},
-    {"eventos":["vieiras","me lave los dientes","choveu","leer el Marca"],"pulpo":false},
-    {"eventos":["mejillones","licor cafe","me lave los dientes","ver el fúbol","leer el Marca"],"pulpo":false},
-    {"eventos":["vieiras","chinchos","leer el Marca"],"pulpo":false},
-    {"eventos":["empanada de bacalao","licor cafe","me lave los dientes","Panorama","leer el Marca"],"pulpo":false},
-    {"eventos":["vieiras","percebes","mencia","siesta con La Vuelta"],"pulpo":true},
-    {"eventos":["feria del pulpo","licor cafe","me lave los dientes","mencia","siesta con La Vuelta"],"pulpo":false},
-    {"eventos":["feria del pulpo","licor cafe","me lave los dientes","leer el Marca"],"pulpo":false},
-    {"eventos":["percebes","me lave los dientes","caña de 1906","leer el Marca"],"pulpo":false},
-    {"eventos":["feria del pulpo","caminar","leer el Marca"],"pulpo":false},
-    {"eventos":["pizza","licor cafe","mencia","leer el Marca"],"pulpo":false},
-    {"eventos":["carne o caldeiro","licor cafe","leer el Marca"],"pulpo":false},
-    {"eventos":["empanada de bacalao","pementos de padron","choveu","siesta con La Vuelta"],"pulpo":false},
-    {"eventos":["carne o caldeiro","chinchos","me lave los dientes","caña de 1906","siesta con La Vuelta"],"pulpo":false},
-    {"eventos":["feria del pulpo","me lave los dientes","leer el Marca"],"pulpo":false},
-    {"eventos":["mejillones","leer el Marca"],"pulpo":false},
-    {"eventos":["pizza","recortarme la barba","leer el Marca","Paris de Noia"],"pulpo":false},
-    {"eventos":["carne o caldeiro","filloas","Panorama","leer el Marca"],"pulpo":false},
-    {"eventos":["vieiras","me lave los dientes","choveu","leer el Marca"],"pulpo":false},
-    {"eventos":["vieiras","filloas","ver el fúbol","siesta con La Vuelta"],"pulpo":false},
-    {"eventos":["pan de millo","me lave los dientes","caminar","siesta con La Vuelta"],"pulpo":false},
-    {"eventos":["carne o caldeiro","percebes","leer el Marca"],"pulpo":true},
-    {"eventos":["pizza","leer el Marca"],"pulpo":false},
-    {"eventos":["feria del pulpo","caminar","leer el Marca"],"pulpo":false},
-    {"eventos":["me lave los dientes","caminar","leer el Marca"],"pulpo":false},
-    {"eventos":["vieiras","me lave los dientes","ver el fúbol","leer el Marca"],"pulpo":false},
-    {"eventos":["pizza","Panorama","siesta con La Vuelta"],"pulpo":false},
-    {"eventos":["mejillones","me lave los dientes","siesta con La Vuelta"],"pulpo":false},
-    {"eventos":["mejillones","recortarme la barba","me lave los dientes","leer el Marca"],"pulpo":false},
-    {"eventos":["pizza","percebes","pementos de padron","leer el Marca"],"pulpo":true},
-    {"eventos":["mejillones","percebes","me lave los dientes","choveu","leer el Marca"],"pulpo":false},
-    {"eventos":["feria del pulpo","percebes","me lave los dientes","leer el Marca"],"pulpo":false},
-    {"eventos":["mejillones","chinchos","me lave los dientes","caminar","leer el Marca"],"pulpo":false},
-    {"eventos":["pizza","percebes","me lave los dientes","ver el fúbol","siesta con La Vuelta"],"pulpo":false},
-    {"eventos":["carne o caldeiro","me lave los dientes","Panorama","siesta con La Vuelta"],"pulpo":false},
-    {"eventos":["empanada de bacalao","percebes","me lave los dientes","mencia","leer el Marca","baño en a Lanzada"],"pulpo":false},
-    {"eventos":["navajas","me lave los dientes","ver el fúbol","leer el Marca"],"pulpo":false},
-    {"eventos":["feria del pulpo","me lave los dientes","mencia","leer el Marca"],"pulpo":false},
-    {"eventos":["pan de millo","pementos de padron","leer el Marca"],"pulpo":false},
-    {"eventos":["feria del pulpo","chinchos","leer el Marca"],"pulpo":false},
-    {"eventos":["mejillones","filloas","me lave los dientes","siesta con La Vuelta"],"pulpo":false},
-    {"eventos":["mejillones","me lave los dientes","caminar","siesta con La Vuelta","baño en a Lanzada"],"pulpo":false},
-    {"eventos":["caldo gallego","caña de 1906","leer el Marca"],"pulpo":false},
-    {"eventos":["me lave los dientes","leer el Marca"],"pulpo":false},
-    {"eventos":["navajas","me lave los dientes","caña de 1906","leer el Marca"],"pulpo":false},
-    {"eventos":["pementos de padron","me lave los dientes","leer el Marca"],"pulpo":false},
-    {"eventos":["caldo gallego","me lave los dientes","mencia","leer el Marca"],"pulpo":false},
-    {"eventos":["pan de millo","me lave los dientes","siesta con La Vuelta"],"pulpo":false},
-    {"eventos":["empanada de bacalao","me lave los dientes","siesta con La Vuelta"],"pulpo":false},
-    {"eventos":["vieiras","pementos de padron","ver el fúbol","leer el Marca","baño en a Lanzada"],"pulpo":false},
-    {"eventos":["mejillones","filloas","me lave los dientes","leer el Marca"],"pulpo":false},
-    {"eventos":["navajas","me lave los dientes","leer el Marca"],"pulpo":false},
-    {"eventos":["mejillones","licor cafe","me lave los dientes","Panorama","leer el Marca"],"pulpo":false},
-    {"eventos":["pizza","me lave los dientes","leer el Marca"],"pulpo":false},
-    {"eventos":["vieiras","percebes","caminar","siesta con La Vuelta"],"pulpo":true},
-    {"eventos":["pan de millo","recortarme la barba","mencia","siesta con La Vuelta","baño en a Lanzada"],"pulpo":false},
-    {"eventos":["me lave los dientes","caña de 1906","leer el Marca"],"pulpo":false},
-    {"eventos":["navajas","percebes","me lave los dientes","leer el Marca","baño en a Lanzada"],"pulpo":false},
-    {"eventos":["carne o caldeiro","me lave los dientes","ver el fúbol","leer el Marca"],"pulpo":false},
-    {"eventos":["empanada de bacalao","me lave los dientes","caña de 1906","leer el Marca"],"pulpo":false},
-    {"eventos":["mejillones","me lave los dientes","caña de 1906","leer el Marca"],"pulpo":false},
-    {"eventos":["mejillones","choveu","siesta con La Vuelta"],"pulpo":false},
-    {"eventos":["mejillones","percebes","choveu","siesta con La Vuelta"],"pulpo":true},
-    {"eventos":["feria del pulpo","me lave los dientes","caña de 1906","leer el Marca"],"pulpo":false},
-    {"eventos":["carne o caldeiro","licor cafe","leer el Marca","baño en a Lanzada"],"pulpo":false},
-    {"eventos":["empanada de bacalao","percebes","me lave los dientes","Panorama","leer el Marca"],"pulpo":false},
-    {"eventos":["pizza","me lave los dientes","caña de 1906","leer el Marca"],"pulpo":false},
-    {"eventos":["navajas","me lave los dientes","leer el Marca"],"pulpo":false},
-    {"eventos":["pan de millo","me lave los dientes","ver el fúbol","siesta con La Vuelta"],"pulpo":false},
-    {"eventos":["empanada de bacalao","percebes","me lave los dientes","siesta con La Vuelta"],"pulpo":false}
-  ];
-
+const DIARY = Diary.DIARIO
 
 function getItems(){
   let arrayTemp = []
@@ -125,46 +33,56 @@ function getItemsTrue() {
     return arrayTempTrue
 }
 
-function matrix(array){
-    console.log('array :', array);
-    array.sort();
-    let matrix =[]
-    let numbers = []
-    let current = null;
-    let cnt = 0;
-    for (let i = 0; i < array.length -1; i++) {
-        console.log('array[i] :', array[i]);
-        if (array[i] !== current) {
-            current = array[i];
-            cnt = 1;
-            matrix.push(current)
-            numbers.push(array[0] - cnt, cnt)
-            console.log('numbers :', numbers);
-            matrix.push(numbers)
-            console.log('matrix :', matrix);
-        } else {
-            cnt++;
-        }
-    
-    }
+function matrixForItem(element) {
 
+    let matrix =  []
+    let numbersFalse = []
+    let numbersTrue = []
+    countElementTrue = 0
+    countElementFalse = 0
+    countFalse = 0
+    countTrue = 0
+
+    DIARY.forEach((items) => {
+        if (items.eventos.includes(element)){
+            if (items.pulpo){
+                countElementTrue ++
+            }else {
+                countElementFalse ++
+            }}
+        else {
+                if (items.pulpo){
+                    countTrue ++
+                }else{
+                    countFalse ++
+                }
+            }
+        })
+
+    numbersFalse.push(countFalse, countElementFalse)
+    numbersTrue.push(countTrue, countElementTrue)
+    matrix.push(numbersFalse, numbersTrue)
+
+    return matrix
 }
 
-matrix(getItemsTrue())
 
-// function getMatrixTrue(){
-//     let arrayItems = getItems()
-//     let arrayTrue = getItemsTrue() 
-//     let duplicates = findDuplicates(arrayTrue)
-//     let numberTrue = getItemsTrue()[getItemsTrue().length - 1]
-//     let matrixTrue = []
-//     let arrayNumber = []
-    
-    
-    
-    
 
-//     console.log('matrixTrue :', matrixTrue);
-// }
+function getMapItemMatrixPhi(){
+    let iteMap = new Object
+    getItems().forEach(item =>{
+        let phi = new Phi
+        let arrayItem = matrixForItem(item)
+        let calculatedPhi = phi.phi(arrayItem)
+        iteMap = {
+            item : item,
+            matrix : arrayItem,
+            phi : calculatedPhi
+        }
+        console.log('iteMap :', iteMap);
+    })
 
-// getMatrixTrue()
+    console.log('iteMap :', iteMap);
+}
+
+getMapItemMatrixPhi()
