@@ -1,4 +1,6 @@
-const phi = (matrix) => {
+class Phi {
+
+phi (matrix) {
     /**
      * matrix[1][1] YES octopus, YES X.
      * matrix[0][0] NOT octopus, NOT X.
@@ -24,5 +26,6 @@ const phi = (matrix) => {
     const RESULT = DIVIDE / DIVISOR;
     return RESULT;
 }
+}
 
-console.log('phi', phi([79,9],[4,1]))
+
