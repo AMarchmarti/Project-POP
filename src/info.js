@@ -51,9 +51,7 @@ let infoTabla = {
 
   getMapItems: function getMapItemMatrixPhi() {
     let iteMap = [];
-    // console.log('this1 :', this.getItems());
     this.getItems().forEach(item => {
-        // console.log('this :', this.matrixForItem);
       let arrayItem = this.matrixForItem(item);
       let calculatedPhi = phi(arrayItem)
       iteMap.push({
@@ -62,13 +60,13 @@ let infoTabla = {
         phi: calculatedPhi
       });
     });
-    console.table(iteMap);
     return iteMap;
   }
 };
 
 const tabla = Object.create(infoTabla);
 
-tabla.getMapItems.call(tabla);
+console.table(tabla.getMapItems.call(tabla))
 
-tabla.getMapItems.call(tabla).forEach(action => console.log(action.array));
+
+
