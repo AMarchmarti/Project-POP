@@ -1,70 +1,74 @@
+const DIARY = require("../BBDD/diary");
+const phi = require("./phi");
 
-const DIARY = require('../BBDD/diary')
-const phi = require('./phi')
-
-function getItems(){
-  let arrayTemp = []
+let infoTabla = {
+  getItems: function getItems() {
+    let arrayTemp = [];
 
     DIARY.forEach(items => {
-        items.eventos.forEach(event =>{
-            if (!arrayTemp.includes(event)){
-                arrayTemp.push(event)
-            } 
-        })
+      items.eventos.forEach(event => {
+        if (!arrayTemp.includes(event)) {
+          arrayTemp.push(event);
+        }
+      });
     });
 
-    return arrayTemp
-}
+    return arrayTemp;
+  },
 
-function matrixForItem(element) {
+  matrixForItem: function matrixForItem(element) {
+    let matrix = [];
+    let numbersFalse = [];
+    let numbersTrue = [];
+    countElementTrue = 0;
+    countElementFalse = 0;
+    countFalse = 0;
+    countTrue = 0;
 
-    let matrix =  []
-    let numbersFalse = []
-    let numbersTrue = []
-    countElementTrue = 0
-    countElementFalse = 0
-    countFalse = 0
-    countTrue = 0
-
-    DIARY.forEach((items) => {
-        if (items.eventos.includes(element)){
-            if (items.pulpo){
-                countElementTrue ++
-            }else {
-                countElementFalse ++
-            }}
-        else {
-                if (items.pulpo){
-                    countTrue ++
-                }else{
-                    countFalse ++
-                }
-            }
-        })
-
-    numbersFalse.push(countFalse, countElementFalse)
-    numbersTrue.push(countTrue, countElementTrue)
-    matrix.push(numbersFalse, numbersTrue)
-
-    return matrix
-}
-
-
-
-function getMapItemMatrixPhi(){
-    let iteMap = new Object
-    getItems().forEach(item =>{
-        let arrayItem = matrixForItem(item)
-        let calculatedPhi = phi(arrayItem)
-        iteMap = {
-            item : item,
-            matrix : arrayItem,
-            phi : calculatedPhi
+    DIARY.forEach(items => {
+      if (items.eventos.includes(element)) {
+        if (items.pulpo) {
+          countElementTrue++;
+        } else {
+          countElementFalse++;
         }
-        console.log('iteMap :', iteMap);
-    })
+      } else {
+        if (items.pulpo) {
+          countTrue++;
+        } else {
+          countFalse++;
+        }
+      }
+    });
 
-    console.log('iteMap :', iteMap);
-}
+    numbersFalse.push(countFalse, countElementFalse);
+    numbersTrue.push(countTrue, countElementTrue);
+    matrix.push(numbersFalse, numbersTrue);
 
-getMapItemMatrixPhi()
+
+    return matrix;
+  },
+
+  getMapItems: function getMapItemMatrixPhi() {
+    let iteMap = [];
+    // console.log('this1 :', this.getItems());
+    this.getItems().forEach(item => {
+        // console.log('this :', this.matrixForItem);
+      let arrayItem = this.matrixForItem(item);
+      let calculatedPhi = phi(arrayItem)
+      iteMap.push({
+        item: item,
+        array : arrayItem,
+        phi: calculatedPhi
+      });
+    });
+    console.table(iteMap);
+    return iteMap;
+  }
+};
+
+const tabla = Object.create(infoTabla);
+
+tabla.getMapItems.call(tabla);
+
+tabla.getMapItems.call(tabla).forEach(action => console.log(action.array));
