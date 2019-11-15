@@ -2,7 +2,7 @@ const DIARY = require("../BBDD/diary");
 const phi = require("./phi");
 
 let infoTabla = {
-  getItems: function getItems() {
+  events: function getItems() {
     let arrayTemp = [];
 
     DIARY.forEach(items => {
@@ -16,7 +16,7 @@ let infoTabla = {
     return arrayTemp;
   },
 
-  matrixForItem: function matrixForItem(element) {
+  matrixRelation: function matrixForItem(element) {
     let matrix = [];
     let numbersFalse = [];
     let numbersTrue = [];
@@ -49,24 +49,26 @@ let infoTabla = {
     return matrix;
   },
 
-  getMapItems: function getMapItemMatrixPhi() {
-    let iteMap = [];
-    this.getItems().forEach(item => {
-      let arrayItem = this.matrixForItem(item);
-      let calculatedPhi = phi(arrayItem)
-      iteMap.push({
-        item: item,
-        array : arrayItem,
-        phi: calculatedPhi
-      });
-    });
-    return iteMap;
-  }
+  calculatedPhi: function getPhi(array) {return phi(array)}
 };
 
-const tabla = Object.create(infoTabla);
 
-console.table(tabla.getMapItems.call(tabla))
+let tabla = Object.create(infoTabla)
+
+tabla.tablaItems = function getMapItems(){
+    let map = []
+    this.events().forEach(item => {
+        map.push({
+            item : item,
+            relation : `${this.matrixRelation(item)}`,
+            coeficient : `${this.calculatedPhi(this.matrixRelation(item))}`
+        })
+    })
+
+    return map;
+}
+
+console.table(tabla.tablaItems.call(tabla))
 
 
 
