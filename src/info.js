@@ -52,16 +52,15 @@ function matrixForItem(element) {
 
 
 function getMapItemMatrixPhi(){
-    let iteMap = new Object
+    let iteMap = []
     getItems().forEach(item =>{
         let arrayItem = matrixForItem(item)
         let calculatedPhi = phi(arrayItem)
-        iteMap = {
-            item : item,
-            matrix : arrayItem,
-            phi : calculatedPhi
-        }
-        console.log('iteMap :', iteMap);
+        iteMap.push({
+            item,
+            arrayItem,
+            calculatedPhi
+        })
     })
 
     console.log('iteMap :', iteMap);
