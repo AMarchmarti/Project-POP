@@ -1,9 +1,8 @@
 const DIARY = require("../BBDD/diary");
 const phi = require("./phi");
 
-let infoTabla = {
-  events: function getItems() {
-    let arrayTemp = [];
+const DIARY = require('../../BBDD/diary')
+const phi = require('./phi')
 
     DIARY.forEach(items => {
       items.eventos.forEach(event => {
