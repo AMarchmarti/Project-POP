@@ -1,29 +1,31 @@
-const DIARY = require("../BBDD/diary");
-const phi = require("./phi");
 
 const DIARY = require('../../../BBDD/diary')
-const phi = require('./phi')
 
-    DIARY.forEach(items => {
-      items.eventos.forEach(event => {
-        if (!arrayTemp.includes(event)) {
-          arrayTemp.push(event);
-        }
-      });
+
+const info = {
+  arrayTemp : [],
+  numbersFalse : [],
+  numbersTrue : []
+}
+
+function getItems() {
+  DIARY.forEach(items => {
+    items.eventos.forEach(event => {
+      if (!this.arrayTemp.includes(event)) {
+        this.arrayTemp.push(event);
+      }
     });
+  });
 
-    return arrayTemp;
-  },
+  return this.arrayTemp;
+}
 
-  matrixRelation: function matrixForItem(element) {
-    let matrix = [];
-    let numbersFalse = [];
-    let numbersTrue = [];
-    countElementTrue = 0;
-    countElementFalse = 0;
-    countFalse = 0;
-    countTrue = 0;
-
+function matrixForItem(element) {
+  let matrix = []
+  let countElementTrue = 0
+  let countElementFalse = 0
+  let countFalse = 0
+  let countTrue = 0
     DIARY.forEach(items => {
       if (items.eventos.includes(element)) {
         if (items.pulpo) {
@@ -39,35 +41,38 @@ const phi = require('./phi')
         }
       }
     });
-
-    numbersFalse.push(countFalse, countElementFalse);
-    numbersTrue.push(countTrue, countElementTrue);
-    matrix.push(numbersFalse, numbersTrue);
-
+   
+    this.numbersFalse.push(countFalse, countElementFalse);
+    this.numbersTrue.push(countTrue, countElementTrue);
+    matrix.push(this.numbersFalse, this.numbersTrue);
+    this.numbersFalse = []
+    this.numbersTrue = []
 
     return matrix;
-  },
+  }
 
-  calculatedPhi: function getPhi(array) {return phi(array)}
-};
-
-
-let tabla = Object.create(infoTabla)
-
-tabla.tablaItems = function getMapItems(){
-    let map = []
-    this.events().forEach(item => {
-        map.push({
-            item : item,
-            relation : `${this.matrixRelation(item)}`,
-            coeficient : `${this.calculatedPhi(this.matrixRelation(item))}`
-        })
-    })
-
-    return map;
-}
-
-console.table(tabla.tablaItems.call(tabla))
+  info.items = getItems
+  info.matrixItem = matrixForItem
 
 
+// tabla = Object.create(infoTabla)
+
+// tabla.tablaItems = function getMapItems(){
+//     map = []
+//     this.events().forEach(item => {
+//         map.push({
+//             item : item,
+//             relation : `${this.matrixRelation(item)}`,
+//             coeficient : `${this.calculatedPhi(this.matrixRelation(item))}`
+//         })
+//     })
+
+//     return map;
+// }
+// console.log('this :', this);
+// console.log('getItems :', getItems().items);
+
+
+
+module.exports = info
 
