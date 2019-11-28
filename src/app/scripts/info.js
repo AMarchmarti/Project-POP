@@ -55,24 +55,5 @@ function matrixForItem(element) {
   info.matrixItem = matrixForItem
 
 
-// tabla = Object.create(infoTabla)
-
-// tabla.tablaItems = function getMapItems(){
-//     map = []
-//     this.events().forEach(item => {
-//         map.push({
-//             item : item,
-//             relation : `${this.matrixRelation(item)}`,
-//             coeficient : `${this.calculatedPhi(this.matrixRelation(item))}`
-//         })
-//     })
-
-//     return map;
-// }
-// console.log('this :', this);
-// console.log('getItems :', getItems().items);
-
-
-
 module.exports = info
 
