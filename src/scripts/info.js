@@ -1,5 +1,5 @@
 
-const DIARY = require('../BBDD/diary')
+const DIARY = require('../../BBDD/diary')
 const phi = require('./phi')
 
 function getItems(){
