@@ -1,7 +1,7 @@
 const DIARY = require("../BBDD/diary");
 const phi = require("./phi");
 
-const DIARY = require('../../BBDD/diary')
+const DIARY = require('../../../BBDD/diary')
 const phi = require('./phi')
 
     DIARY.forEach(items => {
