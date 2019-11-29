@@ -1,73 +1,56 @@
-const DIARY = require("../BBDD/diary");
-const phi = require("./phi");
+const DIARY = require("../../../BBDD/diary");
 
-const DIARY = require('../../../BBDD/diary')
-const phi = require('./phi')
-
-    DIARY.forEach(items => {
-      items.eventos.forEach(event => {
-        if (!arrayTemp.includes(event)) {
-          arrayTemp.push(event);
-        }
-      });
-    });
-
-    return arrayTemp;
-  },
-
-  matrixRelation: function matrixForItem(element) {
-    let matrix = [];
-    let numbersFalse = [];
-    let numbersTrue = [];
-    countElementTrue = 0;
-    countElementFalse = 0;
-    countFalse = 0;
-    countTrue = 0;
-
-    DIARY.forEach(items => {
-      if (items.eventos.includes(element)) {
-        if (items.pulpo) {
-          countElementTrue++;
-        } else {
-          countElementFalse++;
-        }
-      } else {
-        if (items.pulpo) {
-          countTrue++;
-        } else {
-          countFalse++;
-        }
-      }
-    });
-
-    numbersFalse.push(countFalse, countElementFalse);
-    numbersTrue.push(countTrue, countElementTrue);
-    matrix.push(numbersFalse, numbersTrue);
-
-
-    return matrix;
-  },
-
-  calculatedPhi: function getPhi(array) {return phi(array)}
+const info = {
+  arrayTemp: [],
+  numbersFalse: [],
+  numbersTrue: []
 };
 
+function getItems() {
+  this.arrayTemp = [];
+  DIARY.forEach(items => {
+    items.eventos.forEach(event => {
+      if (!this.arrayTemp.includes(event)) {
+        this.arrayTemp.push(event);
+      }
+    });
+  });
 
-let tabla = Object.create(infoTabla)
-
-tabla.tablaItems = function getMapItems(){
-    let map = []
-    this.events().forEach(item => {
-        map.push({
-            item : item,
-            relation : `${this.matrixRelation(item)}`,
-            coeficient : `${this.calculatedPhi(this.matrixRelation(item))}`
-        })
-    })
-
-    return map;
+  return this.arrayTemp;
 }
 
-console.table(tabla.tablaItems.call(tabla))
+function matrixForItem(element) {
+  this.numbersFalse = [];
+  this.numbersTrue = [];
+  let matrix = [];
+  let countElementTrue = 0;
+  let countElementFalse = 0;
+  let countFalse = 0;
+  let countTrue = 0;
+  DIARY.forEach(items => {
+    if (items.eventos.includes(element)) {
+      if (items.pulpo) {
+        countElementTrue++;
+      } else {
+        countElementFalse++;
+      }
+    } else {
+      if (items.pulpo) {
+        countTrue++;
+      } else {
+        countFalse++;
+      }
+    }
+  });
 
+  this.numbersFalse.push(countFalse, countElementFalse);
+  this.numbersTrue.push(countTrue, countElementTrue);
+  matrix.push(this.numbersFalse, this.numbersTrue);
+  
+  return matrix;
+}
 
+info.items = getItems;
+info.matrixItem = matrixForItem;
 
+module.exports = info;
