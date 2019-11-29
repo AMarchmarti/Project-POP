@@ -1,13 +1,14 @@
 'use strict'
 
+// console.log('object :', require('./phi'));
+// let table = {
+//     
+// }
+const TableInfo = Object.create(Object)
 
-function TableInfo() {
-
-    this.recolectInfo = Object.create(require('./info'))
-    this.phi = require('./phi')
-    this.map = []
-    
-}
+TableInfo.recolectInfo =  Object.create(require('./info')),
+TableInfo.phi = require('./phi'),
+TableInfo.map = []
 
 TableInfo.prototype.calculatedMatrix = function matrix(item) {
     return this.recolectInfo.matrixItem(item)
@@ -25,6 +26,7 @@ TableInfo.prototype.row = function Row(element) {
 }
 
 TableInfo.prototype.result = function showResults(){
+    this.map = []
     this.recolectInfo.items().forEach(element => {
         this.map.push(this.row(element))
     })
@@ -36,7 +38,6 @@ TableInfo.prototype.columns = function Columns() {
     return Object.keys(this.result()[0])
 
 }
-
 
 
 module.exports = TableInfo
