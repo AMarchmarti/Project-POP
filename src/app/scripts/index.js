@@ -32,13 +32,11 @@ TableInfo.prototype.result = function showResults(){
     return this.map
 }
 
-const table = new TableInfo()
+TableInfo.prototype.columns = function Columns() {
+    return Object.keys(this.result()[0])
+
+}
 
 
-console.log('object :', table.recolectInfo.matrixItem('mejillones'));
-table.recolectInfo.items()
-console.log('objectFalse :', table.recolectInfo.numbersFalse);
-table.result()
-console.log('table :', table.map)
 
-console.log('table.row(mejillones) :', table.row('mejillones'));
+module.exports = TableInfo
