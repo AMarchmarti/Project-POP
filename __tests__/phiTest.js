@@ -1,5 +1,5 @@
 const DIARY = require('../BBDD/diary')
-const phi = require('../src/phi')
+const phi = require('../src/app/scripts/phi')
 
 
 test('phi should return anything diferent of null or undefined or NaN', () => {
