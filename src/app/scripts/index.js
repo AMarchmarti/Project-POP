@@ -31,4 +31,9 @@ TablaInfo.prototype.result = function showResults(){
 
 const tabla = new TablaInfo()
 
-console.log('tabla :', tabla.result()[0].matrix); 
+
+console.log('object :', tabla.recolectInfo.matrixItem('mejillones'));
+tabla.recolectInfo.items()
+console.log('objectFalse :', tabla.recolectInfo.numbersFalse);
+tabla.result()
+console.log('tabla :', tabla.map)

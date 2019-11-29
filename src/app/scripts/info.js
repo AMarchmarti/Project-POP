@@ -1,14 +1,13 @@
-
-const DIARY = require('../../../BBDD/diary')
-
+const DIARY = require("../../../BBDD/diary");
 
 const info = {
-  arrayTemp : [],
-  numbersFalse : [],
-  numbersTrue : []
-}
+  arrayTemp: [],
+  numbersFalse: [],
+  numbersTrue: []
+};
 
 function getItems() {
+  this.arrayTemp = [];
   DIARY.forEach(items => {
     items.eventos.forEach(event => {
       if (!this.arrayTemp.includes(event)) {
@@ -21,39 +20,40 @@ function getItems() {
 }
 
 function matrixForItem(element) {
-  let matrix = []
-  let countElementTrue = 0
-  let countElementFalse = 0
-  let countFalse = 0
-  let countTrue = 0
-    DIARY.forEach(items => {
-      if (items.eventos.includes(element)) {
-        if (items.pulpo) {
-          countElementTrue++;
-        } else {
-          countElementFalse++;
-        }
+  let matrix = [];
+  let countElementTrue = 0;
+  let countElementFalse = 0;
+  let countFalse = 0;
+  let countTrue = 0;
+  DIARY.forEach(items => {
+    if (items.eventos.includes(element)) {
+      if (items.pulpo) {
+        countElementTrue++;
       } else {
-        if (items.pulpo) {
-          countTrue++;
-        } else {
-          countFalse++;
-        }
+        countElementFalse++;
       }
-    });
-   
-    this.numbersFalse.push(countFalse, countElementFalse);
-    this.numbersTrue.push(countTrue, countElementTrue);
-    matrix.push(this.numbersFalse, this.numbersTrue);
-    this.numbersFalse = []
-    this.numbersTrue = []
+    } else {
+      if (items.pulpo) {
+        countTrue++;
+      } else {
+        countFalse++;
+      }
+    }
+  });
 
-    return matrix;
+  this.numbersFalse.push(countFalse, countElementFalse);
+  this.numbersTrue.push(countTrue, countElementTrue);
+  matrix.push(this.numbersFalse, this.numbersTrue);
+  if (!this.arrayTemp.includes(element)) {
+    this.arrayTemp.push(element);
+  } else {
+    this.numbersFalse = [];
+    this.numbersTrue = [];
   }
+  return matrix;
+}
 
-  info.items = getItems
-  info.matrixItem = matrixForItem
+info.items = getItems;
+info.matrixItem = matrixForItem;
 
-
-module.exports = info
-
+module.exports = info;
