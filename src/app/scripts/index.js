@@ -1,10 +1,9 @@
 'use strict'
 
-const infObject = require('./info')
 
 function TablaInfo() {
 
-    this.recolectInfo = Object.create(infObject)
+    this.recolectInfo = Object.create(require('./info'))
     this.phi = require('./phi')
     this.map = []
     
