@@ -1,7 +1,7 @@
 'use strict'
 
 
-function TablaInfo() {
+function TableInfo() {
 
     this.recolectInfo = Object.create(require('./info'))
     this.phi = require('./phi')
@@ -9,30 +9,36 @@ function TablaInfo() {
     
 }
 
-TablaInfo.prototype.calculatedMatrix = function matrix(item) {
+TableInfo.prototype.calculatedMatrix = function matrix(item) {
     return this.recolectInfo.matrixItem(item)
 }
-TablaInfo.prototype.calculatedPhi = function Phi(item) {
+TableInfo.prototype.calculatedPhi = function Phi(item) {
     return this.phi(this.calculatedMatrix(item))
 }
 
-TablaInfo.prototype.result = function showResults(){
+TableInfo.prototype.row = function Row(element) {
+    return {
+        item: element,
+        matrix: this.calculatedMatrix(element),
+        phi: this.calculatedPhi(element)
+    }
+}
+
+TableInfo.prototype.result = function showResults(){
     this.recolectInfo.items().forEach(element => {
-        this.map.push({
-                item: element,
-                matrix: this.calculatedMatrix(element),
-                phi: this.calculatedPhi(element)
-        })
+        this.map.push(this.row(element))
     })
 
     return this.map
 }
 
-const tabla = new TablaInfo()
+const table = new TableInfo()
 
 
-console.log('object :', tabla.recolectInfo.matrixItem('mejillones'));
-tabla.recolectInfo.items()
-console.log('objectFalse :', tabla.recolectInfo.numbersFalse);
-tabla.result()
-console.log('tabla :', tabla.map)
+console.log('object :', table.recolectInfo.matrixItem('mejillones'));
+table.recolectInfo.items()
+console.log('objectFalse :', table.recolectInfo.numbersFalse);
+table.result()
+console.log('table :', table.map)
+
+console.log('table.row(mejillones) :', table.row('mejillones'));
