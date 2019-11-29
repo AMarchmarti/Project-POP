@@ -20,6 +20,8 @@ function getItems() {
 }
 
 function matrixForItem(element) {
+  this.numbersFalse = [];
+  this.numbersTrue = [];
   let matrix = [];
   let countElementTrue = 0;
   let countElementFalse = 0;
@@ -44,12 +46,7 @@ function matrixForItem(element) {
   this.numbersFalse.push(countFalse, countElementFalse);
   this.numbersTrue.push(countTrue, countElementTrue);
   matrix.push(this.numbersFalse, this.numbersTrue);
-  if (!this.arrayTemp.includes(element)) {
-    this.arrayTemp.push(element);
-  } else {
-    this.numbersFalse = [];
-    this.numbersTrue = [];
-  }
+  
   return matrix;
 }
 
