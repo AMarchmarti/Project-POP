@@ -7,12 +7,17 @@
     "test": "tests"
   },
   "devDependencies": {
+    "browserify": "^16.5.0",
+    "del": "^5.1.0",
     "gulp": "^4.0.2",
     "gulp-exec": "^4.0.0",
     "gulp-parcel": "^0.3.6",
+    "gulp-plumber": "^1.2.1",
     "gulp-sass": "^4.0.2",
     "jest": "^24.9.0",
-    "parcel-bundler": "^1.12.4"
+    "parcel-bundler": "^1.12.4",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0"
   },
   "scripts": {
     "test": "jest || error 0"
