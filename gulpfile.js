@@ -1,21 +1,44 @@
-const gulp = require('gulp')
-const sass = require('gulp-sass')
-var exec = require('child_process').exec;
+const gulp = require('gulp');
+const sass = require('gulp-sass');
+const del = require('del');
+const source = require( "vinyl-source-stream")
+const buffer = require( "vinyl-buffer")
+const browserify = require('browserify')
 
-gulp.task('sass2Css', function(){
-    gulp.src('src/styles.scss')
+
+gulp.task('sass', async function(){
+    gulp.src('src/style.scss')
         .pipe(sass())
-        .pipe(gulp.dest('build/styles'))
+        .pipe(gulp.dest('src'))
 })
 
-gulp.task('copy', function(){
-    gulp.src(['src/*.html', 'src/*.ico'])
-    .pipe(gulp.dest('build'))
-    .pipe(gulp.src(['src/app/scripts/*.js', 'BBDD/*.js']))
-    .pipe(gulp.dest('build/scripts'))
-})
+gulp.task('js', async () => {
+    browserify({
+      entries: 'src/app/scripts/index',
+      debug: true
+    })
+    .bundle()
+    .pipe(source('main.js'))
+    .pipe(buffer())
+    .pipe(gulp.dest('src'));
+  });
 
-gulp.task('default', ['sass2Css', 'copy'], function(){
-    gulp.exec('parcel build/index.html')
-})
+  gulp.task('cleanCss', () => {
+    return del([
+        'src/style.css'
+    ]);
+});
+gulp.task('cleanJs', () => {
+    return del([
+        'src/main.js'
+    ]);
+});
+
+  gulp.task('watch', async () =>{
+    gulp.watch('src/style.scss', gulp.series('cleanCss', 'sass'))
+    gulp.watch('src/app/scripts/*.js', gulp.series('cleanJs', 'js'))
+  })
+
+
+  gulp.task('default', gulp.series('js', 'sass'))
 
