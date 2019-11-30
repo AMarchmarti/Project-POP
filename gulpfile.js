@@ -1,15 +1,18 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass');
 const del = require('del');
+const plumber = require('gulp-plumber')
 const source = require( "vinyl-source-stream")
 const buffer = require( "vinyl-buffer")
 const browserify = require('browserify')
-
+const connect = require('gulp-connect')
 
 gulp.task('sass', async function(){
     gulp.src('src/style.scss')
+        .pipe(plumber())
         .pipe(sass())
         .pipe(gulp.dest('src'))
+        .pipe(connect.reload())
 })
 
 gulp.task('js', async () => {
@@ -18,9 +21,11 @@ gulp.task('js', async () => {
       debug: true
     })
     .bundle()
+    .pipe(plumber())
     .pipe(source('main.js'))
     .pipe(buffer())
-    .pipe(gulp.dest('src'));
+    .pipe(gulp.dest('src'))
+    .pipe(connect.reload())
   });
 
   gulp.task('cleanCss', () => {
@@ -40,5 +45,12 @@ gulp.task('cleanJs', () => {
   })
 
 
-  gulp.task('default', gulp.series('js', 'sass'))
+  gulp.task('connect', function() {
+    connect.server({
+      root: 'src',
+      livereload: true
+    });
+  });
+
+  gulp.task('default', gulp.series( 'watch', 'connect'))
 
