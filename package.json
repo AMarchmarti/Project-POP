@@ -10,6 +10,7 @@
     "browserify": "^16.5.0",
     "del": "^5.1.0",
     "gulp": "^4.0.2",
+    "gulp-connect": "^5.7.0",
     "gulp-exec": "^4.0.0",
     "gulp-parcel": "^0.3.6",
     "gulp-plumber": "^1.2.1",
