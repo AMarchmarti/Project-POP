@@ -21,7 +21,9 @@
     "vinyl-source-stream": "^2.0.0"
   },
   "scripts": {
-    "test": "jest || error 0"
+    "test": "jest || error 0",
+    "start": "gulp",
+    "reset": "gulp clean"
   },
   "repository": {
     "type": "git",
