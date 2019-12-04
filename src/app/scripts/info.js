@@ -1,14 +1,15 @@
-const DIARY = require("../../../BBDD/diary");
+
 
 const info = {
   arrayTemp: [],
   numbersFalse: [],
-  numbersTrue: []
+  numbersTrue: [],
+  diary: require("../../../BBDD/diary")
 };
 
 function getItems() {
   this.arrayTemp = [];
-  DIARY.forEach(items => {
+  this.diary.forEach(items => {
     items.eventos.forEach(event => {
       if (!this.arrayTemp.includes(event)) {
         this.arrayTemp.push(event);
@@ -27,7 +28,7 @@ function matrixForItem(element) {
   let countElementFalse = 0;
   let countFalse = 0;
   let countTrue = 0;
-  DIARY.forEach(items => {
+  this.diary.forEach(items => {
     if (items.eventos.includes(element)) {
       if (items.pulpo) {
         countElementTrue++;
@@ -49,6 +50,7 @@ function matrixForItem(element) {
   
   return matrix;
 }
+
 
 info.items = getItems;
 info.matrixItem = matrixForItem;
