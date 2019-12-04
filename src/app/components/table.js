@@ -12,23 +12,13 @@ const Table = Object.create(Object);
 Table.table = document.createElement('div')
 Table.table.setAttribute('id', 'table')
 Table.TableInfo = require('../scripts/index')
+Table.modal = require('./modal')
 
 Table.prototype.constructorTable = function constuctorTable(element, index){
-    let div = document.createElement('div')
-    div.setAttribute('id', 'elementTable')
-    let h2 = document.createElement('h2')
-    h2.textContent = `Dia ${index+1}`
-    let list = document.createElement('ul')
-    element.eventos.forEach( item => {
-        let li = document.createElement('li')
-        let button = document.createElement('button')
-        button.textContent = item
-        li.appendChild(button)
-        list.appendChild(li)
-    });
-    div.appendChild(h2)
-    div.appendChild(list)
-    this.table.appendChild(div)
+    let card_scene = document.createElement('div')
+    let modal =  this.modal.constructorModal(element, index, this.TableInfo)
+    card_scene.appendChild(modal)
+    this.table.appendChild(card_scene)
 }
 
 Table.prototype.days = function showDays() {
