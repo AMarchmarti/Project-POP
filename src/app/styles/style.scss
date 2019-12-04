@@ -1,0 +1,14 @@
+@font-face {
+    font-family: 'GoogleSans';
+    src: url("../assets/fonts/GoogleSans/ProductSans-Regular.ttf");
+}
+
+body {
+    font-family: 'GoogleSans';
+    margin: 0;
+}
+
+@import 'navbar';
+@import 'main';
+@import 'footer';
+@import 'table';
