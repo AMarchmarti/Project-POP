@@ -15,10 +15,18 @@ Table.TableInfo = require('../scripts/index')
 Table.modal = require('./modal')
 
 Table.prototype.constructorTable = function constuctorTable(element, index){
-    let card_scene = document.createElement('div')
+    let modal_scene = document.createElement('div')
+    modal_scene.setAttribute('class', 'modal_scene')
+    let buttonOpen = document.createElement('a')
+    buttonOpen.setAttribute('href', `#openModal${index}`)
+    buttonOpen.setAttribute('class', 'btn')
+    index < 10 
+        ? buttonOpen.textContent = `Dia 0${index + 1}` 
+        : buttonOpen.textContent = `Dia ${index + 1}`
     let modal =  this.modal.constructorModal(element, index, this.TableInfo)
-    card_scene.appendChild(modal)
-    this.table.appendChild(card_scene)
+    modal_scene.appendChild(modal)
+    modal_scene.appendChild(buttonOpen)
+    this.table.appendChild(modal_scene)
 }
 
 Table.prototype.days = function showDays() {
