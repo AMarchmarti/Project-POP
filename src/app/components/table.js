@@ -17,17 +17,33 @@ Table.modal = require('./modal')
 Table.prototype.constructorTable = function constuctorTable(element, index){
     let modal_scene = document.createElement('div')
     modal_scene.setAttribute('class', 'modal_scene')
+    let buttonOpen = this.buttonModal(index)
+    let modal =  this.modal.constructorModal(element, index, this.TableInfo)
+
+    // this.closeModalWindow(modal)
+    modal_scene.appendChild(modal)
+    modal_scene.appendChild(buttonOpen)
+    this.table.appendChild(modal_scene)
+}
+
+Table.prototype.buttonModal = function showModal(index){
     let buttonOpen = document.createElement('a')
     buttonOpen.setAttribute('href', `#openModal${index}`)
     buttonOpen.setAttribute('class', 'btn')
     index < 10 
         ? buttonOpen.textContent = `Dia 0${index + 1}` 
         : buttonOpen.textContent = `Dia ${index + 1}`
-    let modal =  this.modal.constructorModal(element, index, this.TableInfo)
-    modal_scene.appendChild(modal)
-    modal_scene.appendChild(buttonOpen)
-    this.table.appendChild(modal_scene)
+    
+    return buttonOpen
 }
+//TODO
+// Table.prototype.closeModalWindow = function closModal(){
+//     document.onclick = function(event) {
+//     console.log('event.target.id :', !event.target.id === '');
+//         document.getElementById(event.srcElement.id).style.visibility = 'hidden'
+//     }
+    
+// }
 
 Table.prototype.days = function showDays() {
     const diary = this.TableInfo.recolectInfo.diary;
