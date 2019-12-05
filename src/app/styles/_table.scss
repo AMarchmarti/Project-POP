@@ -1,16 +1,16 @@
-#table_component{
+#table_component {
     text-align: center;
-    #table{
+    #table {
         display: flex;
         grid-gap: 20px;
         flex-direction: row;
         flex-wrap: wrap;
-        grid-template-columns: auto ;
+        grid-template-columns: auto;
         grid-template-areas: 'modal-scene';
         margin-top: 40px;
         justify-content: center;
         align-items: center;
-        .modal_scene{
+        .modal_scene {
             display: flex;
             flex-direction: row;
             align-items: center;
@@ -20,7 +20,7 @@
                 padding: 1em 1.5em;
                 border-radius: 3px;
                 text-decoration: none;
+            }
         }
     }
-}
 }
