@@ -1,38 +1,38 @@
 {
-  "name": "project-pop",
-  "version": "1.0.0",
-  "description": "From time to time, usually between 8 and 10 at night, Mariano transforms into an elusive large octopus with a long white beard, which in Galicia we call a wolf-octopus.",
-  "main": "index.js",
-  "directories": {
-    "test": "tests"
-  },
-  "devDependencies": {
-    "browserify": "^16.5.0",
-    "del": "^5.1.0",
-    "gulp": "^4.0.2",
-    "gulp-connect": "^5.7.0",
-    "gulp-exec": "^4.0.0",
-    "gulp-parcel": "^0.3.6",
-    "gulp-plumber": "^1.2.1",
-    "gulp-sass": "^4.0.2",
-    "jest": "^24.9.0",
-    "parcel-bundler": "^1.12.4",
-    "vinyl-buffer": "^1.0.1",
-    "vinyl-source-stream": "^2.0.0"
-  },
-  "scripts": {
-    "test": "jest || error 0",
-    "start": "gulp",
-    "reset": "gulp clean"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/AMarchmarti/Project-POP.git"
-  },
-  "author": "Carlos Alhama Gil - Antoni March Marti",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/AMarchmarti/Project-POP/issues"
-  },
-  "homepage": "https://github.com/AMarchmarti/Project-POP#readme"
+    "name": "project-pop",
+    "version": "1.0.0",
+    "description": "From time to time, usually between 8 and 10 at night, Mariano transforms into an elusive large octopus with a long white beard, which in Galicia we call a wolf-octopus.",
+    "main": "index.js",
+    "directories": {
+        "test": "tests"
+    },
+    "devDependencies": {
+        "browserify": "^16.5.0",
+        "del": "^5.1.0",
+        "gulp": "^4.0.2",
+        "gulp-connect": "^5.7.0",
+        "gulp-exec": "^4.0.0",
+        "gulp-parcel": "^0.3.6",
+        "gulp-plumber": "^1.2.1",
+        "gulp-sass": "^4.0.2",
+        "jest": "^24.9.0",
+        "parcel-bundler": "^1.12.4",
+        "vinyl-buffer": "^1.0.1",
+        "vinyl-source-stream": "^2.0.0"
+    },
+    "scripts": {
+        "test": "jest || error 0",
+        "start": "gulp js | gulp sass | gulp",
+        "reset": "gulp clean"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/AMarchmarti/Project-POP.git"
+    },
+    "author": "Carlos Alhama Gil - Antoni March Marti",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/AMarchmarti/Project-POP/issues"
+    },
+    "homepage": "https://github.com/AMarchmarti/Project-POP#readme"
 }
