@@ -11,7 +11,7 @@ const Table = Object.create(Object);
 
 Table.table = document.createElement('div')
 Table.table.setAttribute('id', 'table')
-Table.TableInfo = require('../scripts/index')
+Table.TableInfo = require('../../back/scripts/index')
 Table.modal = require('./modal')
 
 Table.prototype.constructorTable = function constuctorTable(element, index){
