@@ -33,7 +33,6 @@ Modal.prototype.constructorModal = function modalConstructor(element, index, tab
     modalDiv.appendChild(linkModal)
     modalDiv.appendChild(modalH1)
     modalDiv.appendChild(modalBody)
-    console.log('modalBody :', modalBody);
     modal.appendChild(modalDiv)
 
     return modal
@@ -51,6 +50,7 @@ Modal.prototype.closeModal = function close(){
     let linkModal = document.createElement('a')
     linkModal.textContent = 'Close'
     linkModal.setAttribute('title', 'Close') 
+    linkModal.setAttribute('href', '#') 
     linkModal.setAttribute('class', 'modal-close')
 
     return linkModal
@@ -65,6 +65,7 @@ Modal.prototype.titleModal = function createTitle(index){
 
 Modal.prototype.bodyModal = function createBody(element, table){
     let body = document.createElement('div')
+    body.setAttribute('id', 'bodyModal')
     element['eventos'].forEach(item => {
         let pModal = document.createElement('p')
         let img = document.createElement('img')
