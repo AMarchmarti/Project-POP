@@ -1,3 +1,7 @@
 node_modules
 src/main.js
 src/style.css
+.cache
+dist
+src/app/styles/style.css
+src/app/styles/style.css.map
