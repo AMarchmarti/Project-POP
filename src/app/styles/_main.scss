@@ -1,0 +1,21 @@
+#main{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+#intro, #image, #solution {
+        border-radius: 40px;
+        margin-top: 50px;
+        -webkit-box-shadow: 0px 0px 15px 0px rgba(106, 0, 128, 0.5);
+        box-shadow: 0px 0px 15px 0px rgba(106, 0, 128, 0.5);
+        width: 60%;
+        padding: 10px;
+    }
+
+    #intro{
+        h2{
+            text-align: center;
+            color: #FF4081
+        }
+    }
+    
