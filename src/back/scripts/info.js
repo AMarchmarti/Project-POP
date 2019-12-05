@@ -56,6 +56,5 @@ function matrixForItem(element) {
 info.items = getItems;
 info.matrixItem = matrixForItem;
 
-console.log('info.diary :', info.diary);
-console.log('info.diary[0] :', info.diary[0]);
+
 module.exports = info;
