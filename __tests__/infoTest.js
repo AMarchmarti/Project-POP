@@ -6,7 +6,7 @@ test('info should be an object', () => {
  });
 
 test('info should have 5 properties', () => {
-    expect(info).toHaveProperty('arrayTemp')
+    expect(info).toHaveProperty('events')
     expect(info).toHaveProperty('numbersFalse')
     expect(info).toHaveProperty('numbersTrue')
     expect(info).toHaveProperty('items')
