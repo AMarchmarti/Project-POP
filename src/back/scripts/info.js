@@ -1,10 +1,11 @@
+'use strict'
 
 
 const info = {
   arrayTemp: [],
   numbersFalse: [],
   numbersTrue: [],
-  diary: require("../../../BBDD/diary")
+  diary: require('../../../BBDD/diary')
 };
 
 function getItems() {
@@ -54,5 +55,6 @@ function matrixForItem(element) {
 
 info.items = getItems;
 info.matrixItem = matrixForItem;
+
 
 module.exports = info;

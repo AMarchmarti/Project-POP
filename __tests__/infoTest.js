@@ -1,4 +1,4 @@
-const info = Object.create(require('../src/app/scripts/info'))
+const info = Object.create(require('../src/back/scripts/info'))
 
 
 test('info should be an object', () => {

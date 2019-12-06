@@ -1,5 +1,5 @@
-'use strict'
 
+'use strict'
 // console.log('object :', require('./phi'));
 // let table = {
 //     
@@ -38,6 +38,5 @@ TableInfo.prototype.columns = function Columns() {
     return Object.keys(this.result()[0])
 
 }
-
 
 module.exports = TableInfo

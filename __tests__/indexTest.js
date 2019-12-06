@@ -1,4 +1,4 @@
-const table = Object.create(require('../src/app/scripts/index'))
+const table = Object.create(require('../src/back/scripts/index'))
 
 test('table should be an object and have prototype', () => {
     expect(table).toBeInstanceOf(Object)
