@@ -26,7 +26,7 @@ const Calendar = Object.create(Object);
  */
 Calendar.calendarDiv = document.createElement('div')
 Calendar.calendarDiv.setAttribute('id', 'calendar')
-Calendar.TableInfo = require('../scripts/index')
+Calendar.TableInfo = require('../../back/scripts/index')
 Calendar.modal = require('./modal')
 
 /**
