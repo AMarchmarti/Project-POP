@@ -77,7 +77,6 @@ TableInfo.prototype.result = function showResults() {
   return this.map;
 };
 
-<<<<<<< HEAD:src/app/scripts/index.js
 TableInfo.prototype.columns = function Columns() {
   /**
    * Function that
@@ -93,6 +92,3 @@ TableInfo.prototype.columns = function Columns() {
 };
 
 module.exports = TableInfo;
-=======
-module.exports = TableInfo
->>>>>>> 97af80844961481905df3f5e4759ab4bf6d4f787:src/back/scripts/index.js
