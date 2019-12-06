@@ -1,7 +1,7 @@
 'use strict'
 /**
  * We ask our document to give us the html component with the id that we request through:
- * @table_component
+ * @param table_component
  * @document
  * @function @getElementById
  */
@@ -41,6 +41,8 @@ Table.prototype.constructorTableDiary = function constuctorTable(element, index)
      * calendar and that makes every day of the week, it is divided into different parts to be able 
      * to make the code more readable and easier to maintain
      * we created in this function:
+     * @param element
+     * @param index
      * @modal_scene -> is a div that contains all the buttons and modals of the page
      * @buttonOpen -> Use another funtion of the object prototype to create the button to open modals
      * @setAttribute -> is a function to modified the elements from the DOM and add the attributes that we need
@@ -66,6 +68,7 @@ Table.prototype.buttonModal = function showModal(index){
      * Here we create the button to activate the manners, it has as a link element, 
      * due to the ease to activate the modal and to be able to reference each of 
      * the manners more easily
+     * @param index
      */
     let buttonOpen = document.createElement('a')
     buttonOpen.setAttribute('href', `#openModal${index}`)
@@ -76,7 +79,7 @@ Table.prototype.buttonModal = function showModal(index){
     
     return buttonOpen
 }
-//TODO
+// TODO
 // Table.prototype.closeModalWindow = function closModal(){
 //     document.onclick = function(event) {
 //     console.log('event.target.id :', !event.target.id === '');
