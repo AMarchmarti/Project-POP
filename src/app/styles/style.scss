@@ -112,13 +112,6 @@ main:hover {
     margin-top: 0.5em;
 }
 
-
-/* Positioning the first day */
-
-.date-grid button:first-child {
-    grid-column: 5;
-}
-
 // Style for each day
 .date-grid button {
     position: relative;
@@ -142,6 +135,10 @@ main:hover {
 .date-grid button.is-selected {
     background-color: var(--purple-100);
     color: var(--purple-900);
+}
+
+a {
+    text-decoration: none;
 }
 
 @import 'navbar';
