@@ -11,7 +11,7 @@ const TableInfo = Object.create(Object);
 
 /**
  * We add the properties we need, in our case they are:
- * @property recolectInfo -> this property refers to the prototyping of the @name info object
+ * @property recolectInfo -> this property refers to the @name info object
  * @property phi -> @function phi
  * @property map -> array that we introduce the results
  */
