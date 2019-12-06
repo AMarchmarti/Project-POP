@@ -1,20 +1,51 @@
-
+'use strict'
+/**
+ * We ask our document to give us the html component with the id that we request through:
+ * @table_component
+ * @document
+ * @function @getElementById
+ */
 const table = document.getElementById('table_component')
 
-const button = document.createElement('button')
-button.textContent='Mostrar Tabla'
-button.setAttribute('id', 'buttonTable')
 
-
-
+/**
+ * We create an object that points to the prototyping of the general object, 
+ * using the functionality of the same main object:
+ * @Object
+ * @function @create
+ */
 const Table = Object.create(Object);
 
+
+/**
+ * We add to the object that we have created the properties that we need in 
+ * this case we use:
+ * @table
+ * @TableInfo -> object that contains the project functionalities
+ * @modal -> Extern component
+ */
 Table.table = document.createElement('div')
 Table.table.setAttribute('id', 'table')
 Table.TableInfo = require('../scripts/index')
 Table.modal = require('./modal')
 
-Table.prototype.constructorTable = function constuctorTable(element, index){
+/**
+ * Now we will create the protopides of the object, previously created
+ * @constructorTableDiary
+ * @buttonModal
+ * @days
+ */
+Table.prototype.constructorTableDiary = function constuctorTable(element, index){
+    /**
+     * This is the functionality of creating the table of the newspaper, that is to say the 
+     * calendar and that makes every day of the week, it is divided into different parts to be able 
+     * to make the code more readable and easier to maintain
+     * we created in this function:
+     * @modal_scene -> is a div that contains all the buttons and modals of the page
+     * @buttonOpen -> Use another funtion of the object prototype to create the button to open modals
+     * @setAttribute -> is a function to modified the elements from the DOM and add the attributes that we need
+     * @modal -> 
+     */
     let modal_scene = document.createElement('div')
     modal_scene.setAttribute('class', 'modal_scene')
     let buttonOpen = this.buttonModal(index)
@@ -48,15 +79,11 @@ Table.prototype.buttonModal = function showModal(index){
 Table.prototype.days = function showDays() {
     const diary = this.TableInfo.recolectInfo.diary;
     for(let index = 0; index <= diary.length - 1; index++){
-        this.constructorTable(diary[index], index)
+        this.constructorTableDiary(diary[index], index)
     }
 }
 
-function showTable () {
-    button.setAttribute('display', 'none')
-    Table.days()
-}
-button.addEventListener('click', showTable())
+Table.days()
 
-table.appendChild(button)
+
 table.appendChild(Table.table)
