@@ -29,7 +29,7 @@
     },
     "scripts": {
         "test": "jest || error 0",
-        "start": "node src/main.js",
+        "start": "node heroku.js",
         "parcel": "parcel src/index.html",
         "reset": "gulp clean"
     },
