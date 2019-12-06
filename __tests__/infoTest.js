@@ -1,4 +1,4 @@
-const info = Object.create(require('../src/app/scripts/info'))
+const info = Object.create(require('../src/back/scripts/info'))
 
 
 test('info should be an object', () => {
@@ -6,7 +6,7 @@ test('info should be an object', () => {
  });
 
 test('info should have 5 properties', () => {
-    expect(info).toHaveProperty('arrayTemp')
+    expect(info).toHaveProperty('events')
     expect(info).toHaveProperty('numbersFalse')
     expect(info).toHaveProperty('numbersTrue')
     expect(info).toHaveProperty('items')
