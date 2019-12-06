@@ -11,7 +11,7 @@ app.use(express.static(__dirname + "/dist"));
 // Set the home page route.
 app.get("/", function(request, response) {
     // ejs render automatically looks in the views folder
-    response.render("heroku");
+    response.render("/src/index");
 });
 // Listening to the port configured by Heroku || 8080.
 app.listen(port, function() {
