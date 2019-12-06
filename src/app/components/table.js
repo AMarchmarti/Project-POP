@@ -44,11 +44,15 @@ Table.prototype.constructorTableDiary = function constuctorTable(element, index)
      * @modal_scene -> is a div that contains all the buttons and modals of the page
      * @buttonOpen -> Use another funtion of the object prototype to create the button to open modals
      * @setAttribute -> is a function to modified the elements from the DOM and add the attributes that we need
-     * @modal -> 
+     * @modal -> it is a property of the object that in turn is an external component (Modal object) 
+     * then we use the function 
+     * @appendChild
+     * to unify the components in the 
+     * @table property
      */
-    let modal_scene = document.createElement('div')
-    modal_scene.setAttribute('class', 'modal_scene')
-    let buttonOpen = this.buttonModal(index)
+    let modal_scene = document.createElement('div') 
+    modal_scene.setAttribute('class', 'modal_scene') 
+    let buttonOpen = this.buttonModal(index) 
     let modal =  this.modal.constructorModal(element, index, this.TableInfo)
 
     // this.closeModalWindow(modal)
@@ -58,6 +62,11 @@ Table.prototype.constructorTableDiary = function constuctorTable(element, index)
 }
 
 Table.prototype.buttonModal = function showModal(index){
+    /**
+     * Here we create the button to activate the manners, it has as a link element, 
+     * due to the ease to activate the modal and to be able to reference each of 
+     * the manners more easily
+     */
     let buttonOpen = document.createElement('a')
     buttonOpen.setAttribute('href', `#openModal${index}`)
     buttonOpen.setAttribute('class', 'btn')
@@ -77,13 +86,34 @@ Table.prototype.buttonModal = function showModal(index){
 // }
 
 Table.prototype.days = function showDays() {
-    const diary = this.TableInfo.recolectInfo.diary;
-    for(let index = 0; index <= diary.length - 1; index++){
-        this.constructorTableDiary(diary[index], index)
+    /**
+     * Here we go through the diary to obtain each day, 
+     * both the number of the day and the itinerary it does
+     * we create a constant that refers to the newspaper that 
+     * we have already worked
+     * @DIARY
+     * and we use the function 
+     * @constructorTableDiary
+     * we have explained before to build the calendar
+     */
+    const DIARY = this.TableInfo.recolectInfo.diary;
+    for(let index = 0; index <= DIARY.length - 1; index++){
+        this.constructorTableDiary(DIARY[index], index)
     }
 }
 
+/**
+ * Almost at the end we call the function days that will create the calendar 
+ * with the object we have created
+ * @Table
+ * @days
+ */
 Table.days()
 
+/**
+ * Finally we add the object created to the main table that we had already named 
+ * at the beginning of the file
+ * @table
+ */
 
 table.appendChild(Table.table)
