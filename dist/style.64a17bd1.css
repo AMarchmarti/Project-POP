@@ -152,6 +152,9 @@ nav {
   overflow: hidden;
   background-color: var(--purple-700);
   position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   top: 0;
   width: 100%;
   -webkit-box-shadow: 0 0 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
@@ -160,13 +163,38 @@ nav {
 
 nav ul {
   list-style-type: none;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
   margin: 0;
-  padding: 15px;
+  padding: 20px;
 }
 
 nav ul li {
   display: inline;
   font-size: 17px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+nav ul li img {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  margin-left: 17%;
+  width: 30px;
+  -webkit-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  padding-right: 10px;
+}
+
+nav ul li img:hover {
+  content: url("/logo-top.384797ff.png");
 }
 
 nav ul li a {
@@ -174,38 +202,14 @@ nav ul li a {
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-nav ul li a img {
-  display: inline-block;
-  margin-left: 17%;
-  width: 30px;
-  -webkit-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-nav ul li a img:hover {
-  content: url("/logo-top.384797ff.png");
-}
-
 .links {
   color: white;
   text-decoration: none;
-  padding: 14px;
+  padding: 15px;
 }
 
 .links:hover {
   color: var(--pink-A200);
-}
-
-@media (max-width: 1200px) {
-  nav ul li a img {
-    margin-left: 6%;
-  }
-}
-
-@media (max-width: 500px) {
-  nav ul li a img {
-    margin: 5px;
-  }
 }
 
 #main {
