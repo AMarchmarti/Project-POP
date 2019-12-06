@@ -11,7 +11,7 @@ const info = {
   events: [],
   numbersFalse: [],
   numbersTrue: [],
-  diary: require("../../../BBDD/diary")
+  diary: require('../../../BBDD/diary')
 };
 
 /**
