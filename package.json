@@ -1,49 +1,51 @@
 {
-  "name": "project-pop",
-  "version": "1.0.0",
-  "description": "From time to time, usually between 8 and 10 at night, Mariano transforms into an elusive large octopus with a long white beard, which in Galicia we call a wolf-octopus.",
-  "main": "index.js",
-  "directories": {
-    "test": "tests"
-  },
-  "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-loader": "^8.0.6",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
-    "browserify": "^16.5.0",
-    "del": "^5.1.0",
-    "gulp": "^4.0.2",
-    "gulp-connect": "^5.7.0",
-    "gulp-exec": "^4.0.0",
-    "gulp-parcel": "^0.3.6",
-    "gulp-plumber": "^1.2.1",
-    "gulp-sass": "^4.0.2",
-    "jest": "^24.9.0",
-    "parcel": "^1.12.4",
-    "parcel-bundler": "^1.12.4",
-    "sass": "^1.23.7",
-    "vinyl-buffer": "^1.0.1",
-    "vinyl-source-stream": "^2.0.0"
-  },
-  "scripts": {
-    "test": "jest || error 0",
-    "start": "parcel src/index.html",
-    "reset": "gulp clean"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/AMarchmarti/Project-POP.git"
-  },
-  "author": "Carlos Alhama Gil - Antoni March Marti",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/AMarchmarti/Project-POP/issues"
-  },
-  "homepage": "https://github.com/AMarchmarti/Project-POP#readme",
-  "dependencies": {
-    "@babel/core": "^7.7.4",
-    "@babel/register": "^7.7.4"
-  }
+    "name": "project-pop",
+    "version": "1.0.0",
+    "description": "From time to time, usually between 8 and 10 at night, Mariano transforms into an elusive large octopus with a long white beard, which in Galicia we call a wolf-octopus.",
+    "main": "index.js",
+    "directories": {
+        "test": "tests"
+    },
+    "devDependencies": {
+        "babel-core": "^6.26.3",
+        "babel-loader": "^8.0.6",
+        "babel-polyfill": "^6.26.0",
+        "babel-preset-es2015": "^6.24.1",
+        "babel-preset-stage-0": "^6.24.1",
+        "browserify": "^16.5.0",
+        "del": "^5.1.0",
+        "gulp": "^4.0.2",
+        "gulp-connect": "^5.7.0",
+        "gulp-exec": "^4.0.0",
+        "gulp-parcel": "^0.3.6",
+        "gulp-plumber": "^1.2.1",
+        "gulp-sass": "^4.0.2",
+        "jest": "^24.9.0",
+        "parcel": "^1.12.4",
+        "parcel-bundler": "^1.12.4",
+        "sass": "^1.23.7",
+        "vinyl-buffer": "^1.0.1",
+        "vinyl-source-stream": "^2.0.0"
+    },
+    "scripts": {
+        "test": "jest || error 0",
+        "start": "node src/main.js",
+        "parcel": "parcel src/index.html",
+        "reset": "gulp clean"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/AMarchmarti/Project-POP.git"
+    },
+    "author": "Carlos Alhama Gil - Antoni March Marti",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/AMarchmarti/Project-POP/issues"
+    },
+    "homepage": "https://github.com/AMarchmarti/Project-POP#readme",
+    "dependencies": {
+        "@babel/core": "^7.7.4",
+        "@babel/register": "^7.7.4",
+        "express": "^4.17.1"
+    }
 }

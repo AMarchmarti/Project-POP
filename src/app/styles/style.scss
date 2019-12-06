@@ -3,9 +3,18 @@
     src: url("../assets/fonts/GoogleSans/ProductSans-Regular.ttf");
 }
 
+html {
+    font-size: 125%;
+    line-height: 1.4;
+    font-weight: 400;
+    color: var(--blue-grey-900);
+}
+
 body {
     font-family: 'GoogleSans';
     margin: 0;
+    min-height: 100vh;
+    background: var(--blue-grey-100);
 }
 
 // Colors used
@@ -50,33 +59,29 @@ body {
     --pink-A700: #c51162;
 }
 
-html {
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-    font-size: 125%;
-    line-height: 1.4;
-    font-weight: 400;
-    color: var(--blue-grey-900);
-}
-
-body {
-    min-height: 100vh;
-    background: var(--blue-grey-100);
-}
-
 main {
-    max-width: max-content;
+    max-width: 40%;
     margin: 3em auto 0 auto;
     padding: 1.5em;
     background-color: #fff;
-    border: 2px solid var(--blue-grey-200);
-    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
 }
 
-// For the month
-.month-indicator {
-    color: var(--blue-grey-700);
-    text-align: center;
-    font-weight: 500;
+@media (max-width: 1200px) {
+    main {
+        max-width: 60%;
+    }
+}
+
+@media (max-width: 500px) {
+    main {
+        max-width: 95.5%;
+    }
+}
+
+main:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
 // CSS grid used for the dates
@@ -88,7 +93,7 @@ main {
 
 // Styles for the weekday/weekend header
 .day-of-week {
-    margin-top: 1.25em;
+    margin-top: 0.5em;
 }
 
 .day-of-week>* {
@@ -114,14 +119,6 @@ main {
     grid-column: 5;
 }
 
-.secondMonth button:first-child {
-    grid-column: 1;
-}
-
-.thirdMonth button:first-child {
-    grid-column: 3;
-}
-
 // Style for each day
 .date-grid button {
     position: relative;
@@ -131,6 +128,7 @@ main {
     border-radius: 50%;
     background-color: transparent;
     color: var(--blue-grey-600);
+    text-align: center;
 }
 
 .date-grid button:hover,

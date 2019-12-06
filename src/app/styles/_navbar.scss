@@ -21,16 +21,7 @@ nav {
             display: inline;
             font-size: 17px;
             a {
-                color: white;
-                text-decoration: none;
-                padding: 14px;
                 transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
-                &:hover {
-                    color: var(--pink-A200);
-                }
-                .lastLink {
-                    margin-right: 17%;
-                }
                 img {
                     display: inline-block;
                     margin-left: 17%;
@@ -45,14 +36,24 @@ nav {
     }
 }
 
+.links {
+    color: white;
+    text-decoration: none;
+    padding: 14px;
+}
+
+.links:hover {
+    color: var(--pink-A200);
+}
+
 @media (max-width: 1200px) {
-    nav ul li img {
+    nav ul li a img {
         margin-left: 6%;
     }
 }
 
 @media (max-width: 500px) {
-    nav ul li img {
+    nav ul li a img {
         margin: 5px;
     }
 }
