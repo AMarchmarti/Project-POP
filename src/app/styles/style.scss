@@ -17,6 +17,10 @@ body {
     background: var(--blue-grey-100);
 }
 
+a {
+    text-decoration: none;
+}
+
 // Colors used
 :root {
     --purple-050: #f3e5f5;
@@ -42,7 +46,7 @@ body {
     --blue-grey-600: #486581;
     --blue-grey-700: #334e68;
     --blue-grey-800: #243b53;
-    --pink-grey-900: #102a43;
+    --blue-grey-900: #102a43;
     --pink-050: #fce4ec;
     --pink-100: #f8bbd0;
     --pink-200: #f48fb1;
@@ -59,6 +63,7 @@ body {
     --pink-A700: #c51162;
 }
 
+// CSS for calendar
 main {
     max-width: 40%;
     margin: 3em auto 0 auto;
@@ -135,10 +140,6 @@ main:hover {
 .date-grid button.is-selected {
     background-color: var(--purple-100);
     color: var(--purple-900);
-}
-
-a {
-    text-decoration: none;
 }
 
 @import 'navbar';

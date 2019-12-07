@@ -1,0 +1,27 @@
+footer {
+    grid-area: footer;
+    padding: 1rem;
+    background-color: #333333;
+    color: white;
+    text-align: center;
+    box-shadow: 0 -3px 10px 3px rgba(0, 0, 0, 0.2);
+    .github {
+        width: 120px;
+    }
+    .aws {
+        margin-left: 20px;
+        width: 100px;
+    }
+    .heroku {
+        margin-left: 20px;
+        width: 50px;
+    }
+}
+
+@media (max-width: 500px) {
+    footer {
+        padding: 0;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+}

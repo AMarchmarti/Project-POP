@@ -17,6 +17,10 @@ body {
   background: var(--blue-grey-100);
 }
 
+a {
+  text-decoration: none;
+}
+
 :root {
   --purple-050: #f3e5f5;
   --purple-100: #e1bee7;
@@ -41,7 +45,7 @@ body {
   --blue-grey-600: #486581;
   --blue-grey-700: #334e68;
   --blue-grey-800: #243b53;
-  --pink-grey-900: #102a43;
+  --blue-grey-900: #102a43;
   --pink-050: #fce4ec;
   --pink-100: #f8bbd0;
   --pink-200: #f48fb1;
@@ -134,10 +138,6 @@ main:hover {
 .date-grid button.is-selected {
   background-color: var(--purple-100);
   color: var(--purple-900);
-}
-
-a {
-  text-decoration: none;
 }
 
 header {
@@ -317,7 +317,7 @@ nav ul li a {
 }
 
 .modal-window > div {
-  width: 400px;
+  width: 300px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -383,63 +383,36 @@ small {
   padding-right: 0.3em;
 }
 
-.window {
-  position: fixed;
-  background-color: rgba(255, 255, 255, 0.25);
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 999;
-  visibility: hidden;
-  opacity: 0;
-  pointer-events: none;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-  transition: all 0.3s;
-}
-
-.window:target {
-  visibility: visible;
-  opacity: 1;
-  pointer-events: auto;
-  background-color: rgba(0, 0, 0, 0.35);
-}
-
-.window > div {
-  width: 400px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  padding: 2em;
-  background: #ffffff;
-}
-
-.window header {
-  font-weight: bold;
-}
-
-.window h1 {
-  font-size: 150%;
-  margin: 0 0 15px;
-}
-
-.window .modal-close {
-  color: #aaa;
-  line-height: 50px;
-  font-size: 80%;
-  position: absolute;
-  right: 0;
+footer {
+  grid-area: footer;
+  padding: 1rem;
+  background-color: #333333;
+  color: white;
   text-align: center;
-  top: 0;
-  width: 70px;
-  text-decoration: none;
+  -webkit-box-shadow: 0 -3px 10px 3px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 -3px 10px 3px rgba(0, 0, 0, 0.2);
 }
 
-.window .modal-close:hover {
-  color: black;
+footer .github {
+  width: 120px;
+}
+
+footer .aws {
+  margin-left: 20px;
+  width: 100px;
+}
+
+footer .heroku {
+  margin-left: 20px;
+  width: 50px;
+}
+
+@media (max-width: 500px) {
+  footer {
+    padding: 0;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
 }
 
 
