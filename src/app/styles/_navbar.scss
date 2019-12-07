@@ -8,48 +8,46 @@ header {
 
 nav {
     overflow: hidden;
-    background-color: #6A1B9A;
+    background-color: var(--purple-700);
     position: fixed;
+    display: flex;
     top: 0;
     width: 100%;
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    box-shadow: 0 0 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     ul {
         list-style-type: none;
+        display: inline-flex;
+        justify-content: center;
+        width: 100%;
         margin: 0;
-        padding: 15px;
+        padding: 20px;
         li {
             display: inline;
             font-size: 17px;
+            align-self: center;
             img {
-                display: inline-block;
+                display: inline-flex;
                 margin-left: 17%;
                 width: 30px;
                 transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+                padding-right: 10px;
+            }
+            img:hover {
+                content: url('../assets/img/logo-top.png');
             }
             a {
-                color: #f2f2f2;
-                text-decoration: none;
-                padding: 14px;
                 transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
-                &:hover {
-                    color: #FF4081;
-                }
-                .lastLink {
-                    margin-right: 17%;
-                }
             }
         }
     }
 }
 
-@media (max-width: 1200px) {
-    nav ul li img {
-        margin-left: 6%;
-    }
+.links {
+    color: white;
+    text-decoration: none;
+    padding: 15px;
 }
 
-@media (max-width: 500px) {
-    nav ul li img {
-        margin: 5px;
-    }
+.links:hover {
+    color: var(--pink-A200);
 }
