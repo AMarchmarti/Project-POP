@@ -125,6 +125,8 @@ parcelRequire = (function (modules, cache, entry, globalName) {
  * that will point to the prototype of the general javascript object
  */
 
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
 var Modal = Object.create(Object);
 /**
  * We have not incorporated this function into the prototyping of
@@ -147,16 +149,15 @@ function searchImage(item) {
    * that we have provided
    * @returns file 
    */
-  var dir = "../img";
-  var fileImg = [".png", ".jpg", ".jpeg"];
+  var dir = "../img/events/";
   var nameImage = item.replace(/ /g, "").toLowerCase();
-  fileImg.forEach(function (img) {
-    try {
-      return "".concat(dir + nameImage + img);
-    } catch (_unused) {
-      return "";
-    }
-  });
+
+  try {
+    console.log('nameImaeg :', _typeof(dir + nameImage + '.png'));
+    return dir + nameImage + '.png';
+  } catch (_unused) {
+    return "";
+  }
 }
 
 Modal.prototype.constructorModal = function modalConstructor(element, index, table) {
@@ -244,7 +245,7 @@ Modal.prototype.bodyModal = function createBody(element, table) {
     var img = document.createElement("img");
     var divImage = document.createElement("div");
     var divMatrix = document.createElement("div");
-    img.setAttribute("src", searchImage(item));
+    img.setAttribute("src", '../assets/img/events/mejillones.png');
     pModal.textContent = item;
     img.setAttribute("alt", "image".concat(item));
     divMatrix.textContent = "".concat(table.recolectInfo.matrixItem(item));
@@ -293,7 +294,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59326" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59897" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

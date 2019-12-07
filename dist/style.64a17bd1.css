@@ -64,7 +64,7 @@ a {
 
 main {
   max-width: 40%;
-  margin: 3em auto 0 auto;
+  margin: 4em auto 2em auto;
   padding: 1.5em;
   background-color: #fff;
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -105,7 +105,6 @@ main:hover {
 .day-of-week > * {
   font-size: 0.7em;
   color: var(--blue-grey-400);
-  font-weight: 500;
   letter-spacing: 0.1em;
   font-variant: small-caps;
   text-align: center;
@@ -117,7 +116,6 @@ main:hover {
 }
 
 .date-grid button {
-  position: relative;
   border: 0;
   width: 4.5ch;
   height: 4.5ch;
@@ -417,6 +415,64 @@ footer .heroku {
     padding-top: 1rem;
     padding-bottom: 1rem;
   }
+}
+
+.window {
+  position: fixed;
+  background-color: rgba(19, 19, 19, 0.25);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.window:target {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.window > div {
+  width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  padding: 2em;
+  background: #ffffff;
+}
+
+.window header {
+  font-weight: bold;
+}
+
+.window h1 {
+  font-size: 150%;
+  margin: 0 0 15px;
+}
+
+.window .modal-close {
+  color: #aaa;
+  line-height: 50px;
+  font-size: 80%;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0;
+  width: 70px;
+  text-decoration: none;
+}
+
+.window .modal-close:hover {
+  color: black;
 }
 
 
