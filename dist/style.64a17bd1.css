@@ -397,6 +397,10 @@ footer .github {
   width: 120px;
 }
 
+footer .gitPat {
+  width: 95px;
+}
+
 footer .aws {
   margin-left: 20px;
   width: 100px;
