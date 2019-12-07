@@ -87,14 +87,7 @@ Calendar.prototype.buttonModal = function showModal(index){
     buttonOpen.appendChild( button)
     return buttonOpen
 }
-// TODO
-// Table.prototype.closeModalWindow = function closModal(){
-//     document.onclick = function(event) {
-//     console.log('event.target.id :', !event.target.id === '');
-//         document.getElementById(event.srcElement.id).style.visibility = 'hidden'
-//     }
-    
-// }
+
 
 Calendar.prototype.constructorCalendar = function showDays() {
     /**
