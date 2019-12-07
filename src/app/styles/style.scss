@@ -3,23 +3,40 @@
     src: url("../assets/fonts/GoogleSans/ProductSans-Regular.ttf");
 }
 
+html {
+    font-size: 125%;
+    line-height: 1.4;
+    font-weight: 400;
+    color: var(--blue-grey-900);
+}
+
 body {
     font-family: 'GoogleSans';
     margin: 0;
+    min-height: 100vh;
+    background: var(--blue-grey-100);
+}
+
+a {
+    text-decoration: none;
 }
 
 // Colors used
 :root {
-    --teal-050: #effcf6;
-    --teal-100: #c6f7e2;
-    --teal-200: #8eedc7;
-    --teal-300: #65d6ad;
-    --teal-400: #3ebd93;
-    --teal-500: #27ab83;
-    --teal-600: #199473;
-    --teal-700: #147d64;
-    --teal-800: #0c6b58;
-    --teal-900: #014d40;
+    --purple-050: #f3e5f5;
+    --purple-100: #e1bee7;
+    --purple-200: #ce93d8;
+    --purple-300: #ba68c8;
+    --purple-400: #ab47bc;
+    --purple-500: #9c27b0;
+    --purple-600: #8e24aa;
+    --purple-700: #7b1fa2;
+    --purple-800: #6a1b9a;
+    --purple-900: #4a148c;
+    --purple-A100: #ea80fc;
+    --purple-A200: #e040fb;
+    --purple-A400: #d500f9;
+    --purple-A700: #aa00ff;
     --blue-grey-050: #f0f4f8;
     --blue-grey-100: #d9e2ec;
     --blue-grey-200: #bcccdc;
@@ -30,35 +47,46 @@ body {
     --blue-grey-700: #334e68;
     --blue-grey-800: #243b53;
     --blue-grey-900: #102a43;
+    --pink-050: #fce4ec;
+    --pink-100: #f8bbd0;
+    --pink-200: #f48fb1;
+    --pink-300: #f06292;
+    --pink-400: #ec407a;
+    --pink-500: #e91e63;
+    --pink-600: #d81b60;
+    --pink-700: #c2185b;
+    --pink-800: #ad1457;
+    --pink-900: #880e4f;
+    --pink-A100: #ff80ab;
+    --pink-A200: #ff4081;
+    --pink-A400: #f50057;
+    --pink-A700: #c51162;
 }
 
-html {
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-    font-size: 125%;
-    line-height: 1.4;
-    font-weight: 400;
-    color: var(--blue-grey-900);
-}
-
-body {
-    min-height: 100vh;
-    background: var(--blue-grey-100);
-}
-
+// CSS for calendar
 main {
-    max-width: max-content;
+    max-width: 40%;
     margin: 3em auto 0 auto;
     padding: 1.5em;
     background-color: #fff;
-    border: 2px solid var(--blue-grey-200);
-    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
 }
 
-// For the month
-.month-indicator {
-    color: var(--blue-grey-700);
-    text-align: center;
-    font-weight: 500;
+@media (max-width: 1200px) {
+    main {
+        max-width: 60%;
+    }
+}
+
+@media (max-width: 500px) {
+    main {
+        max-width: 95.5%;
+    }
+}
+
+main:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
 // CSS grid used for the dates
@@ -70,7 +98,7 @@ main {
 
 // Styles for the weekday/weekend header
 .day-of-week {
-    margin-top: 1.25em;
+    margin-top: 0.5em;
 }
 
 .day-of-week>* {
@@ -89,21 +117,6 @@ main {
     margin-top: 0.5em;
 }
 
-
-/* Positioning the first day */
-
-.date-grid button:first-child {
-    grid-column: 5;
-}
-
-.secondMonth button:first-child {
-    grid-column: 1;
-}
-
-.thirdMonth button:first-child {
-    grid-column: 3;
-}
-
 // Style for each day
 .date-grid button {
     position: relative;
@@ -113,6 +126,7 @@ main {
     border-radius: 50%;
     background-color: transparent;
     color: var(--blue-grey-600);
+    text-align: center;
 }
 
 .date-grid button:hover,
@@ -124,11 +138,11 @@ main {
 
 .date-grid button:active,
 .date-grid button.is-selected {
-    background-color: var(--teal-100);
-    color: var(--teal-900);
+    background-color: var(--purple-100);
+    color: var(--purple-900);
 }
 
 @import 'navbar';
 @import 'main';
 @import 'footer';
-@import 'modal'
+@import 'modal';
