@@ -27,16 +27,16 @@ function searchImage(item) {
    * that we have provided
    * @returns file 
    */
-  const dir = "../img";
-  const fileImg = [".png", ".jpg", ".jpeg"];
+  const dir = "../img/events/";
   let nameImage = item.replace(/ /g, "").toLowerCase();
-  fileImg.forEach(img => {
+ 
     try {
-      return `${dir + nameImage + img}`;
+      console.log('nameImaeg :', typeof (dir + nameImage + '.png'));
+      return (dir + nameImage + '.png')
     } catch {
       return "";
     }
-  });
+
 }
 
 Modal.prototype.constructorModal = function modalConstructor(
@@ -134,7 +134,7 @@ Modal.prototype.bodyModal = function createBody(element, table) {
     let img = document.createElement("img");
     let divImage = document.createElement("div");
     let divMatrix = document.createElement("div");
-    img.setAttribute("src", searchImage(item));
+    img.setAttribute("src", '../assets/img/events/mejillones.png');
     pModal.textContent = item;
     img.setAttribute("alt", `image${item}`);
     divMatrix.textContent = `${table.recolectInfo.matrixItem(item)}`;
