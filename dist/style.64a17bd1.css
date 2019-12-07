@@ -82,6 +82,7 @@ main {
 @media (max-width: 500px) {
   main {
     max-width: 95.5%;
+    padding: 10px;
   }
 }
 
@@ -372,7 +373,6 @@ small {
 
 .btn {
   background-color: #fff;
-  padding: 1em 1.5em;
   border-radius: 3px;
   text-decoration: none;
 }
