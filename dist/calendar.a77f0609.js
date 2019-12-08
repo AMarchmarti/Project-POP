@@ -694,6 +694,15 @@ function searchImage(item) {
    * @returns file
    */
   var dir = "/img/events/";
+  var arrayTemp = item.split('');
+  arrayTemp.forEach(function (letter) {
+    if (letter === 'ñ') {
+      var index = arrayTemp.indexOf('ñ');
+      console.log('index :', index);
+      arrayTemp.splice(index, 1, 'n');
+      item = arrayTemp.join('');
+    }
+  });
 
   try {
     return dir + item + ".png";
@@ -965,7 +974,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50432" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51413" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
