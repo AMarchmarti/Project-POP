@@ -49,6 +49,7 @@ Table.prototype.tableBody = function tableBody() {
         tdItem.textContent = row.item;
 
 
+
         // Almost same process than the other one, make a td for second column
         let tdMatrix = document.createElement('td');
         row.matrix.forEach(a => {
