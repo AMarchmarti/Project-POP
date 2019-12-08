@@ -14,6 +14,7 @@ nav {
     top: 0;
     width: 100%;
     box-shadow: 0 0 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    z-index: 99999998;
     ul {
         list-style-type: none;
         display: inline-flex;

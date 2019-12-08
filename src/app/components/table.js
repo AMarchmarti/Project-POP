@@ -56,7 +56,6 @@ Table.prototype.tableBody = function tableBody() {
                 let span = document.createElement('span');
 
                 if (row.matrix[0][0] === value) {
-                    console.log('value', value);
                     span.setAttribute('data-md-tooltip', 'Las veces que no ha hecho este evento ni se ha transformado');
                 } else if (row.matrix[0][1] === value) {
                     span.setAttribute('data-md-tooltip', 'Las veces que ha hecho esta tarea pero no se ha transformado');

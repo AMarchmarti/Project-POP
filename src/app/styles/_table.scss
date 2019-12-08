@@ -18,6 +18,10 @@
     &:hover {
         box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     }
+    span {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
     button {
         border: none;
         height: 50px;
@@ -43,7 +47,7 @@
         [data-md-tooltip]:before {
             content: attr(data-md-tooltip);
             position: absolute;
-            z-index: 999999;
+            z-index: 99999;
             width: 200px;
             bottom: -55px;
             left: 50%;
