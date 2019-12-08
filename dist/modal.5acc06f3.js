@@ -206,8 +206,8 @@ Modal.prototype.closeModal = function close() {
    * @returns linkModal -> element to close modal
    */
   var linkModal = document.createElement("a");
-  linkModal.textContent = "Close";
-  linkModal.setAttribute("title", "Close");
+  linkModal.textContent = "Cerrar";
+  linkModal.setAttribute("title", "Cerrar");
   linkModal.setAttribute("href", "#");
   linkModal.setAttribute("class", "modal-close");
   return linkModal;
@@ -293,7 +293,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65532" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50432" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

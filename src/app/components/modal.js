@@ -95,8 +95,8 @@ Modal.prototype.closeModal = function close() {
      * @returns linkModal -> element to close modal
      */
     let linkModal = document.createElement("a");
-    linkModal.textContent = "Close";
-    linkModal.setAttribute("title", "Close");
+    linkModal.textContent = "Cerrar";
+    linkModal.setAttribute("title", "Cerrar");
     linkModal.setAttribute("href", "#");
     linkModal.setAttribute("class", "modal-close");
 

@@ -684,9 +684,9 @@ buttonGraph.textContent = "Mostrar gráfica";
 
 buttonGraph.onclick = function () {
   if (graph.style.display === "none") {
-    graph.style.display = "block";
+    graph.style.display = "flex";
     buttonGraph.textContent = "Ocultar gráfica";
-  } else if (graph.style.display === "block") {
+  } else if (graph.style.display === "flex") {
     graph.style.display = "none";
     buttonGraph.textContent = "Mostrar gráfica";
   }
@@ -765,7 +765,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65532" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50432" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

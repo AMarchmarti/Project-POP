@@ -18,13 +18,13 @@ graph.style.display = "none";
  */
 buttonGraph.textContent = "Mostrar gráfica";
 buttonGraph.onclick = function() {
-  if (graph.style.display === "none") {
-    graph.style.display = "block";
-    buttonGraph.textContent = "Ocultar gráfica";
-  } else if (graph.style.display === "block") {
-    graph.style.display = "none";
-    buttonGraph.textContent = "Mostrar gráfica";
-  }
+    if (graph.style.display === "none") {
+        graph.style.display = "flex";
+        buttonGraph.textContent = "Ocultar gráfica";
+    } else if (graph.style.display === "flex") {
+        graph.style.display = "none";
+        buttonGraph.textContent = "Mostrar gráfica";
+    }
 };
 
 /**
@@ -43,7 +43,7 @@ const Graph = Object.create(Object);
  */
 Graph.h2 = document.createElement("h2");
 Graph.h2.textContent =
-  "Gráfica de la correlación de los eventos y su probabilidad de que se transforme en pulpo";
+    "Gráfica de la correlación de los eventos y su probabilidad de que se transforme en pulpo";
 Graph.h2.setAttribute("class", "title");
 
 Graph.divGraph = document.createElement("div");
@@ -52,27 +52,27 @@ Graph.divGraph.setAttribute("class", "grid horizontal");
 Graph.info = require("../../back/scripts/index");
 
 Graph.prototype.createGraph = function create() {
-  /**
-   * This function is the creation of the bar graph, we ask you to create
-   * the ordered graph from least to greatest and also indicates what the name
-   * of the event is and when you get on top of each of the events it tells us
-   * its probability, even if you have it in the table
-   * @function sortTable -> order table
-   * @function toPrecision -> number decimals that we want
-   */
-  this.info.sortTable().forEach(row => {
-    let newPhi = row.phi > 0 ? row.phi : row.phi * -1;
-    let div = document.createElement("div");
-    div.setAttribute(
-      "title",
-      `Probabilidad ${(row.phi * 100).toPrecision(4)}%`
-    );
-    div.setAttribute("data-name", row.item);
-    div.setAttribute("class", "bar");
-    div.setAttribute("style", `--bar-value:${newPhi * 100}%`);
-    Graph.divGraph.appendChild(div);
-  });
-  graph.appendChild(Graph.divGraph);
+    /**
+     * This function is the creation of the bar graph, we ask you to create
+     * the ordered graph from least to greatest and also indicates what the name
+     * of the event is and when you get on top of each of the events it tells us
+     * its probability, even if you have it in the table
+     * @function sortTable -> order table
+     * @function toPrecision -> number decimals that we want
+     */
+    this.info.sortTable().forEach(row => {
+        let newPhi = row.phi > 0 ? row.phi : row.phi * -1;
+        let div = document.createElement("div");
+        div.setAttribute(
+            "title",
+            `Probabilidad ${(row.phi * 100).toPrecision(4)}%`
+        );
+        div.setAttribute("data-name", row.item);
+        div.setAttribute("class", "bar");
+        div.setAttribute("style", `--bar-value:${newPhi * 100}%`);
+        Graph.divGraph.appendChild(div);
+    });
+    graph.appendChild(Graph.divGraph);
 };
 
 graph.appendChild(Graph.h2);

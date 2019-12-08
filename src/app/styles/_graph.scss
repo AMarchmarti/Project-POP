@@ -1,13 +1,13 @@
-$width:650px;
-$height:600px;
-$bar-size:45px;
-$bar-color:#F16335;
+$width: 650px;
+$height: 700px;
+$bar-size: 45px;
+$bar-color:var(--purple-700);
 $bar-rounded: 3px;
 $grid-color:#aaa;
 .chart-wrap {
-    width: $width;
     height: $height;
     font-family: sans-serif;
+    flex-direction: column;
     .title {
         text-align: center;
     }
@@ -15,7 +15,7 @@ $grid-color:#aaa;
 
 .grid {
     width: 100%;
-    height: 100%;
+    height: 80%;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -47,6 +47,11 @@ $grid-color:#aaa;
         border-bottom: none;
         border-left: 2px solid $grid-color;
         background: repeating-linear-gradient(90deg, transparent, transparent 19.5%, fadeout($grid-color, 30%) 20%);
+        .text {
+            height: $bar-size;
+            width: var(--bar-value);
+            align-self: flex-end;
+        }
         .bar {
             height: $bar-size;
             width: var(--bar-value);
@@ -68,6 +73,17 @@ $grid-color:#aaa;
 }
 
 #graph_component {
+    max-width: 40%;
+    margin: 6em auto 2em auto;
+    padding: 1.5em;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+    display: block;
+    text-align: center;
+    &:hover {
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    }
     button {
         border: none;
         height: 40px;
@@ -84,5 +100,17 @@ $grid-color:#aaa;
             background-position: left bottom;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
         }
+    }
+}
+
+@media (max-width: 1200px) {
+    #graph_component {
+        max-width: 60%;
+    }
+}
+
+@media (max-width: 500px) {
+    #graph_component {
+        max-width: 95.5%;
     }
 }
