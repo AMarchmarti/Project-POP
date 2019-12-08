@@ -52,26 +52,24 @@ Graph.divGraph.setAttribute("class", "grid horizontal");
 Graph.info = require("../../back/scripts/index");
 
 Graph.prototype.createGraph = function create() {
-    /**
-     * This function is the creation of the bar graph, we ask you to create
-     * the ordered graph from least to greatest and also indicates what the name
-     * of the event is and when you get on top of each of the events it tells us
-     * its probability, even if you have it in the table
-     * @function sortTable -> order table
-     * @function toPrecision -> number decimals that we want
-     */
-    this.info.sortTable().forEach(row => {
-        let newPhi = row.phi > 0 ? row.phi : row.phi * -1;
-        let div = document.createElement("div");
-        div.setAttribute(
-            "title",
-            `Probabilidad ${(row.phi * 100).toPrecision(4)}%`
-        );
-        div.setAttribute("class", "bar");
-        div.setAttribute("style", `--bar-value:${newPhi * 100}%`);
-        Graph.divGraph.appendChild(div);
-    });
-    graph.appendChild(Graph.divGraph);
+  /**
+   * This function is the creation of the bar graph, we ask you to create
+   * the ordered graph from least to greatest and also indicates what the name
+   * of the event is and when you get on top of each of the events it tells us
+   * its probability, even if you have it in the table
+   * @function sortTable -> order table
+   * @function toPrecision -> number decimals that we want
+   */
+  this.info.sortTable().forEach(row => {
+    let newPhi = row.phi > 0 ? row.phi : row.phi * -1;
+    let div = document.createElement("div");
+
+    div.setAttribute("data-md-tooltip", `Evento: ${row.item} Probabilidad: ${(row.phi * 100).toPrecision(4)}%`);
+    div.setAttribute("class", "bar");
+    div.setAttribute("style", `--bar-value:${newPhi * 100}%`);
+    Graph.divGraph.appendChild(div);
+  });
+  graph.appendChild(Graph.divGraph);
 };
 
 graph.appendChild(Graph.h2);
