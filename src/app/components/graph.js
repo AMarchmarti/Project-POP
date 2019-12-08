@@ -58,11 +58,12 @@ Graph.prototype.createGraph = function create(){
  * @function toPrecision -> number decimals that we want
  */
     this.info.sortTable().forEach(row => {
+        let newPhi = row.phi > 0 ? row.phi : row.phi * -1
         let div = document.createElement('div')
         div.setAttribute('title', `Probabilidad ${(row.phi * 100).toPrecision(4)}%`)
         div.setAttribute('data-name', row.item)
         div.setAttribute('class', 'bar')
-        div.setAttribute('style', `--bar-value:${row.phi * 100}%`)
+        div.setAttribute('style', `--bar-value:${newPhi * 100}%`)
         Graph.divGraph.appendChild(div)
     });
     graph.appendChild(Graph.divGraph)
