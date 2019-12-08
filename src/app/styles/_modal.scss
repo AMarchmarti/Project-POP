@@ -16,6 +16,7 @@
           pointer-events: auto;
       }
       &>div {
+          width: 300px;
           max-width: 400px;
           max-height: 600px;
           overflow-y: auto;
@@ -33,6 +34,7 @@
       h1 {
           font-size: 150%;
           margin: 0 0 15px;
+          color: var(--pink-A200);
       }
       .modal-close {
           color: #aaa;
@@ -47,5 +49,8 @@
           &:hover {
               color: black;
           }
+      }
+      img {
+          width: 100px;
       }
   }
