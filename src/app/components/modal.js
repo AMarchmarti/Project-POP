@@ -30,11 +30,22 @@ function searchImage(item) {
      */
     const dir = "/img/events/";
 
-    try {
-        return dir + item + ".png";
-    } catch {
-        return "";
+  let arrayTemp = item.split('');
+
+  arrayTemp.forEach( letter => {
+    if (letter === 'ñ'){
+      let index = arrayTemp.indexOf('ñ')
+      console.log('index :', index);
+      arrayTemp.splice(index, 1, 'n')
+      item = arrayTemp.join('')
     }
+  })
+
+  try {
+    return dir + item + ".png";
+  } catch {
+    return "";
+  }
 }
 
 Modal.prototype.constructorModal = function modalConstructor(
@@ -132,18 +143,19 @@ Modal.prototype.bodyModal = function createBody(element, table) {
     element["eventos"].forEach(item => {
         let pModal = document.createElement("p");
 
-        // We create the component image in the DOM and show the image in the correponent folder
-        let img = document.createElement("img");
-        img.setAttribute("src", searchImage(item));
-        pModal.textContent = item;
-        img.setAttribute("alt", `image${item}`);
-        let divImage = document.createElement('div');
+    // We create the component image in the DOM and show the image in the correponent folder
+    let img = document.createElement("img");
+    img.setAttribute("src", searchImage(item));
+    pModal.textContent = item;
+    img.setAttribute("alt", `image${item}`);
+    let divImage = document.createElement('div')
 
-        // Join all the elements in the body of the modal
-        divImage.appendChild(img);
-        body.appendChild(pModal);
-        body.appendChild(divImage);
-    });
+    // Join all the elements in the body of the modal
+    divImage.appendChild(img);
+    body.appendChild(pModal);
+
+    body.appendChild(divImage);
+  });
 
     let h3 = document.createElement("h3");
     let gif = document.createElement('img')
