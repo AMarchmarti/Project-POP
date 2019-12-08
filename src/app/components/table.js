@@ -48,9 +48,27 @@ Table.prototype.tableBody = function tableBody(){
         let tdItem = document.createElement('td')
         tdItem.textContent = row.item
 
+
         // Almost same process than the other one, make a td for second column
         let tdMatrix = document.createElement('td')
-        tdMatrix.textContent = row.matrix
+        row.matrix.forEach( a => {
+            a.forEach( value =>{
+                let span = document.createElement('span')
+                
+                if(row.matrix[0][0] === value){
+                    span.setAttribute('data-md-tooltip', 'Las veces que no ha hecho este evento ni se ha transformado')
+                }else if(row.matrix[0][1] === value){
+                    span.setAttribute('data-md-tooltip', 'Las veces que ha hecho esta tarea pero no se ha transformado')
+                }if(row.matrix[1][0] === value){
+                    span.setAttribute('data-md-tooltip', 'Las veces que se ha transformado pero no ha hecho esta tarea')
+                }else {
+                    span.setAttribute('data-md-tooltip', 'Las veces que ha efectuado esta tarea se ha transformado en pulpo')
+                }
+                (row.matrix[1][1] === value) ? span.textContent = `${value}` : span.textContent = `${value} - `
+               
+                tdMatrix.appendChild(span) 
+            })
+        })
 
 
         /**
