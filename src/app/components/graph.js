@@ -63,8 +63,10 @@ Graph.prototype.createGraph = function create() {
   this.info.sortTable().forEach(row => {
     let newPhi = row.phi > 0 ? row.phi : row.phi * -1;
     let div = document.createElement("div");
+    let span = document.createElement("span");
 
-    div.setAttribute("data-md-tooltip", `Evento: ${row.item} Probabilidad: ${(row.phi * 100).toPrecision(4)}%`);
+    span.setAttribute("data-md-tooltip", `Evento: ${row.item} Probabilidad: ${(row.phi * 100).toPrecision(4)}%`);
+    div.appendChild(span)
     div.setAttribute("class", "bar");
     div.setAttribute("style", `--bar-value:${newPhi * 100}%`);
     Graph.divGraph.appendChild(div);
