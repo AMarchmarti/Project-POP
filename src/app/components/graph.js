@@ -18,13 +18,13 @@ graph.style.display = "none";
  */
 buttonGraph.textContent = "Mostrar gráfica";
 buttonGraph.onclick = function() {
-  if (graph.style.display === "none") {
-    graph.style.display = "block";
-    buttonGraph.textContent = "Ocultar gráfica";
-  } else if (graph.style.display === "block") {
-    graph.style.display = "none";
-    buttonGraph.textContent = "Mostrar gráfica";
-  }
+    if (graph.style.display === "none") {
+        graph.style.display = "flex";
+        buttonGraph.textContent = "Ocultar gráfica";
+    } else if (graph.style.display === "flex") {
+        graph.style.display = "none";
+        buttonGraph.textContent = "Mostrar gráfica";
+    }
 };
 
 /**
@@ -43,7 +43,7 @@ const Graph = Object.create(Object);
  */
 Graph.h2 = document.createElement("h2");
 Graph.h2.textContent =
-  "Gráfica de la correlación de los eventos y su probabilidad de que se transforme en pulpo";
+    "Gráfica de la correlación de los eventos y su probabilidad de que se transforme en pulpo";
 Graph.h2.setAttribute("class", "title");
 
 Graph.divGraph = document.createElement("div");
