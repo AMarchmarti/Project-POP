@@ -91,4 +91,67 @@ TableInfo.prototype.columns = function Columns() {
   return Object.keys(this.result()[0]);
 };
 
+TableInfo.prototype.sortTable = function sortTable(){
+  /**
+   * Method for ordering our information @table by the probability that it becomes an octopus or not.
+   * We had to create this 
+   * @method sortTable because the @function sort 
+   * belonging to the parent 
+   * @name Array 
+   * orders only with positive numbers, then the negatives, makes them as if they were positive, 
+   * taking into account the script in front, that is, first look at the symbol and then order 
+   * the number doing so that the positive numbers are well ordered and the negative 
+   * ones as if they were positive
+   * 
+   * We separate in two arrays our map:
+   * @member arrayTempNegative
+   * @member arrayTempPositive
+   */
+  let arrayTempNegative = []
+  let arrayTempPositive = []
+
+  /**
+   * We traverse our map with the results and divide it into the two array according 
+   * to positive and negative. But first we convert the property of the 
+   * @object that we are seen in @number
+   */
+  this.result().forEach( row => {
+      let newPhi = Number(row.phi)
+      if (newPhi < 0){
+          arrayTempNegative.push(newPhi)
+      }else {
+        arrayTempPositive.push(row.phi)
+      }
+  })
+    // We sort normally, using the sort method the positive numbers
+    arrayTempPositive.sort()
+
+    /**
+     * We create a new array where we order how we want the array with the 
+     * negative numbers and use the 
+     * @function concat 
+     * to join them
+     */
+    let correctArry = arrayTempNegative.sort().reverse().concat(arrayTempPositive)
+
+    let resultArray = []
+    let items = this.result()
+
+    //Finally we rebuild our map with the order we have specified
+    correctArry.forEach ( phi => {
+    let found = false;
+    items = items.filter( item => {
+      if(!found && item.phi === phi){
+        resultArray.push(item)
+        found = true
+        return false
+      }else{
+        return true
+      }
+    })
+  })
+
+  return resultArray
+  }
+
 module.exports = TableInfo;
