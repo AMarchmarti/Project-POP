@@ -20,7 +20,7 @@ Table.prototype.tableHeader = function tableHeader() {
     this.info.columns().forEach(element => {
         let th = document.createElement('th');
         if (element === 'item') {
-            th.textContent = 'Evento';
+            th.textContent = 'Eventos';
         } else if (element === 'matrix') {
             th.textContent = 'Matriz de correlación';
         } else {
@@ -47,6 +47,7 @@ Table.prototype.tableBody = function tableBody() {
         //its Node text contains the name of Mariano's event
         let tdItem = document.createElement('td');
         tdItem.textContent = row.item;
+
 
 
         // Almost same process than the other one, make a td for second column

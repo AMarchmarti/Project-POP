@@ -14,29 +14,27 @@ const Modal = Object.create(Object);
  * @param item
  */
 function searchImage(item) {
-    /**
-     * Its utility is to look for images in the directory that we have told it.
-     * @dir
-     * @fileImge
-     * @nameImage
-     * These images will have the name of the item we are looking for and will try to return it if it exists
-     * @returns string that indicates where the image is
-     * with any suffix
-     * @png
-     * @jpg
-     * @jpeg
-     * that we have provided
-     * @returns file
-     */
-    const dir = "../img/events/";
-    let nameImage = item.replace(/ /g, "").toLowerCase();
+  /**
+   * Its utility is to look for images in the directory that we have told it.
+   * @dir
+   * @fileImge
+   * @nameImage
+   * These images will have the name of the item we are looking for and will try to return it if it exists
+   * @returns string that indicates where the image is
+   * with any suffix
+   * @png
+   * @jpg
+   * @jpeg
+   * that we have provided
+   * @returns file
+   */
+  const dir = "/img/events/";
 
-    try {
-        console.log("nameImaeg :", typeof(dir + nameImage + ".png"));
-        return dir + nameImage + ".png";
-    } catch {
-        return "";
-    }
+  try {
+    return dir + item + ".png";
+  } catch {
+    return "";
+  }
 }
 
 Modal.prototype.constructorModal = function modalConstructor(
@@ -134,11 +132,16 @@ Modal.prototype.bodyModal = function createBody(element, table) {
     element["eventos"].forEach(item => {
         let pModal = document.createElement("p");
 
-        // We create the component image in the DOM and show the image in the correponent folder
-        let img = document.createElement("img");
-        img.setAttribute("src", "/app/assets/img/events/mejillones.png");
-        pModal.textContent = item;
-        img.setAttribute("alt", `image${item}`);
+    // We create the component image in the DOM and show the image in the correponent folder
+    let img = document.createElement("img");
+    img.setAttribute("src", searchImage(item));
+    pModal.textContent = item;
+    img.setAttribute("alt", `image${item}`);
+
+    // We show the results of the matrix, that we obtain from @table
+    let divMatrix = document.createElement("div");
+    divMatrix.textContent = `${table.recolectInfo.matrixItem(item)}`;
+    let divImage = document.createElement("div");
 
         // We show the results of the matrix, that we obtain from @table
         let divMatrix = document.createElement("div");
