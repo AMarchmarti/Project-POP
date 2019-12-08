@@ -67,7 +67,6 @@ Graph.prototype.createGraph = function create() {
             "title",
             `Probabilidad ${(row.phi * 100).toPrecision(4)}%`
         );
-        div.setAttribute("data-name", row.item);
         div.setAttribute("class", "bar");
         div.setAttribute("style", `--bar-value:${newPhi * 100}%`);
         Graph.divGraph.appendChild(div);

@@ -47,16 +47,12 @@ $grid-color:#aaa;
         border-bottom: none;
         border-left: 2px solid $grid-color;
         background: repeating-linear-gradient(90deg, transparent, transparent 19.5%, fadeout($grid-color, 30%) 20%);
-        .text {
-            height: $bar-size;
-            width: var(--bar-value);
-            align-self: flex-end;
-        }
         .bar {
             height: $bar-size;
             width: var(--bar-value);
             align-self: flex-start;
             margin: auto 0 auto 0;
+            margin-top: 5px;
             border-radius: 0 $bar-rounded $bar-rounded 0;
             &::after {
                 top: initial;

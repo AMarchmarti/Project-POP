@@ -517,7 +517,7 @@ main:hover {
 
 .grid .bar {
   background-color: var(--purple-700);
-  width: 55px;
+  width: 45px;
   height: var(--bar-value);
   -ms-flex-item-align: end;
       align-self: flex-end;
@@ -551,15 +551,8 @@ main:hover {
   background: repeating-linear-gradient(90deg, transparent, transparent 19.5%, fadeout(#aaa, 30%) 20%);
 }
 
-.grid.horizontal .text {
-  height: 55px;
-  width: var(--bar-value);
-  -ms-flex-item-align: end;
-      align-self: flex-end;
-}
-
 .grid.horizontal .bar {
-  height: 55px;
+  height: 45px;
   width: var(--bar-value);
   -ms-flex-item-align: start;
       align-self: flex-start;
@@ -577,7 +570,7 @@ main:hover {
   position: absolute;
   -webkit-transform: rotate(0deg);
           transform: rotate(0deg);
-  line-height: 55px;
+  line-height: 45px;
 }
 
 #graph_component {

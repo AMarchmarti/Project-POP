@@ -727,7 +727,6 @@ Graph.prototype.createGraph = function create() {
     var newPhi = row.phi > 0 ? row.phi : row.phi * -1;
     var div = document.createElement("div");
     div.setAttribute("title", "Probabilidad ".concat((row.phi * 100).toPrecision(4), "%"));
-    div.setAttribute("data-name", row.item);
     div.setAttribute("class", "bar");
     div.setAttribute("style", "--bar-value:".concat(newPhi * 100, "%"));
     Graph.divGraph.appendChild(div);
@@ -765,7 +764,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51413" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52179" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
