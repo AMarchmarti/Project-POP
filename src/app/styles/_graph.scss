@@ -14,6 +14,7 @@ $grid-color:#aaa;
 }
 
 .grid {
+    z-index: 0;
     width: 100%;
     height: 80%;
     display: flex;
@@ -21,7 +22,32 @@ $grid-color:#aaa;
     justify-content: center;
     border-bottom: 2px solid $grid-color;
     background: repeating-linear-gradient(0deg, transparent, transparent 19.5%, fadeout($grid-color, 30%) 20%);
+    [data-md-tooltip] {
+        position: relative;
+    }
+    [data-md-tooltip]:before {
+        content: attr(data-md-tooltip);
+        position: absolute;
+        z-index: 9999999;
+        width: 200px;
+        bottom: -55px;
+        left: 50%;
+        padding: 8px;
+        transform: translateX(-50%) scale(0);
+        transition: transform 0.3s ease-in-out;
+        transform-origin: top;
+        background: #616161e6;
+        color: white;
+        border-radius: 2px;
+        font-size: 12px;
+        font-weight: 400;
+        opacity: 1;
+    }
+    [data-md-tooltip]:hover:before {
+        transform: translateX(-50%) scale(1);
+    }
     .bar {
+        z-index: 0;
         background-color: $bar-color;
         width: $bar-size;
         height: var(--bar-value);
@@ -44,10 +70,12 @@ $grid-color:#aaa;
     }
     &.horizontal {
         flex-direction: column;
+        z-index: 0;
         border-bottom: none;
         border-left: 2px solid $grid-color;
         background: repeating-linear-gradient(90deg, transparent, transparent 19.5%, fadeout($grid-color, 30%) 20%);
         .bar {
+            z-index: 0;
             height: $bar-size;
             width: var(--bar-value);
             align-self: flex-start;
