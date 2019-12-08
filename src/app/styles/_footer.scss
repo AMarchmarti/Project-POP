@@ -6,7 +6,15 @@ footer {
     color: white;
     text-align: center;
     box-shadow: 0 -3px 10px 3px rgba(0, 0, 0, 0.2);
+    div {
+        display: flex;
+        justify-content: center;
+        /* align horizontal */
+        align-items: center;
+        /* align vertical */
+    }
     .github {
+        margin-left: 10px;
         width: 120px;
     }
     .gitPat {
