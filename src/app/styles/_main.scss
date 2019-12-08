@@ -67,21 +67,26 @@
 
 #solution {
     margin-bottom: 50px;
-    button {
-        border: none;
-        height: 40px;
-        width: 100%;
-        max-width: 220px;
-        margin: auto;
-        background: right bottom linear-gradient(to right, var(--pink-A200) 50%, var(--purple-700) 50%);
-        background-size: 200% 100%;
-        transition: all .3s ease-out;
-        color: #ffffff;
-        outline: none;
-        cursor: pointer;
+    div {
+        display: flex;
+        justify-content: center;
+        button {
+            border: none;
+            height: 40px;
+            min-width: 200px;
+            background: right bottom linear-gradient(to right, var(--pink-A200) 50%, var(--purple-700) 50%);
+            background-size: 200% 100%;
+            transition: all .3s ease-out;
+            color: #ffffff;
+            outline: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-position: left bottom;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        }
     }
-    button:hover {
-        background-position: left bottom;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    .consDiario {
+        margin-right: 50px;
     }
 }
