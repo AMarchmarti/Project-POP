@@ -27,11 +27,10 @@ function searchImage(item) {
    * that we have provided
    * @returns file
    */
-  const dir = "../img/events/";
+  const dir = "/img/events/";
   let nameImage = item.replace(/ /g, "").toLowerCase();
 
   try {
-    console.log("nameImaeg :", typeof (dir + nameImage + ".png"));
     return dir + nameImage + ".png";
   } catch {
     return "";
@@ -135,7 +134,7 @@ Modal.prototype.bodyModal = function createBody(element, table) {
 
     // We create the component image in the DOM and show the image in the correponent folder
     let img = document.createElement("img");
-    img.setAttribute("src", "/app/assets/img/events/mejillones.png");
+    img.setAttribute("src", searchImage(item));
     pModal.textContent = item;
     img.setAttribute("alt", `image${item}`);
     
