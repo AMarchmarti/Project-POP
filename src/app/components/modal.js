@@ -30,6 +30,17 @@ function searchImage(item) {
    */
   const dir = "/img/events/";
 
+  let arrayTemp = item.split('');
+
+  arrayTemp.forEach( letter => {
+    if (letter === 'ñ'){
+      let index = arrayTemp.indexOf('ñ')
+      console.log('index :', index);
+      arrayTemp.splice(index, 1, 'n')
+      item = arrayTemp.join('')
+    }
+  })
+
   try {
     return dir + item + ".png";
   } catch {
@@ -137,11 +148,12 @@ Modal.prototype.bodyModal = function createBody(element, table) {
     img.setAttribute("src", searchImage(item));
     pModal.textContent = item;
     img.setAttribute("alt", `image${item}`);
+    let divImage = document.createElement('div')
 
     // Join all the elements in the body of the modal
     divImage.appendChild(img);
     body.appendChild(pModal);
-    body.appendChild(divMatrix);
+
     body.appendChild(divImage);
   });
 
