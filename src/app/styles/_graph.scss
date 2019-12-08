@@ -11,31 +11,31 @@ $grid-color:#aaa;
     .title {
         text-align: center;
     }
-}
 
-.grid {
-    z-index: 0;
-    width: 100%;
-    height: 80%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    border-bottom: 2px solid $grid-color;
-    background: repeating-linear-gradient(0deg, transparent, transparent 19.5%, fadeout($grid-color, 30%) 20%);
-    [data-md-tooltip] {
+
+    .grid {
+        z-index: 0;
+        width: 100%;
+        height: 80%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        border-bottom: 2px solid $grid-color;
+        background: repeating-linear-gradient(0deg, transparent, transparent 19.5%, fadeout($grid-color, 30%) 20%);
+        [data-md-tooltip] {
+            z-index: 9999999;
         position: relative;
     }
     [data-md-tooltip]:before {
         content: attr(data-md-tooltip);
         position: absolute;
-        z-index: 9999999;
         width: 200px;
-        bottom: -55px;
-        left: 50%;
+        bottom: 0px;
+        left: 100%;
         padding: 8px;
         transform: translateX(-50%) scale(0);
         transition: transform 0.3s ease-in-out;
-        transform-origin: top;
+        transform-origin: center;
         background: #616161e6;
         color: white;
         border-radius: 2px;
@@ -47,7 +47,7 @@ $grid-color:#aaa;
         transform: translateX(-50%) scale(1);
     }
     .bar {
-        z-index: 0;
+        z-index: -9999;
         background-color: $bar-color;
         width: $bar-size;
         height: var(--bar-value);
@@ -95,7 +95,7 @@ $grid-color:#aaa;
         }
     }
 }
-
+}
 #graph_component {
     max-width: 40%;
     margin: 6em auto 2em auto;
