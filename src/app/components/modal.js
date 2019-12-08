@@ -41,17 +41,6 @@ function searchImage(item) {
     }
   })
 
-  let arrayTemp = item.split('');
-
-  arrayTemp.forEach( letter => {
-    if (letter === 'ñ'){
-      let index = arrayTemp.indexOf('ñ')
-      console.log('index :', index);
-      arrayTemp.splice(index, 1, 'n')
-      item = arrayTemp.join('')
-    }
-  })
-
   try {
     return dir + item + ".png";
   } catch {
