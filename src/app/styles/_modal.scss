@@ -10,13 +10,14 @@
       opacity: 0;
       pointer-events: none;
       transition: all 0.3s;
+      text-align: center;
       &:target {
           visibility: visible;
           opacity: 1;
           pointer-events: auto;
       }
       &>div {
-          width: 300px;
+          width: 400px;
           max-width: 400px;
           max-height: 600px;
           overflow-y: auto;
@@ -27,6 +28,7 @@
           padding: 2em;
           background: #ffffff;
           box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+          transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
       }
       header {
           font-weight: bold;
@@ -52,5 +54,11 @@
       }
       img {
           width: 100px;
+      }
+  }
+  
+  @media (max-width: 500px) {
+      .window div {
+          width: 300px;
       }
   }

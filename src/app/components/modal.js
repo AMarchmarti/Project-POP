@@ -137,23 +137,24 @@ Modal.prototype.bodyModal = function createBody(element, table) {
         img.setAttribute("src", searchImage(item));
         pModal.textContent = item;
         img.setAttribute("alt", `image${item}`);
+        let divImage = document.createElement('div');
 
-    // Join all the elements in the body of the modal
-    divImage.appendChild(img);
-    body.appendChild(pModal);
-    body.appendChild(divMatrix);
-    body.appendChild(divImage);
-  });
+        // Join all the elements in the body of the modal
+        divImage.appendChild(img);
+        body.appendChild(pModal);
+        body.appendChild(divImage);
+    });
 
-  let h3 = document.createElement("h3");
-  let gif = document.createElement('img')
-  if (element["pulpo"]) {
-    h3.textContent = "Me he convertido en pulpo";
-    gif.setAttribute('src', '/img/turned.gif')
-  } else {
-    h3.textContent = "Bien! No me he convertido";
-    gif.setAttribute('src', '/img/notTurned.gif')
-  }
-  body.appendChild(h3);
-  return body;
+    let h3 = document.createElement("h3");
+    let gif = document.createElement('img')
+    if (element["pulpo"]) {
+        h3.textContent = "Me he convertido en pulpo";
+        gif.setAttribute('src', '/img/turned.gif')
+    } else {
+        h3.textContent = "¡Bien! No me he convertido en pulpo";
+        gif.setAttribute('src', '/img/notTurned.gif')
+    }
+    body.appendChild(h3);
+    body.appendChild(gif);
+    return body;
 };
