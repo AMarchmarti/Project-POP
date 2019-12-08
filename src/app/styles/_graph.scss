@@ -74,7 +74,7 @@ $grid-color:#aaa;
         width: 100%;
         max-width: 220px;
         margin: auto;
-        background: right bottom linear-gradient(to right, #4a148c 50%, #7b1fa2 50%);
+        background: right bottom linear-gradient(to right, var(--pink-A200) 50%, var(--purple-700) 50%);
         background-size: 200% 100%;
         transition: all .3s ease-out;
         color: #ffffff;
