@@ -1,11 +1,18 @@
 footer {
+    font-size: 12px;
     grid-area: footer;
     padding: 1rem;
     background-color: #333333;
     color: white;
     text-align: center;
     box-shadow: 0 -3px 10px 3px rgba(0, 0, 0, 0.2);
+    div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
     .github {
+        margin-left: 10px;
         width: 120px;
     }
     .gitPat {
@@ -13,11 +20,11 @@ footer {
     }
     .aws {
         margin-left: 20px;
-        width: 100px;
+        width: 75px;
     }
     .heroku {
         margin-left: 20px;
-        width: 50px;
+        width: 38px;
     }
 }
 

@@ -1,11 +1,13 @@
-'use strict'
+/*jshint esversion: 6 */
+'use strict';
+
 /**
  * We ask our document to give us the html component with the id that we request through:
  * @param calendar_component
  * @document
  * @function @getElementById
  */
-const calendar = document.getElementById('calendar_component')
+const calendar = document.getElementById('calendar_component');
 
 
 /**
@@ -25,68 +27,69 @@ const Calendar = Object.create(Object);
  * @modal -> Extern component
  */
 
-Calendar.TableInfo = require('../../back/scripts/index')
-Calendar.modal = require('./modal')
+Calendar.TableInfo = require('../../back/scripts/index');
+Calendar.modal = require('./modal');
 
 
-Calendar.prototype.createCalendar = function createCalendar(events){
+Calendar.prototype.createCalendar = function createCalendar(events) {
     /**
      * Function for the creation of the calendar, divided by months containing 
      * the name of the days of the week and the main and div container of the days of the month
      * @param events -> array that contains the events of days and reset every 30 days
      * @weekDays -> Array with the name of the days of week
      */
-    let main = document.createElement('main')
-    const weekDays  =['Lun','Mar','Mié','Jue','Vie','Sáb','Dom']
-    
-    let divWeek = document.createElement('div')
+    let main = document.createElement('main');
+    const weekDays = ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'];
+
+    let divWeek = document.createElement('div');
     divWeek.setAttribute('class', 'day-of-week')
-    
-    let divCalendar = document.createElement('div')
-    divCalendar.setAttribute('class', 'calendar')
-    
-    let div  = document.createElement('div')
-    div.setAttribute('class', 'date-grid')
 
-    events.forEach( event => {
-        div.appendChild(event)
-    })
+    let divCalendar = document.createElement('div');
+    divCalendar.setAttribute('class', 'calendar');
 
-    weekDays.forEach( day => {
-        let divDay  = document.createElement('div')
-        divDay.textContent = day
-        divWeek.appendChild(divDay)
-        
-    })
-    divCalendar.appendChild(divWeek)
-    divCalendar.appendChild(div)
-    main.appendChild(divCalendar)
-    calendar.appendChild(main)
-}
-Calendar.prototype.buttonModal = function showModal(index){
+    let div = document.createElement('div');
+    div.setAttribute('class', 'date-grid');
+
+    events.forEach(event => {
+        div.appendChild(event);
+    });
+
+    weekDays.forEach(day => {
+        let divDay = document.createElement('div');
+        divDay.textContent = day;
+        divWeek.appendChild(divDay);
+    });
+    divCalendar.appendChild(divWeek);
+    divCalendar.appendChild(div);
+    main.appendChild(divCalendar);
+    calendar.appendChild(main);
+};
+
+Calendar.prototype.buttonModal = function showModal(index) {
     /**
      * Here we create the button to activate the manners, it has as a link element, 
      * due to the ease to activate the modal and to be able to reference each of 
      * the manners more easily
      * @param index
      */
-    let buttonOpen = document.createElement('a')
-    buttonOpen.setAttribute('href', `#openModal${index}`)
-    buttonOpen.setAttribute('class', 'btn')
-    let button = document.createElement('button')
-   if (index < 9){
-        button.textContent = `0${index + 1}`
-   } else if (9 < index && index < 30){
-        button.textContent = `${index + 1}`
-   } else {
-       (index % 30) < 9
-        ? button.textContent = `0${(index % 30) + 1}`
-        : button.textContent = `${(index % 30)+ 1}`
-   }
-    
-    buttonOpen.appendChild( button)
-    return buttonOpen
-}
+    let buttonOpen = document.createElement('a');
+    buttonOpen.setAttribute('href', `#openModal${index}`);
+    buttonOpen.setAttribute('class', 'btn');
+    let button = document.createElement('button');
+    if (index < 9) {
+        button.textContent = `0${index + 1}`;
+    } else if (9 < index && index < 30) {
+        button.textContent = `${index + 1}`;
+    } else {
+        (index % 30) < 9
+            ?
+            button.textContent = `0${(index % 30) + 1}` :
+            button.textContent = `${(index % 30)+ 1}`;
+    }
+
+    buttonOpen.appendChild(button);
+    return buttonOpen;
+};
 
 
 Calendar.prototype.constructorCalendar = function showDays() {
@@ -110,18 +113,18 @@ Calendar.prototype.constructorCalendar = function showDays() {
      * @function this.createCalendar
      * 
      */
-    let events = []
+    let events = [];
     const DIARY = this.TableInfo.recolectInfo.diary;
-    for(let index = 0; index <= DIARY.length - 1; index++){
-        let modal = this.modal.constructorModal(DIARY[index], index, this.TableInfo)
-        calendar.appendChild(modal)
-        events.push(this.buttonModal(index))
-        if((index + 1) % 30 === 0 ){
-           this.createCalendar(events)
-            events = []
+    for (let index = 0; index <= DIARY.length - 1; index++) {
+        let modal = this.modal.constructorModal(DIARY[index], index, this.TableInfo);
+        calendar.appendChild(modal);
+        events.push(this.buttonModal(index));
+        if ((index + 1) % 30 === 0) {
+            this.createCalendar(events);
+            events = [];
         }
     }
-}
+};
 
 /**
  * Almost at the end we call the function constructorCalendar that will create the calendar 
@@ -129,6 +132,4 @@ Calendar.prototype.constructorCalendar = function showDays() {
  * @Calendar
  * @constructorCalendar
  */
-Calendar.constructorCalendar()
-
- 
+Calendar.constructorCalendar();
