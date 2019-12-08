@@ -20,7 +20,7 @@ Table.prototype.tableHeader = function tableHeader() {
     this.info.columns().forEach(element => {
         let th = document.createElement('th');
         if (element === 'item') {
-            th.textContent = 'Eventos';
+            th.textContent = 'Evento';
         } else if (element === 'matrix') {
             th.textContent = 'Matriz de correlación';
         } else {

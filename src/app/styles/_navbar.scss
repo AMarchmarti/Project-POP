@@ -32,9 +32,9 @@ nav {
                 width: 30px;
                 transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
                 padding-right: 10px;
-            }
-            img:hover {
-                content: url('../assets/img/logo-top.png');
+                &:hover {
+                    content: url('../assets/img/logo-top.png');
+                }
             }
             a {
                 transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
@@ -47,8 +47,7 @@ nav {
     color: white;
     text-decoration: none;
     padding: 15px;
-}
-
-.links:hover {
-    color: var(--pink-A200);
+    &:hover {
+        color: var(--pink-A200);
+    }
 }
