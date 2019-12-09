@@ -276,12 +276,12 @@ Dejando al lado el tema de ``GIT``, las veces que pudimos trabajar "codo con cod
 # Conclusiones
 
 ## Posibles mejoras
-Refactorización del código para no efectuar tanta repetición, quizás crear un objeto prototypado para poder coger las diferentes funcionalidades del proyecto y poder acceder a esos código de forma global
++ Refactorización del código para no efectuar tanta repetición, quizás crear un objeto prototypado para poder coger las diferentes funcionalidades del proyecto y poder acceder a esos código de forma global
 
-Restructuración del proyecto, grácias a la refactorización que hemos dicho anteriormente sería posible construir elementes más sólidos que podríamos ir usando a lo largo de la aplicación
++ Restructuración del proyecto, grácias a la refactorización que hemos dicho anteriormente sería posible construir elementes más sólidos que podríamos ir usando a lo largo de la aplicación
 
 ## Principales dificultades encontradas
-Fallo en la obtención de los datos, no entendemos muy bien que ocurre dentro de la promesa ejercida
-Insercción por tablas del diario en la BBDD
-Funcionamiento del prototype (Resuelto)
++ Fallo en la obtención de los datos, no entendemos muy bien que ocurre dentro de la promesa ejercida
++ Insercción por tablas del diario en la BBDD
++ Funcionamiento del prototype (Resuelto)
 
