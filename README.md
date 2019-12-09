@@ -1,3 +1,6 @@
+# Index
+    + [Introduccion](#Introduccion)
+
 # Introducción
 Vamos a realizar un poyecto web para observar el comportamiento de Mariano. Para eso, hemos anotado en un diario los eventos 
 que ha ido haciendo durante su día a día y si se convertía en pulpo. Pero antes de empezar a explicar las características del 
