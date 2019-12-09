@@ -21,6 +21,10 @@ a {
   text-decoration: none;
 }
 
+button {
+  font-family: 'GoogleSans';
+}
+
 :root {
   --purple-050: #f3e5f5;
   --purple-100: #e1bee7;
