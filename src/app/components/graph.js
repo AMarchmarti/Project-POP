@@ -59,6 +59,9 @@ Graph.prototype.createGraph = function create() {
      * its probability, even if you have it in the table
      * @function sortTable -> order table
      * @function toPrecision -> number decimals that we want
+     * We create two palettes of colors, one for negatives numbers, the other one for positive numbers
+     * @name paletteNegatives
+     * @name palettePositives
      */
     const paletteNegatives = ['#f0f4f8', '#d9e2ec', '#bcccdc',
         '#9fb3c8', '#829ab1', '#627d98', '#486581',
@@ -76,13 +79,30 @@ Graph.prototype.createGraph = function create() {
         '#ad1457',
         '#880e4f'
     ];
+
+    //We created a temporal array to keep the repeat elements, this elements have to the same colour
     let indexNegatives = paletteNegatives.length - 1;
     let indexPositives = 0;
     let arrayTemp = [];
+
+    //we go through the ordered table
     this.info.sortTable().forEach(row => {
+        /**
+         * create a new number phi for negatives numbers appears in the graph
+         * since the size of the bars was negative and therefore they did not 
+         * appear on the graph
+         * @name newPhi
+         */
         let newPhi = row.phi > 0 ? row.phi : row.phi * -1;
         let div = document.createElement("div");
 
+
+        /**
+         * Here is the conditional that the graph draws us what it indicates is if the temporal 
+         * array that we have assigned. It indicates that if the element is not in the array it 
+         * will be added and one will be subtracted in the index of negatives and one will be 
+         * added in the index of positives
+         */
         if (row.phi < 0) {
             div.setAttribute("style", `--bar-value:${newPhi * 100}%; background-color: ${paletteNegatives[indexNegatives]}`);
             if (!arrayTemp.includes(row.phi)) {
@@ -96,6 +116,8 @@ Graph.prototype.createGraph = function create() {
                 indexPositives++;
             }
         }
+
+        //Here we add our graph tooltip
         div.setAttribute("data-md-tooltip", `Evento: ${row.item} Probabilidad: ${(row.phi * 100).toPrecision(4)}%`);
         div.setAttribute("class", "bar");
 

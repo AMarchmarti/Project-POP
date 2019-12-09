@@ -238,4 +238,35 @@ Tanto en la gráfica como en la tabla tenemos los elementos ordenados con el mé
 
 **Hemos dividido en partes lo máximo posible la creación de los elementos para intentar seguir lo máximo posible el diseño de átomos, para obtener un código más mantenible y legible, además de reutilizable**
 
+<a name="met"></a>
+
+# Metodología de trabajo
+Cómo ya hemos mencionado con anterioridad hemos usado la metodología de integración contínua usando ``GIT``. Esta metodología nos permitía trabajar tanto jusntos como cada uno en su zona de confort. 
+
+La mécanica era simple, había un director del repositorio y dos modificadores, efectivamente había uno que ejercía tanto de modificador como director. El director se encargaba de revisar los **pull request** y las integraciones en la rama master. Los modificadores seguían el flujo por ramas, es decir las ramas provienen siempre de master, lo más actualizado posible y al querrer integrar el código en la rama master se pasaba un`` pull request`` dónde ambos miraban el código, si no había problemas el ``pull request`` se efectuaba completamente y se unían los commits en uno sólo.
+
+Esta mécanica nos permitía tener un control de master (*rama de producción*), con las ramas de desarrollo, manteniendo así un flujo fácil y mantenible, sin errores en el código de producción.
+
+La creación de ramas era a voluntad del modificador, siendo asi posible que una rama de estilos fuera mayor a una rama provista de código js. Por norma general cada componente del código se separó para poder visualizar el código mejor, mientras que la rama de estilos se fue integrando cada cierto tiempo.
+
+Los commits de las *ramas a producción se hacían en inglés* y explicando lo que iba insertarse, por tanto era un tiempo futuro.
+
+Las ramas las cuáles se estaban trabajando en ellas tenian un prefijo ``WIP``, work in progress, para no despisatr al director, por tanto cuando se quitaba ese prefijo, quería decir que la rama estaba lista para mergear, por tanto se efectuaba la inspección y posteriormente a la integración.
+
+Dejando al lado el tema de ``GIT``, las veces que pudimos trabajar "codo con codo", utilizamos la metodología de ``Pair programming``, dónde uno ejercia de conductor, siempre alternandonos, y el otro de copiloto. Esta técnica nos facilito el aprendizaje dual, además de tener un código bien estructurado, sin errores. Cabe decir, que gracias a esto ambos podíamos tocar cualquier parte del código, sabiendo lo que estabamaos efectuando.
+
+
+<a name="conc"></a>
+
+# Conclusiones
+
+## Posibles mejoras
+Refactorización del código para no efectuar tanta repetición, quizás crear un objeto prototypado para poder coger las diferentes funcionalidades del proyecto y poder acceder a esos código de forma global
+
+Restructuración del proyecto, grácias a la refactorización que hemos dicho anteriormente sería posible construir elementes más sólidos que podríamos ir usando a lo largo de la aplicación
+
+## Principales dificultades encontradas
+Fallo en la obtención de los datos, no entendemos muy bien que ocurre dentro de la promesa ejercida
+Insercción por tablas del diario en la BBDD
+Funcionamiento del prototype (Resuelto)
 
