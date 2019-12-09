@@ -60,13 +60,44 @@ Graph.prototype.createGraph = function create() {
    * @function sortTable -> order table
    * @function toPrecision -> number decimals that we want
    */
+  const paletteNegatives= ['#f0f4f8', '#d9e2ec','#bcccdc',
+                  '#9fb3c8', '#829ab1','#627d98','#486581',
+                          '#334e68',
+                          '#243b53',
+                          '#102a43']
+  const palettePositives = [
+                          '#f8bbd0',
+                          '#ec407a',
+                          '#c2185b',
+                          '#e91e63',
+                          '#d81b60',
+                          '#c2185b',
+                          '#ad1457', 
+                          '#880e4f']
+  let indexNegatives = paletteNegatives.length - 1
+  let indexPositives = 0
+  let arrayTemp = []
   this.info.sortTable().forEach(row => {
     let newPhi = row.phi > 0 ? row.phi : row.phi * -1;
     let div = document.createElement("div");
 
+    if (row.phi < 0) {
+      div.setAttribute("style", `--bar-value:${newPhi * 100}%; background-color: ${paletteNegatives[indexNegatives]}`);
+      if (!arrayTemp.includes(row.phi)){
+        arrayTemp.push(row.phi)
+        indexNegatives --
+      }
+    }else {
+      div.setAttribute("style", `--bar-value:${newPhi * 100}%; background-color: ${palettePositives[indexPositives]}`);
+      if (!arrayTemp.includes(row.phi)){
+        arrayTemp.push(row.phi)
+        indexPositives++
+      }
+      console.log('indexPositives :', indexPositives);
+    }
     div.setAttribute("data-md-tooltip", `Evento: ${row.item} Probabilidad: ${(row.phi * 100).toPrecision(4)}%`);
     div.setAttribute("class", "bar");
-    div.setAttribute("style", `--bar-value:${newPhi * 100}%`);
+   
     Graph.divGraph.appendChild(div);
   });
   graph.appendChild(Graph.divGraph);
