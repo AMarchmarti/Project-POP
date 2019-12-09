@@ -106,5 +106,3 @@ Graph.prototype.createGraph = function create() {
 
 graph.appendChild(Graph.h2);
 Graph.createGraph();
-graph.appendChild(Graph.h2);
-Graph.createGraph();
