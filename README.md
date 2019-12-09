@@ -184,6 +184,8 @@ manipulación del ``DOM``. Esta dividida en 4 subcarpetas:
 [PARTE DEL BACK]
 
 Para facilitar la explicación del funcionamiento, expondremos el nombre del archivo y su funcionamiento particular, así como la arquitectura, la explicación también será modular
+
+#### Manipulación de datos
 + ``db.js`` -> Este script efectúa una llamada al servidor, dónde tenemos el back, y obtendrémos los resultados de la ``BBDD``. Una vez hemos obtenido la respuesta, la convertimos
 en un código de tipo ``JSON`` y leemos el contenido, sumministrando en un array los resultados que obtenemos. Por tanto el resultado que obtenemos es un array de ojetos ``JSON``.
 
@@ -195,4 +197,32 @@ matriz (*matriz de correlación*), este lee el contenido y efectúa el proceso p
 sin repeticiones, por tanto de resultado obtendremos un array de 26 items, computo de eventos generales. La función **matrixItem(item)** es la obtención de la matriz de correlación
 del evento que pasemos por parámetro.
 
-+ ``index.js`` -> Este es el núcleo central entre la comunicación de los componentes y la manipulación de los datos
++ ``index.js`` -> Este es el núcleo central entre la comunicación de los componentes y la manipulación de los datos. La explicación más explicíta esta dentro del documento, pero explicaremos el funcionamiento general del script. Primeramente crearemos un objeto que apunte al prototipado el ``Object`` de javascript, este objeto le añadiremos las propiedades que necesitemos, después añadimos las funciones para mostrar los resultados:
+    - *calculatedMatrix*: mostrar la matrix del item seleccionado, eso es debido a que hacemos referencia a la propiedad que tiene para calcular la matrix, ya que una de sus propiedades es el objeto info
+    - *calculatedPhi*: cálculo de phi
+    - *row*: nos devolvera como resultado un objeto con las propiedades `item`( nombre del evento que pasamos por parametro), `matrix` y  `phi`
+    - *columns*: nos devuelve un array con las claves de los objetos de `row`
+    - *results*: nos devolverá los resultados de cada item en un array de objetos. Estos objetos son creados mediante la función `row`
+    - *sortTable*: es un método para ordenar nuestros resultado de menor a mayor, según la propiedad phi de cada objeto, teniendo en cuenta números negativos. Está funcionalidad surgió debido a que el método `sort()` de javascript no interpreta los números negativos, por tanto surgió la necesidad de implementar un método de ordenación con estas caractrísticas.
+
+#### Modificación del DOM
++ ``calendar.js``:Creación del componente calendario, dividido en tres funciones, la creacion de la estructura del calendario ``createCalendar()``, creación y funcionamiento del botón de cada día, que tiene como funcionalidad abrir el modal con el mismo índice ``buttonModal()`` y finalmente la construcción del modal, es decir la función es la composición de las otras dos funciones.
+
++ ``graph.js``: El funcionamiento de este componente es sencillo, es crear la gráfica tanto el tamaño de sus barras como su color de fondo, asi creamos una gráfica dinámica. Tenemos un botón llamado mostrar u ocultar gráfica, su funcionalidad es capturar el evento del click y dependiendo de su estado es mostrar o bien ocultar la gráfica
+
++ ``modal.js``: El script es la creación completa de un modal, pero la hemos dividido en diferentes funciones, haciendo así que cada función sirva para una tarea:
+    - *searchImage()*: es la única función que no forma parte del prototipado, ya que no nos perece que forme parte de la construcción del componente, sino una función de utilidad. Esta función busca una imagen en la carpeta que le decimos con el nombre que le pasamos cómo parámetro. Si consigue encontrarla nos devuelve la url de la imagen en format ``string`` sino nos devuelve un ``string`` vacío.
+    - *constructorModal()*: Es la construcción del modal en su totalidad, es la función que junta las piezas del modal
+    - *createDivModal()*: función que crea la caja dónde pintaremos el modal
+    - *closeModal()*: Es el cierre del modal, creación del item de cierre y funcionalidad de cerrar el modal
+    - *titleModal()*: Creación del titulo del modal
+    - *bodyModal()*: Creación del contenido del modal, pinta el contenido del modal.
+
++ ``table.js``: Creación de la tabla de correlaciones, mediante el evento click en el botón que veremos, mostramos en la pantalla el cálculo de la correlación
+
+Tanto en la gráfica como en la tabla tenemos los elementos ordenados con el método explicado con anterioridad.
+
+
+**Hemos dividido en partes lo máximo posible la creación de los elementos para intentar seguir lo máximo posible el diseño de átomos, para obtener un código más mantenible y legible, además de reutilizable**
+
+
