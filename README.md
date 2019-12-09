@@ -1,5 +1,5 @@
 # Index
-    + [Introduccion](#Introduccion)
++ [Introduccion](#Introduccion)
 
 # Introducción
 Vamos a realizar un poyecto web para observar el comportamiento de Mariano. Para eso, hemos anotado en un diario los eventos 
