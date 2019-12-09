@@ -698,7 +698,6 @@ function searchImage(item) {
   arrayTemp.forEach(function (letter) {
     if (letter === 'ñ') {
       var index = arrayTemp.indexOf('ñ');
-      console.log('index :', index);
       arrayTemp.splice(index, 1, 'n');
       item = arrayTemp.join('');
     }
