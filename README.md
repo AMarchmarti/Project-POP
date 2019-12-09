@@ -1,10 +1,10 @@
 # Index
 + [Introduccion](#Introduccion)
-+ [Iniciacion del proyecto](#Iniciacion-del-proyecto).
-+ [Arquitectura y Tecnologías del proyecto](#Arquitectura-y-Tecnologias-del-proyecto)
-+ [Funcionamiento del proyecto](#Funcionamiento-del-proyecto)
++ [Iniciacion del proyecto](#init).
++ [Arquitectura y Tecnologías del proyecto](#ayt)
++ [Funcionamiento del proyecto](#func)
 
-[]
+
 
 # Introducción
 Vamos a realizar un poyecto web para observar el comportamiento de Mariano. Para eso, hemos anotado en un diario los eventos 
@@ -86,6 +86,8 @@ influencia en que se produzca la transformación a pulpo.
 
 Bien ya sabemos todo lo necesario para empezar a explicar el proyecto.
 
+<a name="init"></a>
+
 # Iniciación del proyecto
 Antes de explicar la estructura o el funcionamiento de nuestro proyecto explicaremos como inicializarlo y que contiene nuestro gitignore.
 Para inicializar de manera local nuestro proyecto deberemos tener instalado la extensión del visual studio code:
@@ -131,6 +133,7 @@ Una anotación importante, es que esta aplicación está provisto de casos test 
 npm test
 ~~~
 
+<a name="ayt"></a>
 
 # Arquitectura y Tecnologías del proyecto
 
@@ -187,6 +190,8 @@ manipulación del ``DOM``. Esta dividida en 4 subcarpetas:
     - *pages*: aquí encontraremos nuestros archivos ``.html``, referenciados a las páginas de nuestro proyecto, es decir nuestro index principal no estará en esta carpeta
     - *styles*: Encontraremos nuestros archivos ``.scss`` y ``.css``, es decir en está carpeta encontraremos nuestros estilos.
 
+
+<a name="func"></a>
 
 # Funcionamiento del proyecto
 [PARTE DEL BACK]
