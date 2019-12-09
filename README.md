@@ -154,5 +154,11 @@ obteninendo un código seguro y con posible refactorización
 Primeramente hablaremos de la estructura general del proyecto. Hemos querido dividir el proyecto en dos partes, que además está dividido en dos repositorios.
 Por una parte esta el backend (AQUI VA TU EXPLICACION CARLOS)
 
+Por otra parte tenemos el frontend, el cuál hemos seguido una estructura modular dentro de la que sería nuestra carpeta source, pero primero empezaremos explicando
+los archivos y carpetas de nuestra carpeta raiz.
 
+    + Procfile: Documento para poder desplegar el frontend. En este documento especifica los comandos para  ejecutar la aplicación al inicio.
+    + package.json y package-lock.json: un manifiesto de nuestro proyecto. Manejo de las dependencia de nuestro proyecto. Garantizar la integridad del proyecto. 
+    Es decir, podemos asegurar que quienes tengan una copia del mismo, podrán acceder a las mismas propiedades y sincronizar entre múltiples partes cada vez que 
+    decidan hacer un cambio.
 
