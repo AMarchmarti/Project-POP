@@ -161,4 +161,21 @@ los archivos y carpetas de nuestra carpeta raiz.
 - **package.json y package-lock.json:** un manifiesto de nuestro proyecto. Manejo de las dependencia de nuestro proyecto. Garantizar la integridad del proyecto. 
     Es decir, podemos asegurar que quienes tengan una copia del mismo, podrán acceder a las mismas propiedades y sincronizar entre múltiples partes cada vez que 
     decidan hacer un cambio.
+- **heroku.js**: Script que nos permite inicializar un entorno de pruebas de heroku de nuestro proyecto en el puesrto 8080, además de efectuar el despliegue.
+- **src**: Carpeta ``source`` de nuestro proyecto, aqui se encuentra el código y la visualización de nuestro proyecto, más adelante lo explicaremos con detenimiento
+- **__test__**: Carpeta dónde encontraremos los test de nuestro código para manipular los datos del diario.
+
+### SRC
+Cómo hemos indicado esta es la carpeta ``source`` de nuestro proyecto, al introducirnos en ella encontraremos dos subcarpetas más:
++ **back**: aquí no encontraremos el back de nuestra aplicación, dónde accedemos a la base de datos, está carpeta es la manipulación de los datos recibidos mediante una
+llamada **AJAX** a nuestro backend. Encontraremos 4 scripts, esto es debido, como hemos dicho antes, por la estructura modular de nuestro proyecto, por tanto cada uno tiene 
+su própia función
++ **app**: Carpeta dónde se efectua la parte de vista de nuestro proyecto, ya sea por introducir nuevas páginas al proyecto o para agregar nuevos css o bien para la 
+manipulación del ``DOM``. Esta dividida en 4 subcarpetas: 
+    - *assets*: carpeta que tenemos para las utilidades del proyecto, ya sean iconos, fuentes o imágenes
+    - *components*: carpeta dónde encontraremos los scripts para la manipulación del ``DOM``. Hemos intentado hacer una estructura por componentes para poder reutilizar el código 
+    lo máximo posible. La idea principal era poder hacer una arquitectura **basada en átomos, moléculas, composiciones y páginas**, ya que podríamos tener un código facil de leer 
+    y mantener, ya que el mismo átomo hubiera servido por muchas moléculas, y así succesivamente.
+    - *pages*: aquí encontraremos nuestros archivos ``.html``, referenciados a las páginas de nuestro proyecto, es decir nuestro index principal no estará en esta carpeta
+    - *styles*: Encontraremos nuestros archivos ``.scss`` y ``.css``, es decir en está carpeta encontraremos nuestros estilos.
 
