@@ -47,6 +47,41 @@ $grid-color:#aaa;
         }
         .bar {
             z-index: -9999;
+            // background-color: $bar-color;
+            width: $bar-size;
+            height: var(--bar-value);
+            align-self: flex-end;
+            margin: 0 auto;
+            border-radius: $bar-rounded $bar-rounded 0 0;
+            position: relative;
+            transition: all .3s ease-out;
+            &.bar:hover {
+                opacity: 0.7;
+            }
+            [data-md-tooltip]:before {
+                content: attr(data-md-tooltip);
+                position: absolute;
+                width: 200px;
+                bottom: 0px;
+                left: 100%;
+                padding: 8px;
+                transform: translateX(-50%) scale(0);
+                transition: transform 0.3s ease-in-out;
+                transform-origin: center;
+                background: #616161e6;
+                color: white;
+                border-radius: 2px;
+                font-size: 12px;
+                font-weight: 400;
+                opacity: 1;
+            }
+        }
+        [data-md-tooltip]:hover:before {
+            transform: translateX(-50%) scale(1);
+        }
+        .bar {
+            transition: all .3s ease-out;
+            z-index: -9999;
             background-color: $bar-color;
             width: $bar-size;
             height: var(--bar-value);
@@ -68,12 +103,14 @@ $grid-color:#aaa;
             }
         }
         &.horizontal {
+            transition: all .3s ease-out;
             flex-direction: column;
             z-index: 0;
             border-bottom: none;
             border-left: 2px solid $grid-color;
             background: repeating-linear-gradient(90deg, transparent, transparent 19.5%, fadeout($grid-color, 30%) 20%);
             .bar {
+                transition: all .3s ease-out;
                 z-index: 0;
                 height: $bar-size;
                 width: var(--bar-value);
