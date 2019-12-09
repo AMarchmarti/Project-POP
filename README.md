@@ -1,5 +1,8 @@
 # Index
 + [Introduccion](#Introduccion)
++ [Introduccion](#Iniciaciondelproyecto)
++ [Introduccion](#ArquitecturayTecnologiasdelproyecto)
++ [Introduccion](#Funcionamientodelproyecto)
 
 # Introducción
 Vamos a realizar un poyecto web para observar el comportamiento de Mariano. Para eso, hemos anotado en un diario los eventos 
