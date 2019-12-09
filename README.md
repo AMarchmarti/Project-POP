@@ -179,3 +179,9 @@ manipulación del ``DOM``. Esta dividida en 4 subcarpetas:
     - *pages*: aquí encontraremos nuestros archivos ``.html``, referenciados a las páginas de nuestro proyecto, es decir nuestro index principal no estará en esta carpeta
     - *styles*: Encontraremos nuestros archivos ``.scss`` y ``.css``, es decir en está carpeta encontraremos nuestros estilos.
 
+
+# Funcionamiento del proyecto
+[PARTE DEL BACK]
+
+
+
