@@ -487,7 +487,6 @@ main:hover {
 
 .chart-wrap {
   height: 700px;
-  font-family: sans-serif;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
