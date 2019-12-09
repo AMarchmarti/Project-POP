@@ -48,7 +48,7 @@ $grid-color:#aaa;
     }
     .bar {
         z-index: -9999;
-        background-color: $bar-color;
+        // background-color: $bar-color;
         width: $bar-size;
         height: var(--bar-value);
         align-self: flex-end;
