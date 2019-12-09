@@ -118,7 +118,15 @@ src/app/styles/style.css
 src/app/styles/style.css.map
 ~~~
 
+Una anotación importante, es que esta aplicación está provisto de casos test sobre la obtención de datos, para poner en marcha estos test se requiere del comando:
+~~~
+npm test
+~~~
+
+
 # Arquitectura y Tecnologías del proyecto
+
+## Tecnoligías
 Este proyecto se basaba en utilizar *javascript vanilla*, por tanto no hemos usado ninguna librería ni framework para construirlo. En cuestión de javascript, nos
 hemos decantado para usar la versión más actualizada, es decir hemos usado la sintaxis **EC6**, sin embargo no hemos usado la sintaxis de ``class``, que es una
 de las nuevas incorporaciones de EC6.
@@ -133,5 +141,18 @@ La tecnología usada en el backend, registro del diario y lectura, hemos usado [
 
 Como hemos explicado antes hemos usado [SASS](https://sass-lang.com/), para poder modular y estructurar nuestros estilos, y por tanto tener más fácil el acceso a 
 las propiedades que queremos modificar o sea más fácil su lectura.
+
+Para poder hacer un entrono local y de pruebas hemos elegido usar [PARCEL](https://parceljs.org/), este es un empaquetador para poder desplegar nuestro proyecto en local,
+además de crearnos una carpeta ``/dist`` que sirve para poder desplegarlo en ``heroku``. 
+
+Para poder trabajar en conjunto hemos usado la tecnología más popular de integración contínua, [GIT](https://git-scm.com/).
+
+Finalmente hemos elegido usar [JEST](https://jestjs.io/docs/en/expect#methods) para poder aplicar casos test a nuestro proyecto, y poder tener seguridad, que estamos
+obteninendo un código seguro y con posible refactorización
+
+## Arquitectura
+Primeramente hablaremos de la estructura general del proyecto. Hemos querido dividir el proyecto en dos partes, que además está dividido en dos repositorios.
+Por una parte esta el backend (AQUI VA TU EXPLICACION CARLOS)
+
 
 
