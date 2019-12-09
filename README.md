@@ -1,8 +1,12 @@
+<a name="top"></a>
+
 # Index
 + [Introduccion](#Introduccion)
 + [Iniciacion del proyecto](#init).
 + [Arquitectura y Tecnologías del proyecto](#ayt)
 + [Funcionamiento del proyecto](#func)
++ [Metodología de trabajo](#met)
++ [Conclusiones](#conc)
 
 
 
@@ -86,6 +90,9 @@ influencia en que se produzca la transformación a pulpo.
 
 Bien ya sabemos todo lo necesario para empezar a explicar el proyecto.
 
+
+[Volver al index](#top)
+
 <a name="init"></a>
 
 # Iniciación del proyecto
@@ -132,6 +139,8 @@ Una anotación importante, es que esta aplicación está provisto de casos test 
 ~~~
 npm test
 ~~~
+
+[Volver al index](#top)
 
 <a name="ayt"></a>
 
@@ -191,6 +200,8 @@ manipulación del ``DOM``. Esta dividida en 4 subcarpetas:
     - *styles*: Encontraremos nuestros archivos ``.scss`` y ``.css``, es decir en está carpeta encontraremos nuestros estilos.
 
 
+[Volver al index](#top)
+
 <a name="func"></a>
 
 # Funcionamiento del proyecto
@@ -238,6 +249,9 @@ Tanto en la gráfica como en la tabla tenemos los elementos ordenados con el mé
 
 **Hemos dividido en partes lo máximo posible la creación de los elementos para intentar seguir lo máximo posible el diseño de átomos, para obtener un código más mantenible y legible, además de reutilizable**
 
+
+[Volver al index](#top)
+
 <a name="met"></a>
 
 # Metodología de trabajo
@@ -255,6 +269,7 @@ Las ramas las cuáles se estaban trabajando en ellas tenian un prefijo ``WIP``, 
 
 Dejando al lado el tema de ``GIT``, las veces que pudimos trabajar "codo con codo", utilizamos la metodología de ``Pair programming``, dónde uno ejercia de conductor, siempre alternandonos, y el otro de copiloto. Esta técnica nos facilito el aprendizaje dual, además de tener un código bien estructurado, sin errores. Cabe decir, que gracias a esto ambos podíamos tocar cualquier parte del código, sabiendo lo que estabamaos efectuando.
 
+[Volver al index](#top)
 
 <a name="conc"></a>
 
