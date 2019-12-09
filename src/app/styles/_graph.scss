@@ -5,12 +5,17 @@ $bar-color:var(--purple-700);
 $bar-rounded: 3px;
 $grid-color:#aaa;
 .chart-wrap {
+    transition: all .3s ease-out;
     height: $height;
+    font-family: sans-serif;
     flex-direction: column;
     .title {
         text-align: center;
     }
+
+
     .grid {
+        transition: all .3s ease-out;
         z-index: 0;
         width: 100%;
         height: 80%;
@@ -52,6 +57,7 @@ $grid-color:#aaa;
         margin: 0 auto;
         border-radius: $bar-rounded $bar-rounded 0 0;
         position: relative;
+        transition: all .3s ease-out;
         &.bar:hover {
             opacity: 0.7;
         }
@@ -71,11 +77,12 @@ $grid-color:#aaa;
             font-size: 12px;
             font-weight: 400;
             opacity: 1;
-        }
+        }}
         [data-md-tooltip]:hover:before {
             transform: translateX(-50%) scale(1);
         }
         .bar {
+            transition: all .3s ease-out;
             z-index: -9999;
             background-color: $bar-color;
             width: $bar-size;
@@ -87,40 +94,41 @@ $grid-color:#aaa;
             &.bar:hover {
                 opacity: 0.7;
             }
+        &::after {
+            content: attr(data-name);
+            top: -3em;
+            padding: 10px;
+            display: inline-block;
+            white-space: nowrap;
+            position: absolute;
+            transform: rotate(-45deg);
+        }
+    }
+    &.horizontal {
+        transition: all .3s ease-out;
+        flex-direction: column;
+        z-index: 0;
+        border-bottom: none;
+        border-left: 2px solid $grid-color;
+        background: repeating-linear-gradient(90deg, transparent, transparent 19.5%, fadeout($grid-color, 30%) 20%);
+        .bar {
+            transition: all .3s ease-out;
+            z-index: 0;
+            height: $bar-size;
+            width: var(--bar-value);
+            align-self: flex-start;
+            margin: auto 0 auto 0;
+            margin-top: 5px;
+            border-radius: 0 $bar-rounded $bar-rounded 0;
             &::after {
-                content: attr(data-name);
-                top: -3em;
-                padding: 10px;
+                top: initial;
+                left: 100%;
+                padding: 0 10px;
                 display: inline-block;
                 white-space: nowrap;
                 position: absolute;
-                transform: rotate(-45deg);
-            }
-        }
-        &.horizontal {
-            flex-direction: column;
-            z-index: 0;
-            border-bottom: none;
-            border-left: 2px solid $grid-color;
-            background: repeating-linear-gradient(90deg, transparent, transparent 19.5%, fadeout($grid-color, 30%) 20%);
-            .bar {
-                z-index: 0;
-                height: $bar-size;
-                width: var(--bar-value);
-                align-self: flex-start;
-                margin: auto 0 auto 0;
-                margin-top: 5px;
-                border-radius: 0 $bar-rounded $bar-rounded 0;
-                &::after {
-                    top: initial;
-                    left: 100%;
-                    padding: 0 10px;
-                    display: inline-block;
-                    white-space: nowrap;
-                    position: absolute;
-                    transform: rotate(0deg);
-                    line-height: $bar-size;
-                }
+                transform: rotate(0deg);
+                line-height: $bar-size;
             }
         }
     }
