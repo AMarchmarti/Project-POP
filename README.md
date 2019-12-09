@@ -78,3 +78,60 @@ influencia en que se produzca la transformación a pulpo.
 
 Bien ya sabemos todo lo necesario para empezar a explicar el proyecto.
 
+# Iniciación del proyecto
+Antes de explicar la estructura o el funcionamiento de nuestro proyecto explicaremos como inicializarlo y que contiene nuestro gitignore.
+Para inicializar de manera local nuestro proyecto deberemos tener instalado la extensión del visual studio code:
+~~~
+Live Sass Compiler
+~~~
+Esta extensión hace de transpilador de código, eso se refiere que nos leerá el archivo sass que tengamos por general, nuestro caso se llama
+``style.scss``. Cuando lea el contenido de este archivo, transpilará el código a **.css** adquiriendo asi un nuevo archivo principal llamado
+``style.css`` asi el html podrá leer ese archivo. (Documentación sobre nuestro sass [vease aquí](#Estilos))
+
+Una vez hemos instalado nuestra extensión deberemos descargar las dependencias que tenga nuestro proyecto, esto se hace con el comando:
+~~~
+npm install
+~~~
+Asegurese que esta en la carpeta raíz del proyecto.
+
+Finalmente deberemos poner en marcha el transpilador, asegurarse que se ha creado el fichero de estilos y a continuación deberemos poner el 
+siguiente comando:
+~~~
+parcel src/index.html
+~~~
+La dependencía instalada que efectuá el lanzamiento de nuestra aplicación en local se llama parcel, este leerá el fichero html y todas sus conexiones.
+Si todo ha ido bienobtendrá un mensaje como este:
+~~~
+Server running at http://localhost:1234
+√  Built in 872ms.
+~~~
+Entonces haremos **ctrl + click** en el enlace y nos llevará a la versión del proyecto desplegado en local. (Si el programa esta en marcha clicka [aquí](http://localhost:1234))
+
+Bien ya tenemos desplegado el proyecto en local, ahora si nos fijamos en la carpeta de nuestro proyecto habrán aparecido dos carpetas más, estas 
+carpetas formán parte para el el despliegue en el servidor, por tanto no queremos que aparezcan en nuestro github, además de la carpeta de ``node_modules``,
+ya que es una carpeta inecesaria que conseguimos haciendo el comando explicado anteriormente, por tanto nuestro gitignore constará:
+~~~
+node_modules
+.cache
+dist
+src/app/styles/style.css
+src/app/styles/style.css.map
+~~~
+
+# Arquitectura y Tecnologías del proyecto
+Este proyecto se basaba en utilizar *javascript vanilla*, por tanto no hemos usado ninguna librería ni framework para construirlo. En cuestión de javascript, nos
+hemos decantado para usar la versión más actualizada, es decir hemos usado la sintaxis **EC6**, sin embargo no hemos usado la sintaxis de ``class``, que es una
+de las nuevas incorporaciones de EC6.
+
+Seguidamente para poder administrar nuestro proyecto, además de obtener un ***entorno de ejecucción de javascript*** hemos utilizado [Node](https://nodejs.org/es/). 
+Hemos utilizado la version más recomendada, que esta en pleno funcionamiento, para evitar posibles problemas con los navegadores. 
+
+Para el despliegue hemos usado dos servidores, uno administra el backend, que sería el acceso a datos, sería [AWS](https://aws.amazon.com/es/) y para el despliegue
+del frontend hemos usado [Heroku](https://www.heroku.com/)
+
+La tecnología usada en el backend, registro del diario y lectura, hemos usado [PHP v7.3.0](https://www.php.net/releases/7_3_0.php)
+
+Como hemos explicado antes hemos usado [SASS](https://sass-lang.com/), para poder modular y estructurar nuestros estilos, y por tanto tener más fácil el acceso a 
+las propiedades que queremos modificar o sea más fácil su lectura.
+
+
