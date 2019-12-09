@@ -76,5 +76,5 @@ y la parte inferior de la división (el divisor) sería la raíz cuadrada de
 Esto significa que phi vale ``φ ≈ 0.069``, un valor muy pequeño comparado con 1, lo que significa que comer pizza no parece tener mucha 
 influencia en que se produzca la transformación a pulpo.
 
-Bien ya sabemos todo lo necesario para empezar a explicar el proyecto
+Bien ya sabemos todo lo necesario para empezar a explicar el proyecto.
 
