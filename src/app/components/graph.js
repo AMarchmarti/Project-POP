@@ -52,56 +52,59 @@ Graph.divGraph.setAttribute("class", "grid horizontal");
 Graph.info = require("../../back/scripts/index");
 
 Graph.prototype.createGraph = function create() {
-  /**
-   * This function is the creation of the bar graph, we ask you to create
-   * the ordered graph from least to greatest and also indicates what the name
-   * of the event is and when you get on top of each of the events it tells us
-   * its probability, even if you have it in the table
-   * @function sortTable -> order table
-   * @function toPrecision -> number decimals that we want
-   */
-  const paletteNegatives= ['#f0f4f8', '#d9e2ec','#bcccdc',
-                  '#9fb3c8', '#829ab1','#627d98','#486581',
-                          '#334e68',
-                          '#243b53',
-                          '#102a43']
-  const palettePositives = [
-                          '#f8bbd0',
-                          '#ec407a',
-                          '#c2185b',
-                          '#e91e63',
-                          '#d81b60',
-                          '#c2185b',
-                          '#ad1457', 
-                          '#880e4f']
-  let indexNegatives = paletteNegatives.length - 1
-  let indexPositives = 0
-  let arrayTemp = []
-  this.info.sortTable().forEach(row => {
-    let newPhi = row.phi > 0 ? row.phi : row.phi * -1;
-    let div = document.createElement("div");
+    /**
+     * This function is the creation of the bar graph, we ask you to create
+     * the ordered graph from least to greatest and also indicates what the name
+     * of the event is and when you get on top of each of the events it tells us
+     * its probability, even if you have it in the table
+     * @function sortTable -> order table
+     * @function toPrecision -> number decimals that we want
+     */
+    const paletteNegatives = ['#f0f4f8', '#d9e2ec', '#bcccdc',
+        '#9fb3c8', '#829ab1', '#627d98', '#486581',
+        '#334e68',
+        '#243b53',
+        '#102a43'
+    ];
+    const palettePositives = [
+        '#f48fb1',
+        '#f06292',
+        '#ec407a',
+        '#e91e63',
+        '#d81b60',
+        '#c2185b',
+        '#ad1457',
+        '#880e4f'
+    ];
+    let indexNegatives = paletteNegatives.length - 1;
+    let indexPositives = 0;
+    let arrayTemp = [];
+    this.info.sortTable().forEach(row => {
+        let newPhi = row.phi > 0 ? row.phi : row.phi * -1;
+        let div = document.createElement("div");
 
-    if (row.phi < 0) {
-      div.setAttribute("style", `--bar-value:${newPhi * 100}%; background-color: ${paletteNegatives[indexNegatives]}`);
-      if (!arrayTemp.includes(row.phi)){
-        arrayTemp.push(row.phi)
-        indexNegatives --
-      }
-    }else {
-      div.setAttribute("style", `--bar-value:${newPhi * 100}%; background-color: ${palettePositives[indexPositives]}`);
-      if (!arrayTemp.includes(row.phi)){
-        arrayTemp.push(row.phi)
-        indexPositives++
-      }
-      console.log('indexPositives :', indexPositives);
-    }
-    div.setAttribute("data-md-tooltip", `Evento: ${row.item} Probabilidad: ${(row.phi * 100).toPrecision(4)}%`);
-    div.setAttribute("class", "bar");
-   
-    Graph.divGraph.appendChild(div);
-  });
-  graph.appendChild(Graph.divGraph);
+        if (row.phi < 0) {
+            div.setAttribute("style", `--bar-value:${newPhi * 100}%; background-color: ${paletteNegatives[indexNegatives]}`);
+            if (!arrayTemp.includes(row.phi)) {
+                arrayTemp.push(row.phi);
+                indexNegatives--;
+            }
+        } else {
+            div.setAttribute("style", `--bar-value:${newPhi * 100}%; background-color: ${palettePositives[indexPositives]}`);
+            if (!arrayTemp.includes(row.phi)) {
+                arrayTemp.push(row.phi);
+                indexPositives++;
+            }
+        }
+        div.setAttribute("data-md-tooltip", `Evento: ${row.item} Probabilidad: ${(row.phi * 100).toPrecision(4)}%`);
+        div.setAttribute("class", "bar");
+
+        Graph.divGraph.appendChild(div);
+    });
+    graph.appendChild(Graph.divGraph);
 };
 
+graph.appendChild(Graph.h2);
+Graph.createGraph();
 graph.appendChild(Graph.h2);
 Graph.createGraph();
