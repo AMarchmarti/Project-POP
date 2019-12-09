@@ -183,5 +183,16 @@ manipulación del ``DOM``. Esta dividida en 4 subcarpetas:
 # Funcionamiento del proyecto
 [PARTE DEL BACK]
 
+Para facilitar la explicación del funcionamiento, expondremos el nombre del archivo y su funcionamiento particular, así como la arquitectura, la explicación también será modular
++ ``db.js`` -> Este script efectúa una llamada al servidor, dónde tenemos el back, y obtendrémos los resultados de la ``BBDD``. Una vez hemos obtenido la respuesta, la convertimos
+en un código de tipo ``JSON`` y leemos el contenido, sumministrando en un array los resultados que obtenemos. Por tanto el resultado que obtenemos es un array de ojetos ``JSON``.
 
++ ``phi.js`` -> Como hemos explicado en la introducción depebemos calcular la correlación phi, por tanto creamos dicha función. Esta función, dado por parámetro una 
+matriz (*matriz de correlación*), este lee el contenido y efectúa el proceso para la obtención del resultado. Devuelve, entonces, un ``Number`` que va del -1 a 1
 
++ ``info.js`` -> En este script manipularemos la información del diario. Se crea un objeto llamado info que tendrá como propiedades los eventos del *diario, número de verdaderos,*
+*número de falsos, el diario que lo llamamos del fichero anterior, items() y matrixItem()*. Estas dos últimas propiedades son funciones, **items()** es la obtención de los eventos 
+sin repeticiones, por tanto de resultado obtendremos un array de 26 items, computo de eventos generales. La función **matrixItem(item)** es la obtención de la matriz de correlación
+del evento que pasemos por parámetro.
+
++ ``index.js`` -> Este es el núcleo central entre la comunicación de los componentes y la manipulación de los datos
