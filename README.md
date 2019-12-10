@@ -1,10 +1,16 @@
+# Poyecto Pulpo
+## Toni March Martí & Carlos Alhama Gil
+
 <a name="top"></a>
 
 # Index
 + [Introduccion](#Introduccion)
 + [Iniciacion del proyecto](#init).
 + [Arquitectura y Tecnologías del proyecto](#ayt)
++ [Despliegue del proyecto](#desp)
++ [Devolución del diario](#serv)
 + [Funcionamiento del proyecto](#func)
++ [Diseño de la interfaz](#diss)
 + [Metodología de trabajo](#met)
 + [Conclusiones](#conc)
 
@@ -114,7 +120,7 @@ Asegurese que esta en la carpeta raíz del proyecto.
 Finalmente deberemos poner en marcha el transpilador, asegurarse que se ha creado el fichero de estilos y a continuación deberemos poner el 
 siguiente comando:
 ~~~
-parcel src/index.html
+npm run parcel
 ~~~
 La dependencía instalada que efectuá el lanzamiento de nuestra aplicación en local se llama parcel, este leerá el fichero html y todas sus conexiones.
 Si todo ha ido bienobtendrá un mensaje como este:
@@ -146,7 +152,7 @@ npm test
 
 # Arquitectura y Tecnologías del proyecto
 
-## Tecnoligías
+## Tecnologías
 Este proyecto se basaba en utilizar *javascript vanilla*, por tanto no hemos usado ninguna librería ni framework para construirlo. En cuestión de javascript, nos
 hemos decantado para usar la versión más actualizada, es decir hemos usado la sintaxis **EC6**, sin embargo no hemos usado la sintaxis de ``class``, que es una
 de las nuevas incorporaciones de EC6.
@@ -202,10 +208,124 @@ manipulación del ``DOM``. Esta dividida en 4 subcarpetas:
 
 [Volver al index](#top)
 
+<a name="desp"></a>
+
+# Despliegue del proyecto
+
+Para el despliegue del proyecto hemos decidido utilizar dos máquinas para ello. Para el back decidimos usar una máquina EC2 de Amazon Web Services y para el front decidimos usar la plataforma heroku debida a su simplicidad y ayuda a la hora de desplegar una aplicación web.
+
+#### Amazon web services
+Amazon web services nos ofrece una máquina virtual totalmente gratuita con ciertos límites, esos límites son imposibles de superar debido a la simplicidad del proyecto. En ella configuramos una máquina EC2 con Ubuntu Server 18.04, sin tocar sus opciones debido a que por todo lo que no es predeterminado parece que hay que pagar.
+
+A continuación debemos conectarnos a ella, para ello nos conectamos a ella con el par de llaves que ha creado amazon para esta máquina y entonces al conectarnos habilitamos la conexión mediante ssh y así será solo conectarse mediante usuario del sistema ubuntu.
+
+Al estar conectados, procedemos a instalar apache2:
+
+~~~
+sudo apt install apache2
+~~~
+
+Después comprobamos que el servidor esté funcionando correctamente:
+
+~~~
+sudo systemctl status apache2
+~~~
+
+Ahora para testear que funciona el servidor apache nos encontramos con un problema, amazon bloquea las peticiones HTTP por defecto. Tranquilo, es muy simple arreglarlo. Simplemente en la consola de administración de EC2 hay que ir a Network & Security, Security Groups, seleccionas el grupo con el group name launch-wizard-1 o similar y abajo en la pestaña inbound le das a Edit y añades una rule con el protocolo HTTP. Si quieres asegurarte reinicia la instancia de la máquina virtual.
+
+Para ver si funciona apache copia el nombre dns de la máquina y ponlo en el navegador, debería aparecer la página por defecto de apache.
+
+Por fuerzas mayores el back lo haremos con php, conectado a mysql. Intentamos conectarlo a mongodb (porque simplificaría mucho trabajo en la inserción del json), pero por falta de conocimientos y documentación en internet nos fue imposible.
+
+Para instalar todo lo necesario de mysql se ejecuta el comando:
+
+~~~
+sudo apt install mysql-server
+~~~
+
+Como antes, verificamos que el servidor esté funcionando:
+
+~~~
+sudo systemctl status mysql
+~~~
+
+A continuación procedemos a configuar la instalación de msyql:
+
+~~~
+sudo mysql_secure_installation
+~~~
+
+En esta pantalla se configura el usuario root y se especifica si se quiere tener conexión remota y usuarios anónimos, optamos por denergar el acceso a ambas por seguridad.
+
+Para instalar php:
+
+~~~
+sudo apt install php libapache2-mod-php php-mysql
+~~~
+
+En ese comando instalamos de una php, librerias para funcionar en apache y el conector a mysql
+Simplemente tocamos el archivo ``/etc/apache2/mods-enabled/dir.conf`` y movimos el index.php al principio de la directiva DirectoryIndex
+
+Ahora simplemente reiniciamos el apache2 y teniamos el apache con php
+
+~~~
+sudo systemctl restart apache2
+~~~
+
+Para agilizar las tareas de administración de la base de datos decidí instalar el phpmyadmin. Para ello ejecutamos:
+
+~~~
+sudo apt install phpmyadmin php-mbstring php-gettext
+~~~
+
+Saldrá una ventana y seleccionamos apache2
+Luego le damos a yes para configuar la base de datos de phpmyadmin y introducimos la contraseña del usuario root de mysql.
+
+A continuación habilitamos una extensión de php llamada mbstring:
+
+~~~
+sudo phpenmod mbstring
+~~~
+
+Y reiniciamos el servicio de apache como antes. A continuación decidí crear un usuario para phpmyadmin y intenté acceder a phpmyadmin. Pero, no funcionó, decía que no encontraba esa ruta. Busqué por internet y lo que tenía que hacer era añadir una línea en el archivo ``/etc/apache2/apache2.conf`` la cual era:
+
+~~~
+Include /etc/phpmyadmin/apache.conf
+~~~
+
+Al reiniciar apache todo funcionó correctamente.
+
+### Heroku
+Para desplegar el front a heroku fue muy simple gracias a la ayuda de unos compañeros. Lo primero después de tener cuenta de heroku es instalar el cli en tu máquina. Luego en la consola pones ``herpoku login`` y pones tus credenciales.
+
+Luego te diriges al directorio donde tengas tu repositorio git y ejecutas el siguiente comando.
+
+~~~
+heroku git:remote -a (nombre del proyecto)
+~~~
+
+A continuación hay que crear un archivo .js específico para heroku que no pondré aqui y se modifica el package.json acorde con el .js recién creado. También hay que crear un archivo llamado Procfile en el que se especifíca el archivo .js creado.
+
+Al tener esto listo se puede subir el front con el comando:
+
+~~~
+git push heroku (rama):master
+~~~
+
+Y ya tendríamos el front desplegado.
+
+
+[Volver al index](#top)
+
+<a name="serv"></a>
+
+# Devolución del diario
+
+[Volver al index](#top)
+
 <a name="func"></a>
 
 # Funcionamiento del proyecto
-[PARTE DEL BACK]
 
 Para facilitar la explicación del funcionamiento, expondremos el nombre del archivo y su funcionamiento particular, así como la arquitectura, la explicación también será modular
 
@@ -252,6 +372,12 @@ Tanto en la gráfica como en la tabla tenemos los elementos ordenados con el mé
 
 [Volver al index](#top)
 
+<a name="diss"></a>
+
+# Diseño de la interfaz
+
+[Volver al index](#top)
+
 <a name="met"></a>
 
 # Metodología de trabajo
@@ -284,4 +410,3 @@ Dejando al lado el tema de ``GIT``, las veces que pudimos trabajar "codo con cod
 + Fallo en la obtención de los datos, no entendemos muy bien que ocurre dentro de la promesa ejercida
 + Insercción por tablas del diario en la BBDD
 + Funcionamiento del prototype (Resuelto)
-
