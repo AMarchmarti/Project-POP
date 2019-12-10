@@ -428,13 +428,14 @@ Dejando al lado el tema de ``GIT``, las veces que pudimos trabajar "codo con cod
 <a name="tmp"></a>
 
 # Tiempo invertido
-![alt text](https://github.com/AMarchmarti/Project-POP/imgDoc/diagBarras.PNG)
+![alt text](imgDoc/diagBarras.PNG)
+
 Podemos observar que el grosor esta en diciembre. Esto ha conllevado un estrés por parte de los integrantes del equipo, por una mala gestión a la hora de organizarse. 
 También hay que destacar que gran parte del proyecto, que era la modificación del DOM se veía en los últimos sprints del primer trimestre, por tanto hubo una falta de conocimiento que dificultaba el avance del proyecto. 
 El error principal, igualmente, no fue empezar el proyecto con más antelación, dejando así para lo último el ajuste para la visualización de datos, esto ha conllevado a que no se haya podido hacer una refactorización del código más laboriosa, además de no poder hacer **pruebas de uso** ámplias para comprobar todos los posibles errores que pudieran haber surgido.
 
 Ahora con más detalle veremos el reparto de horas:
-![alt text](https://github.com/AMarchmarti/Project-POP/imgDoc/diagCircular.PNG)
+![alt text](imgDoc/diagCircular.PNG)
 
 Cómo podemos observar el grosor de las horas del proyecto se las ha llevado la creación y mejora del código cliente de las cuáles agran parte del contenido de este código ha sido en pareja, haciendo así unos fines de semana largos (sobretodo el puente). El reparto de horas más específico sería:
     + **Adición de casos Test**: Esto ha conllevado, tanto su configuración como la implementación alrededor de unas ``4h`` 
@@ -451,7 +452,7 @@ SEguido de esto vino la parte de interficies, que llevo el computo total de ``35
 Queremos destacar que hay muchas horas invertidas en el ámbito general, eso queríamos hacer referéncia tanto al coste que llevo la documentación tanto del código en sí como del proyecto en general, al igual que las configuraciones generales del proyecto y su estructura. Al ver que no pudimos efectuar los componentes como queríamos, decidimos cambiar la estructura del programa, seguido que la configuración del gulp no fue satisfactoria, decidimos usar parcel, esto fueron muchas hroas invertidas en la configuración del gulp.
 
 Finalmente exponemos el total de horas invertidas
-![alt text](https://github.com/AMarchmarti/Project-POP/imgDoc/totalidad.PNG)
+![alt text](imgDoc/totalidad.PNG)
 
 <a name="conc"></a>
 
