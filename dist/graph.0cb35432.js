@@ -722,15 +722,32 @@ Graph.prototype.createGraph = function create() {
    * its probability, even if you have it in the table
    * @function sortTable -> order table
    * @function toPrecision -> number decimals that we want
+   * We create two palettes of colors, one for negatives numbers, the other one for positive numbers
+   * @name paletteNegatives
+   * @name palettePositives
    */
   var paletteNegatives = ['#f0f4f8', '#d9e2ec', '#bcccdc', '#9fb3c8', '#829ab1', '#627d98', '#486581', '#334e68', '#243b53', '#102a43'];
-  var palettePositives = ['#f48fb1', '#f06292', '#ec407a', '#e91e63', '#d81b60', '#c2185b', '#ad1457', '#880e4f'];
+  var palettePositives = ['#f48fb1', '#f06292', '#ec407a', '#e91e63', '#d81b60', '#c2185b', '#ad1457', '#880e4f']; //We created a temporal array to keep the repeat elements, this elements have to the same colour
+
   var indexNegatives = paletteNegatives.length - 1;
   var indexPositives = 0;
-  var arrayTemp = [];
+  var arrayTemp = []; //we go through the ordered table
+
   this.info.sortTable().forEach(function (row) {
+    /**
+     * create a new number phi for negatives numbers appears in the graph
+     * since the size of the bars was negative and therefore they did not 
+     * appear on the graph
+     * @name newPhi
+     */
     var newPhi = row.phi > 0 ? row.phi : row.phi * -1;
     var div = document.createElement("div");
+    /**
+     * Here is the conditional that the graph draws us what it indicates is if the temporal 
+     * array that we have assigned. It indicates that if the element is not in the array it 
+     * will be added and one will be subtracted in the index of negatives and one will be 
+     * added in the index of positives
+     */
 
     if (row.phi < 0) {
       div.setAttribute("style", "--bar-value:".concat(newPhi * 100, "%; background-color: ").concat(paletteNegatives[indexNegatives]));
@@ -746,7 +763,8 @@ Graph.prototype.createGraph = function create() {
         arrayTemp.push(row.phi);
         indexPositives++;
       }
-    }
+    } //Here we add our graph tooltip
+
 
     div.setAttribute("data-md-tooltip", "Evento: ".concat(row.item, " Probabilidad: ").concat((row.phi * 100).toPrecision(4), "%"));
     div.setAttribute("class", "bar");
@@ -785,7 +803,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58330" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58871" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

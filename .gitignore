@@ -1,6 +1,4 @@
 node_modules
-src/main.js
-src/style.css
 .cache
 src/app/styles/style.css
 src/app/styles/style.css.map
