@@ -1,3 +1,6 @@
+# Poyecto Pulpo
+## Toni March Martí & Carlos Alhama Gil
+
 <a name="top"></a>
 
 # Index
@@ -252,12 +255,80 @@ A continuación procedemos a configuar la instalación de msyql:
 sudo mysql_secure_installation
 ~~~
 
+En esta pantalla se configura el usuario root y se especifica si se quiere tener conexión remota y usuarios anónimos, optamos por denergar el acceso a ambas por seguridad.
+
+Para instalar php:
+
+~~~
+sudo apt install php libapache2-mod-php php-mysql
+~~~
+
+En ese comando instalamos de una php, librerias para funcionar en apache y el conector a mysql
+Simplemente tocamos el archivo ``/etc/apache2/mods-enabled/dir.conf`` y movimos el index.php al principio de la directiva DirectoryIndex
+
+Ahora simplemente reiniciamos el apache2 y teniamos el apache con php
+
+~~~
+sudo systemctl restart apache2
+~~~
+
+Para agilizar las tareas de administración de la base de datos decidí instalar el phpmyadmin. Para ello ejecutamos:
+
+~~~
+sudo apt install phpmyadmin php-mbstring php-gettext
+~~~
+
+Saldrá una ventana y seleccionamos apache2
+Luego le damos a yes para configuar la base de datos de phpmyadmin y introducimos la contraseña del usuario root de mysql.
+
+A continuación habilitamos una extensión de php llamada mbstring:
+
+~~~
+sudo phpenmod mbstring
+~~~
+
+Y reiniciamos el servicio de apache como antes. A continuación decidí crear un usuario para phpmyadmin y intenté acceder a phpmyadmin. Pero, no funcionó, decía que no encontraba esa ruta. Busqué por internet y lo que tenía que hacer era añadir una línea en el archivo ``/etc/apache2/apache2.conf`` la cual era:
+
+~~~
+Include /etc/phpmyadmin/apache.conf
+~~~
+
+Al reiniciar apache todo funcionó correctamente.
+
+### Heroku
+Para desplegar el front a heroku fue muy simple gracias a la ayuda de unos compañeros. Lo primero después de tener cuenta de heroku es instalar el cli en tu máquina. Luego en la consola pones ``herpoku login`` y pones tus credenciales.
+
+Luego te diriges al directorio donde tengas tu repositorio git y ejecutas el siguiente comando.
+
+~~~
+heroku git:remote -a (nombre del proyecto)
+~~~
+
+A continuación hay que crear un archivo .js específico para heroku que no pondré aqui y se modifica el package.json acorde con el .js recién creado. También hay que crear un archivo llamado Procfile en el que se especifíca el archivo .js creado.
+
+Al tener esto listo se puede subir el front con el comando:
+
+~~~
+git push heroku (rama):master
+~~~
+
+Y ya tendríamos el front desplegado.
+
 
 [Volver al index](#top)
 
 <a name="serv"></a>
 
 # Devolución del diario
+
+Para devolver el diario de la base de datos a el front hemos tenido que utilizar php. Es un back muy simple donde simplemente se inserta el json en la base de datos y se recoge de ella.
+
+Al principio se intentó usar mongodb, pero, como dije antes, por falta de conocimientos y falta de documentación en internet no fue posible recoger el diario.
+
+También se intentó insertar el diario con tablas de manera relacional. Pero tampoco fue posible sin pegarse un tiro, también por falta de conocimientos.
+
+Al final simplemente se lee el archivo json y se inserta en la base de datos como una única fila en la tabla.
+Luego se creó un archivo para recoger el diario y devolverlo con una petición GET. Un simple echo $diario. La conexión a base de datos fue realizada con PDO.
 
 [Volver al index](#top)
 
@@ -314,6 +385,24 @@ Tanto en la gráfica como en la tabla tenemos los elementos ordenados con el mé
 
 # Diseño de la interfaz
 
+Para el diseño de la web lo mejor es optar por la guía de diseño Material Design, nunca defrauda. Me habría gustado seguir la nueva guía de diseño que utiliza ahora las aplicaciones de google pero habría sido mucho más trabajo, la primera guía se lleva usando durante años y ya estamos acostumbrados.
+
+Como en una buena aplicación material, se optan por 1 color primario y 1 color acento, esos colores conllevan unos complementarios para ofrecer sombras y dinamismo. En esta aplicación optamos por el color primario purple 700 y el color acento pink A200. Se ha utilizado este color primario ya que creemos que el lila representa de algún modo a un pulpo, ya que siempre se representa con esos colores. Luego para el color acento probamos diferentes combinaciones, miramos alguna aplicación material que usa el lila como primario pero al final nos decantamos por el pink ya que quedaba bien y resaltaba lo suficiente.
+
+El contenido iba a ir sobre un fondo blanco, pero tras varias pruebas vimos que era mejor darle algo de profundidad, asi que decidimos poner el background blue-gray 100.
+
+Para las fuentes no nos complicamos la vida, usamos la recién estrenada Google Sans utilizada en los teléfonos Pixel de Google y en la mayoría de aplicaciones de Google.
+
+¿Cómo conseguimos que la web fuera adaptativa? Simplemente con la fuente en 1em y los contenedores con @media query's en diferentes puntos donde se veia que era necesario. Por ejemplo cuando el max-width era de 500px el width del contenedor pasa a 95.5% utilizando todo el viewport, así queda bien en móvil.
+
+Se ha usado Flexbox en casi todos los elementos de la web, facilitando la colocación de los elementos sin querer tirarse por la ventana. También se ha usado grid en los calendarios y en la gráfica de correlaciones.
+
+Como podrás fijarte, casi no hay html, eso es porque se inserta mediante js indicando las clases pertinentes de css.
+
+El proyecto usa scss, permitiendo una estructuración por componentes, simplificando su lectura. Cada uno toca el estilo de un componente y se juntan en un style.scss donde se importan. Se ha intentado usar siempre la encapsulación y se han usado variables y se ha creado una paleta de colores.
+
+La gráfica se le aplican los colores mediante js, ya que así fue posible realizarlo sin quebraderos de cabeza y rápido.
+
 [Volver al index](#top)
 
 <a name="met"></a>
@@ -348,4 +437,3 @@ Dejando al lado el tema de ``GIT``, las veces que pudimos trabajar "codo con cod
 + Fallo en la obtención de los datos, no entendemos muy bien que ocurre dentro de la promesa ejercida
 + Insercción por tablas del diario en la BBDD
 + Funcionamiento del prototype (Resuelto)
-
