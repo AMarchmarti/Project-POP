@@ -10,9 +10,13 @@ function getData() {
             response.json()
                 .then(function(json) {
                     JSON.parse(json[0].diario).forEach(element => {
-                        diary.push(element);
-                    });
-                });
+                            diary.push(element);
+                        })
+                    }).catch(err => {
+                        console.log('error en la insercción de datos en el array :', err);
+                }).catch(err => {
+                    console.log('error en la obtención de datos :', err);
+                })
         });
 
     return diary;
