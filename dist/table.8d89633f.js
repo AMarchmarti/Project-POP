@@ -741,7 +741,7 @@ Table.prototype.tableBody = function tableBody() {
 
     var tdPhi = document.createElement('td');
     var spanPhi = document.createElement('span');
-    spanPhi.textContent = row.phi;
+    spanPhi.textContent = row.phi.toPrecision(6);
     spanPhi.style.display = 'none';
     spanPhi.setAttribute('id', row.item);
     tdPhi.appendChild(spanPhi);

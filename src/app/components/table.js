@@ -78,7 +78,7 @@ Table.prototype.tableBody = function tableBody() {
          */
         let tdPhi = document.createElement('td');
         let spanPhi = document.createElement('span');
-        spanPhi.textContent = row.phi;
+        spanPhi.textContent = row.phi.toPrecision(6);
         spanPhi.style.display = 'none';
         spanPhi.setAttribute('id', row.item);
 
