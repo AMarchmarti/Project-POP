@@ -1,5 +1,5 @@
 node_modules
 .cache
-/dist
+dist
 src/app/styles/style.css
 src/app/styles/style.css.map
