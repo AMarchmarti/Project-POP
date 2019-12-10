@@ -454,6 +454,8 @@ Queremos destacar que hay muchas horas invertidas en el ámbito general, eso que
 Finalmente exponemos el total de horas invertidas
 ![alt text](imgDoc/totalidad.PNG)
 
+[Volver al index](#top)
+
 <a name="conc"></a>
 
 # Conclusiones
