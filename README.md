@@ -421,7 +421,7 @@ Los commits de las *ramas a producción se hacían en inglés* y explicando lo q
 
 Las ramas las cuáles se estaban trabajando en ellas tenian un prefijo ``WIP``, work in progress, para no despisatr al director, por tanto cuando se quitaba ese prefijo, quería decir que la rama estaba lista para mergear, por tanto se efectuaba la inspección y posteriormente a la integración.
 
-Dejando al lado el tema de ``GIT``, las veces que pudimos trabajar "codo con codo", utilizamos la metodología de ``Pair programming``, dónde uno ejercia de conductor, siempre alternandonos, y el otro de copiloto. Esta técnica nos facilito el aprendizaje dual, además de tener un código bien estructurado, sin errores. Cabe decir, que gracias a esto ambos podíamos tocar cualquier parte del código, sabiendo lo que estabamaos efectuando.
+Dejando al lado el tema de ``GIT``, las veces que pudimos trabajar "codo con codo", utilizamos la metodología de ``Pair programming``, dónde uno ejercia de conductor, siempre alternandonos, y el otro de copiloto. Esta técnica nos facilito el aprendizaje dual, además de tener un código bien estructurado, sin errores. Cabe decir, que gracias a esto ambos podíamos tocar cualquier parte del código, sabiendo lo que estabamaos efectuando
 
 [Volver al index](#top)
 
