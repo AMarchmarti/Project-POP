@@ -4,7 +4,10 @@
 + [Introduccion](#Introduccion)
 + [Iniciacion del proyecto](#init).
 + [Arquitectura y Tecnologías del proyecto](#ayt)
++ [Despliegue del proyecto](#desp)
++ [Devolución del diario](#serv)
 + [Funcionamiento del proyecto](#func)
++ [Diseño de la interfaz](#diss)
 + [Metodología de trabajo](#met)
 + [Conclusiones](#conc)
 
@@ -114,7 +117,7 @@ Asegurese que esta en la carpeta raíz del proyecto.
 Finalmente deberemos poner en marcha el transpilador, asegurarse que se ha creado el fichero de estilos y a continuación deberemos poner el 
 siguiente comando:
 ~~~
-parcel src/index.html
+npm run parcel
 ~~~
 La dependencía instalada que efectuá el lanzamiento de nuestra aplicación en local se llama parcel, este leerá el fichero html y todas sus conexiones.
 Si todo ha ido bienobtendrá un mensaje como este:
@@ -146,7 +149,7 @@ npm test
 
 # Arquitectura y Tecnologías del proyecto
 
-## Tecnoligías
+## Tecnologías
 Este proyecto se basaba en utilizar *javascript vanilla*, por tanto no hemos usado ninguna librería ni framework para construirlo. En cuestión de javascript, nos
 hemos decantado para usar la versión más actualizada, es decir hemos usado la sintaxis **EC6**, sin embargo no hemos usado la sintaxis de ``class``, que es una
 de las nuevas incorporaciones de EC6.
@@ -202,10 +205,65 @@ manipulación del ``DOM``. Esta dividida en 4 subcarpetas:
 
 [Volver al index](#top)
 
+<a name="desp"></a>
+
+# Despliegue del proyecto
+
+Para el despliegue del proyecto hemos decidido utilizar dos máquinas para ello. Para el back decidimos usar una máquina EC2 de Amazon Web Services y para el front decidimos usar la plataforma heroku debida a su simplicidad y ayuda a la hora de desplegar una aplicación web.
+
+#### Amazon web services
+Amazon web services nos ofrece una máquina virtual totalmente gratuita con ciertos límites, esos límites son imposibles de superar debido a la simplicidad del proyecto. En ella configuramos una máquina EC2 con Ubuntu Server 18.04, sin tocar sus opciones debido a que por todo lo que no es predeterminado parece que hay que pagar.
+
+A continuación debemos conectarnos a ella, para ello nos conectamos a ella con el par de llaves que ha creado amazon para esta máquina y entonces al conectarnos habilitamos la conexión mediante ssh y así será solo conectarse mediante usuario del sistema ubuntu.
+
+Al estar conectados, procedemos a instalar apache2:
+
+~~~
+sudo apt install apache2
+~~~
+
+Después comprobamos que el servidor esté funcionando correctamente:
+
+~~~
+sudo systemctl status apache2
+~~~
+
+Ahora para testear que funciona el servidor apache nos encontramos con un problema, amazon bloquea las peticiones HTTP por defecto. Tranquilo, es muy simple arreglarlo. Simplemente en la consola de administración de EC2 hay que ir a Network & Security, Security Groups, seleccionas el grupo con el group name launch-wizard-1 o similar y abajo en la pestaña inbound le das a Edit y añades una rule con el protocolo HTTP. Si quieres asegurarte reinicia la instancia de la máquina virtual.
+
+Para ver si funciona apache copia el nombre dns de la máquina y ponlo en el navegador, debería aparecer la página por defecto de apache.
+
+Por fuerzas mayores el back lo haremos con php, conectado a mysql. Intentamos conectarlo a mongodb (porque simplificaría mucho trabajo en la inserción del json), pero por falta de conocimientos y documentación en internet nos fue imposible.
+
+Para instalar todo lo necesario de mysql se ejecuta el comando:
+
+~~~
+sudo apt install mysql-server
+~~~
+
+Como antes, verificamos que el servidor esté funcionando:
+
+~~~
+sudo systemctl status mysql
+~~~
+
+A continuación procedemos a configuar la instalación de msyql:
+
+~~~
+sudo mysql_secure_installation
+~~~
+
+
+[Volver al index](#top)
+
+<a name="serv"></a>
+
+# Devolución del diario
+
+[Volver al index](#top)
+
 <a name="func"></a>
 
 # Funcionamiento del proyecto
-[PARTE DEL BACK]
 
 Para facilitar la explicación del funcionamiento, expondremos el nombre del archivo y su funcionamiento particular, así como la arquitectura, la explicación también será modular
 
@@ -249,6 +307,12 @@ Tanto en la gráfica como en la tabla tenemos los elementos ordenados con el mé
 
 **Hemos dividido en partes lo máximo posible la creación de los elementos para intentar seguir lo máximo posible el diseño de átomos, para obtener un código más mantenible y legible, además de reutilizable**
 
+
+[Volver al index](#top)
+
+<a name="diss"></a>
+
+# Diseño de la interfaz
 
 [Volver al index](#top)
 

@@ -508,7 +508,7 @@ main:hover {
   transition: all .3s ease-out;
   z-index: 0;
   width: 100%;
-  height: 80%;
+  height: 75%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -758,6 +758,10 @@ main:hover {
 #tableStructure:hover {
   -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
           box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+#tableStructure #table {
+  width: 100%;
 }
 
 #tableStructure h2 {
