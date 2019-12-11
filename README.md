@@ -209,7 +209,7 @@ manipulación del ``DOM``. Esta dividida en 4 subcarpetas:
 
 ### Diagrama de componentes
 
-![alt text](imgDoc/diagComponentes.png)
+![Diagrama de componentes](https://github.com/AMarchmarti/Project-POP/blob/master/imgDoc/diagComponentes.png)
 
 [Volver al index](#top)
 
