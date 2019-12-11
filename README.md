@@ -207,6 +207,10 @@ manipulación del ``DOM``. Esta dividida en 4 subcarpetas:
     - *styles*: Encontraremos nuestros archivos ``.scss`` y ``.css``, es decir en está carpeta encontraremos nuestros estilos.
 
 
+### Diagrama de componentes
+
+![alt text](imgDoc/diagComponentes.PNG)
+
 [Volver al index](#top)
 
 <a name="desp"></a>
